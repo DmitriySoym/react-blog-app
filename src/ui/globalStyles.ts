@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import { lightTheme, darkTheme } from "./";
+import { lightTheme, darkTheme, nullStyle } from "./";
 
 export const GlobalStyle = createGlobalStyle`
+${nullStyle}
+
 html[theme="light"]{
 ${lightTheme}
 }
