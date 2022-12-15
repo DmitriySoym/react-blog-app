@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Color } from "ui";
+import { Color, Typography } from "ui";
 
 const StyledApp = styled.div`
   background-color: ${Color.BACKGROUND};
-  color: ${Color.TEXT};
+  ${Typography.H1}/* color: ${Color.TEXT}; */
 `;
 export { StyledApp };
