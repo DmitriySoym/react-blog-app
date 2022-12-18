@@ -41,7 +41,7 @@ const Subline = css`
   color: ${Color.TEXT};
 `;
 
-const Body = css`
+const BODY = css`
   font-weight: 400;
   font-size: 18px;
   line-height: 32px;
@@ -53,11 +53,11 @@ const Body = css`
   }
 `;
 
-const Body2 = css`
+const BODY2 = css`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: ${Color.TEXT};
 `;
 
-export const Typography = { H1, H2, H3, Subline, Body, Body2 };
+export const Typography = { H1, H2, H3, Subline, BODY, BODY2 };

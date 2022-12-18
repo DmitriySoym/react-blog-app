@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyledApp } from "styles";
+import { Header } from "components";
 
 export const App = () => {
   type Theme = "dark" | "light";
@@ -14,6 +15,7 @@ export const App = () => {
 
   return (
     <StyledApp className="App">
+      <Header />
       Hello Blog! <br />
       <button onClick={handleTheme}>change theme</button>
     </StyledApp>
