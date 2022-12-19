@@ -1,10 +1,11 @@
 import { StyledApp } from "styles";
-import { Header } from "components";
+import { Header, Footer } from "components";
 
 export const App = () => {
   return (
-    <StyledApp className="App">
+    <StyledApp>
       <Header />
+      <Footer />
     </StyledApp>
   );
 };

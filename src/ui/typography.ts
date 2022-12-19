@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Color, Media, FontSize } from "./";
+import { Color, Media } from "./";
 
 const H1 = css`
   font-family: "Inter";
@@ -56,7 +56,7 @@ const BODY2 = css`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: ${Color.TEXT};
+  color: ${Color.MEDIUM};
 `;
 
 export const Typography = { H1, H2, H3, Subline, BODY, BODY2 };

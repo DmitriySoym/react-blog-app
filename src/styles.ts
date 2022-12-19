@@ -3,6 +3,6 @@ import { Color, Typography } from "ui";
 
 const StyledApp = styled.div`
   background-color: ${Color.BACKGROUND};
-  ${Typography.H1}/* color: ${Color.TEXT}; */
+  ${Typography.H1};
 `;
 export { StyledApp };

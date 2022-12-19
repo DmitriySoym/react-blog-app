@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Color } from "ui";
 
 const StyledHeader = styled.header`
   display: grid;
@@ -7,6 +8,7 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 0 30px;
   height: 96px;
+  background-color: ${Color.HEADER_BACKGROUND};
 `;
 
 const StyledLogo = styled.a`

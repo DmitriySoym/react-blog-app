@@ -4,16 +4,18 @@ import { Color, Typography } from "ui";
 const Input = styled.input`
   width: 32px;
   height: 20px;
+  margin-left: 20px;
 `;
 
-const Text = styled.label`
-  display: flex;
-  align-items: center;
+const Text = styled.p`
+  ${Typography.BODY2}
+  font-weight: 400;
+  color: ${Color.TEXT_FOOTER};
 `;
 
 const Wrapper = styled.div`
-  ${Typography.BODY2}
-  font-weight: 400;
+  display: flex;
+  align-items: center;
 `;
 
 export { Input, Text, Wrapper };
