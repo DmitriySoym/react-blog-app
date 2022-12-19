@@ -1,5 +1,5 @@
-import React from "react";
+import { StyledAccount } from "./styles";
 
 export const Account = () => {
-  return <div>Account</div>;
+  return <StyledAccount>Account</StyledAccount>;
 };

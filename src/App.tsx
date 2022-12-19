@@ -16,8 +16,6 @@ export const App = () => {
   return (
     <StyledApp className="App">
       <Header />
-      Hello Blog! <br />
-      <button onClick={handleTheme}>change theme</button>
     </StyledApp>
   );
 };
