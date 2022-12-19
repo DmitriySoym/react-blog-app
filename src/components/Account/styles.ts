@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Typography } from "ui";
 
 const StyledAccount = styled.div`
   font-weight: 600;

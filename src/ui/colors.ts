@@ -1,5 +1,7 @@
-export const enum Color {
+export enum Color {
   BACKGROUND = "var(--background-color)",
   TEXT = "var(--text-color)",
-  TEXT_GREY = "rgba(255, 255, 255, 0.5)",
+  BUTTON_THEME_BACKGROUND = "var(--button-background)",
+  PRIMARY = "#6C1BDB",
+  MEDIUM = "rgba(49, 48, 55, 0.5)",
 }

@@ -5,4 +5,4 @@ import { Media } from "./media";
 import { Typography } from "./typography";
 import { FontSize } from "./fontSize";
 
-export { Color, lightTheme, darkTheme, nullStyle, Media, Typography, FontSize };
+export { Color, FontSize, lightTheme, darkTheme, nullStyle, Media, Typography };

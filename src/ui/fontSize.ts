@@ -1,4 +1,4 @@
-export const enum FontSize {
+export enum FontSize {
   SMALLER = "16px",
   SMALL = "18px",
   MEDIUM = "24px",
