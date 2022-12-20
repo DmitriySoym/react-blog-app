@@ -1,4 +1,5 @@
-import { Homepage } from "./HomePage";
+import { ArticlesPage } from "./ArticlesPage";
 import { NotFoundPage } from "./NotFoundPage";
+import { News } from "components/News/News";
 
-export { Homepage, NotFoundPage };
+export { ArticlesPage, NotFoundPage, News };
