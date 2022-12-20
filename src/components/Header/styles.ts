@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   background-color: ${Color.HEADER_BACKGROUND};
 `;
 
-const StyledLogo = styled.a`
+const StyledLogo = styled.div`
   justify-self: flex-start;
   width: 167px;
   height: 56px;

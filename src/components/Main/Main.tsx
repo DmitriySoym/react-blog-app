@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { StyledMain } from "./styles";
+import { ROUT } from "router/routes";
 
 export const Main = () => {
   return (
     <StyledMain>
-      <Link to="/articles">Articles</Link>
-      <Link to="/news">News</Link>
+      <Link to={ROUT.ARTICLES}>Articles</Link>
+      <Link to={ROUT.NEWS}>News</Link>
     </StyledMain>
   );
 };
