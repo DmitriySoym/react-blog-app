@@ -10,4 +10,5 @@ export enum Color {
   TEXT = "var(--text-color)",
   HEADER_BACKGROUND = "var(--header-color)",
   TEXT_FOOTER = "var(--footer-text)",
+  SLIDER_BG = "var(--sloder-bg)",
 }

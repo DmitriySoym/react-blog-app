@@ -9,11 +9,11 @@ type InputValue = "1" | "2";
 export const ThemeChangeBlock = () => {
   const themeValue = useInput();
 
-  const [value, setValue] = useState<InputValue>("1");
+  const [currentValue, setCurrentValue] = useState<InputValue>("1");
   const [theme, setTheme] = useState<Theme>("light");
   const handleTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
-    setValue((value) => (value === "1" ? "2" : "1"));
+    setCurrentValue((currentValue) => (currentValue === "1" ? "2" : "1"));
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const ThemeChangeBlock = () => {
       <SwitchInput
         onClick={handleTheme}
         onTouchStart={handleTheme}
-        value={value}
+        value={currentValue}
         onChange={themeValue.onChange}
       />
     </Wrapper>

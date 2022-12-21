@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 92px;
   margin: 0 auto;
+  border-top: 1px solid ${Color.TEXT_FOOTER};
 `;
 
 const Text = styled.p`
