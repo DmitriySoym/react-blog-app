@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
-import { Input, Text, Wrapper } from "./styles";
+import { Text, Wrapper } from "./styles";
+import { SwitchInput } from "components/SwitchInput/SwitchInput";
+import { useInput } from "hooks";
 
 type Theme = "dark" | "light";
+type InputValue = "1" | "2";
 
-export const ThemeButton = () => {
+export const ThemeChangeBlock = () => {
+  const themeValue = useInput();
+
+  const [value, setValue] = useState<InputValue>("1");
   const [theme, setTheme] = useState<Theme>("light");
   const handleTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
+    setValue((value) => (value === "1" ? "2" : "1"));
   };
 
   useEffect(() => {
@@ -16,14 +23,11 @@ export const ThemeButton = () => {
   return (
     <Wrapper>
       <Text>Dark theme</Text>
-      <Input
-        id="switch"
-        type="range"
-        min="1"
-        max="2"
+      <SwitchInput
         onClick={handleTheme}
         onTouchStart={handleTheme}
-        defaultValue="1"
+        value={value}
+        onChange={themeValue.onChange}
       />
     </Wrapper>
   );
