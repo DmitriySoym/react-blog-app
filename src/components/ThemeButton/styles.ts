@@ -5,6 +5,7 @@ const Input = styled.input`
   width: 32px;
   height: 20px;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 const Text = styled.p`

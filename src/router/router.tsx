@@ -1,4 +1,4 @@
-import { MainTemplate, Header } from "components";
+import { MainTemplate } from "templates";
 import { ArticlesPage, NotFoundPage, News, HomePage } from "pages";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUT } from "./routes";

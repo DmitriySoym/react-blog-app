@@ -16,7 +16,15 @@ export const ThemeButton = () => {
   return (
     <Wrapper>
       <Text>Dark theme</Text>
-      <Input id="switch" type="range" min="1" max="2" onClick={handleTheme} defaultValue="1" />
+      <Input
+        id="switch"
+        type="range"
+        min="1"
+        max="2"
+        onClick={handleTheme}
+        onTouchStart={handleTheme}
+        defaultValue="1"
+      />
     </Wrapper>
   );
 };

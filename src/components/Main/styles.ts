@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Typography } from "ui";
 
 const StyledMain = styled.main`
   flex: 1 1 auto;
@@ -8,4 +9,8 @@ const StyledMain = styled.main`
   margin: 0 auto;
 `;
 
-export { StyledMain };
+const Title = styled.h1`
+  ${Typography.H1}
+`;
+
+export { StyledMain, Title };
