@@ -6,5 +6,16 @@ import { Main } from "./Main/Main";
 import { Articles } from "./Articles/Articles";
 import { News } from "./News/News";
 import { SwitchInput } from "./SwitchInput/SwitchInput";
+import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 
-export { Header, Account, ThemeChangeBlock, Footer, Main, Articles, News, SwitchInput };
+export {
+  Header,
+  Account,
+  ThemeChangeBlock,
+  Footer,
+  Main,
+  Articles,
+  News,
+  SwitchInput,
+  CustomNavLink,
+};

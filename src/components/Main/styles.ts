@@ -13,4 +13,8 @@ const Title = styled.h1`
   ${Typography.H1}
 `;
 
-export { StyledMain, Title };
+const NavWrapper = styled.div`
+  display: flex;
+`;
+
+export { StyledMain, Title, NavWrapper };

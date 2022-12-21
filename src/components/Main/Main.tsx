@@ -1,13 +1,16 @@
-import { Link, Outlet } from "react-router-dom";
-import { StyledMain, Title } from "./styles";
+import { Outlet } from "react-router-dom";
+import { StyledMain, Title, NavWrapper } from "./styles";
 import { ROUT } from "router/routes";
+import { CustomNavLink } from "components";
 
 export const Main = () => {
   return (
     <StyledMain>
       <Title>Blog</Title>
-      <Link to={ROUT.ARTICLES}>Articles</Link>
-      <Link to={ROUT.NEWS}>News</Link>
+      <NavWrapper>
+        <CustomNavLink to={ROUT.ARTICLES}>Articles</CustomNavLink>
+        <CustomNavLink to={ROUT.NEWS}>News</CustomNavLink>
+      </NavWrapper>
       <Outlet />
     </StyledMain>
   );

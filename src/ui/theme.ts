@@ -8,6 +8,7 @@ export const lightTheme = css`
     --header-color: ${Color.WHITE};
     --footer-text: ${Color.MEDIUM};
     --sloder-bg: ${Color.EXTRA_LIGHT};
+    --switch-hover: ${Color.MEDIUM};
   }
 `;
 
@@ -18,5 +19,6 @@ export const darkTheme = css`
     --header-color: rgba(255, 255, 255, 0.1);
     --footer-text: rgba(255, 255, 255, 0.5);
     --sloder-bg: ${Color.PRIMARY};
+    --switch-hover: ${Color.PRIMARY_TWO};
   }
 `;
