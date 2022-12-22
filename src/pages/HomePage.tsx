@@ -1,4 +1,4 @@
-import { Main } from "components";
+import { Articles } from "components";
 export const HomePage = () => {
-  return <div></div>;
+  return <Articles />;
 };

@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { StyledInput } from "./styles";
 
 export interface IProps {
-  value: string | undefined;
+  value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
   onTouchStart: () => void;
