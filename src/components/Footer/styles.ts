@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 `;
 
 const Text = styled.p`
-  ${Typography.BODY2}
+  ${Typography.BODY_TWO}
   font-weight: 400;
   color: ${Color.TEXT_FOOTER};
 `;

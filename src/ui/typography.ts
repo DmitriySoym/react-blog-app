@@ -52,11 +52,11 @@ const BODY = css`
   }
 `;
 
-const BODY2 = css`
+const BODY_TWO = css`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: ${Color.MEDIUM};
 `;
 
-export const Typography = { H1, H2, H3, Subline, BODY, BODY2 };
+export const Typography = { H1, H2, H3, Subline, BODY, BODY_TWO };

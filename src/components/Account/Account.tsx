@@ -1,5 +1,20 @@
-import { StyledAccount } from "./styles";
+import { StyledAccount, Button } from "./styles";
+import { LogoOutIcon } from "assets";
+import { useToggle } from "hooks";
 
 export const Account = () => {
-  return <StyledAccount>Account</StyledAccount>;
+  const [isLoged, toggleIsLoged] = useToggle();
+  return (
+    <StyledAccount>
+      {!isLoged ? (
+        <>
+          <LogoOutIcon /> <Button>Sign In</Button>
+        </>
+      ) : (
+        <>
+          <div>Sign In Form</div>
+        </>
+      )}
+    </StyledAccount>
+  );
 };
