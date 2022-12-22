@@ -7,6 +7,7 @@ import { Articles } from "./Articles/Articles";
 import { News } from "./News/News";
 import { SwitchInput } from "./SwitchInput/SwitchInput";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
+import { Search } from "./Search/Search";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   News,
   SwitchInput,
   CustomNavLink,
+  Search,
 };
