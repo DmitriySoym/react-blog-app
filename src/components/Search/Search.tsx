@@ -1,8 +1,6 @@
 import { useToggle } from "hooks";
 import { ChangeEvent, HTMLInputTypeAttribute, useEffect } from "react";
-import { SearchIcon } from "assets";
-import { Input } from "./styles";
-import { CancelIcon } from "assets";
+import { Input, StyledCancelIcon, StyledSerch } from "./styles";
 
 interface ISearch {
   type: HTMLInputTypeAttribute;
@@ -25,13 +23,13 @@ export const Search = (props: ISearch) => {
       {!isSearchActive ? (
         <>
           <Input {...props} />{" "}
-          <CancelIcon
+          <StyledCancelIcon
             onClick={handleSearch}
             style={{ position: "fixed", right: "24%", cursor: "pointer" }}
           />
         </>
       ) : (
-        <SearchIcon onClick={handleSearch} style={{ cursor: "pointer" }} />
+        <StyledSerch onClick={handleSearch} />
       )}
     </>
   );
