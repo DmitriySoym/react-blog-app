@@ -1,4 +1,4 @@
-export enum ROUT {
+export enum ROUTE {
   HOME = "/",
   NEWS = "news",
   ARTICLES = "articles",

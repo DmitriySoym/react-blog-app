@@ -2,18 +2,20 @@ import { useEffect, useState } from "react";
 import { Text, Wrapper } from "./styles";
 import { SwitchInput } from "components";
 import { useInput } from "hooks";
+import { setTheme, useAppDispatch, useAppSelector } from "store";
 
-type Theme = "dark" | "light";
 type InputValue = "1" | "2";
 
 export const ThemeChangeBlock = () => {
-  const themeValue = useInput();
-  const [currentValue, setCurrentValue] = useState<InputValue>("1");
-  const [theme, setTheme] = useState<Theme>("light");
+  const { theme } = useAppSelector((state) => state.theme);
+  const dispatch = useAppDispatch();
   const handleTheme = () => {
-    setTheme((theme) => (theme === "light" ? "dark" : "light"));
+    dispatch(setTheme(theme));
     setCurrentValue((currentValue) => (currentValue === "1" ? "2" : "1"));
   };
+
+  const themeValue = useInput();
+  const [currentValue, setCurrentValue] = useState<InputValue>("1");
 
   useEffect(() => {
     document.documentElement.setAttribute("theme", theme);

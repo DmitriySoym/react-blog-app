@@ -1,11 +1,11 @@
 import { StyledAccount, Button } from "./styles";
 import { LogoOutIcon } from "assets";
-import { toggleAuth, InitialState } from "store";
+import { toggleAuth, RootState, useAppSelector, useAppDispatch } from "store";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Account = () => {
-  const dispatch = useDispatch();
-  const { isAuth } = useSelector((state: InitialState) => state.account);
+  const dispatch = useAppDispatch();
+  const { isAuth } = useAppSelector((state) => state.account);
   const handleClick = () => {
     dispatch(toggleAuth());
   };

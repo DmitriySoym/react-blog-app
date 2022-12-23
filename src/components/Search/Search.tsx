@@ -20,7 +20,7 @@ export const Search = (props: ISearch) => {
 
   return (
     <>
-      {!isSearchActive ? (
+      {isSearchActive ? (
         <>
           <Input {...props} />
           <StyledCancelIcon onClick={handleSearch} />
