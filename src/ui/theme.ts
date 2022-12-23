@@ -7,7 +7,7 @@ export const lightTheme = css`
     --text-color: ${Color.SECONDARY};
     --header-color: ${Color.WHITE};
     --footer-text: ${Color.MEDIUM};
-    --sloder-bg: ${Color.EXTRA_LIGHT};
+    --slider-bg: ${Color.EXTRA_LIGHT};
     --switch-hover: ${Color.MEDIUM};
   }
 `;
@@ -18,7 +18,7 @@ export const darkTheme = css`
     --text-color: ${Color.WHITE};
     --header-color: rgba(255, 255, 255, 0.1);
     --footer-text: rgba(255, 255, 255, 0.5);
-    --sloder-bg: ${Color.PRIMARY};
+    --slider-bg: ${Color.PRIMARY};
     --switch-hover: ${Color.PRIMARY_TWO};
   }
 `;

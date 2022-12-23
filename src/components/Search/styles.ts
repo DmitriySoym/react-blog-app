@@ -10,6 +10,7 @@ const Input = styled.input`
   ${Typography.BODY_TWO};
   font-weight: 400;
   color: ${Color.TEXT};
+  border-radius: 5px;
   &[type="search"]::-webkit-search-decoration,
   &[type="search"]::-webkit-search-cancel-button,
   &[type="search"]::-webkit-search-results-button,
@@ -19,15 +20,28 @@ const Input = styled.input`
   &::placeholder {
     color: ${Color.TEXT_FOOTER};
   }
+
+  &:hover,
+  &:focus {
+    border: 1px solid ${Color.PRIMARY};
+    border-radius: 10px;
+    color: ${Color.SECONDARY};
+    background-color: ${Color.WHITE};
+  }
+
+  &:invalid {
+    border: 1px solid ${Color.ERROR};
+    border-radius: 5px;
+  }
 `;
 
 const StyledCancelIcon = styled(CancelIcon)`
+  position: fixed;
+  right: 15%;
   & path {
-    stroke: ${Color.TEXT_FOOTER};
+    stroke: ${Color.TEXT};
   }
-  cursor: "pointer";
-  position: "fixed";
-  right: "24%";
+  cursor: pointer;
 `;
 
 const StyledSerch = styled(SearchIcon)`

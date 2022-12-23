@@ -22,11 +22,8 @@ export const Search = (props: ISearch) => {
     <>
       {!isSearchActive ? (
         <>
-          <Input {...props} />{" "}
-          <StyledCancelIcon
-            onClick={handleSearch}
-            style={{ position: "fixed", right: "24%", cursor: "pointer" }}
-          />
+          <Input {...props} />
+          <StyledCancelIcon onClick={handleSearch} />
         </>
       ) : (
         <StyledSerch onClick={handleSearch} />
