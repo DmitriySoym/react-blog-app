@@ -1,18 +1,23 @@
 import { StyledAccount, Button } from "./styles";
 import { LogoOutIcon } from "assets";
-import { useToggle } from "hooks";
+import { toggleAuth, InitialState } from "store";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Account = () => {
-  const [isLoged, toggleIsLoged] = useToggle();
+  const dispatch = useDispatch();
+  const { isAuth } = useSelector((state: InitialState) => state.account);
+  const handleClick = () => {
+    dispatch(toggleAuth());
+  };
   return (
     <StyledAccount>
-      {!isLoged ? (
+      {!isAuth ? (
         <>
-          <LogoOutIcon /> <Button>Sign In</Button>
+          <LogoOutIcon /> <Button onClick={handleClick}>Sign In</Button>
         </>
       ) : (
         <>
-          <div>Sign In Form</div>
+          <div>Authorized user</div>
         </>
       )}
     </StyledAccount>
