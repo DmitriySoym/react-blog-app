@@ -3,8 +3,6 @@ import { ChangeEvent, HTMLInputTypeAttribute, useEffect } from "react";
 import { Input, StyledCancelIcon, StyledSerch } from "./styles";
 
 interface ISearch {
-  type: HTMLInputTypeAttribute;
-  placeholder: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -22,7 +20,7 @@ export const Search = (props: ISearch) => {
     <>
       {isSearchActive ? (
         <>
-          <Input {...props} />
+          <Input type="search" placeholder="Search..." {...props} />
           <StyledCancelIcon onClick={handleSearch} />
         </>
       ) : (

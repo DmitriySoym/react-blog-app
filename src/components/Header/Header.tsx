@@ -1,5 +1,5 @@
 import { LogoIcon } from "assets";
-import { StyledHeader, StyledLogo } from "./styles";
+import { StyledHeader, StyledLogo, LogoLink } from "./styles";
 import { Account, Search } from "components";
 import { Link } from "react-router-dom";
 import { ROUTE } from "router/routes";
@@ -10,11 +10,11 @@ export const Header = () => {
   return (
     <StyledHeader>
       <StyledLogo>
-        <Link to={ROUTE.HOME}>
+        <LogoLink to={ROUTE.HOME}>
           <LogoIcon />
-        </Link>
+        </LogoLink>
       </StyledLogo>
-      <Search type={"search"} placeholder={"Search..."} {...search} />
+      <Search {...search} />
       <Account />
     </StyledHeader>
   );

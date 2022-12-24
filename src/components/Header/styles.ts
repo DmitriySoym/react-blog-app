@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color } from "ui";
 
@@ -13,9 +14,9 @@ const StyledHeader = styled.header`
 
 const StyledLogo = styled.div`
   justify-self: flex-start;
-  width: 167px;
-  height: 56px;
-  cursor: pointer;
+`;
+const LogoLink = styled(Link)`
+  display: grid;
 `;
 
-export { StyledHeader, StyledLogo };
+export { StyledHeader, StyledLogo, LogoLink };

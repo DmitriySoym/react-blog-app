@@ -6,6 +6,9 @@ body{
   font-family: 'Inter';
   font-style: normal;
 }
+#root{
+  height: 100%;
+}
 ${nullStyle}
 ${lightTheme}
 ${darkTheme}
