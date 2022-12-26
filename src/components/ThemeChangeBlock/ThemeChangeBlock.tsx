@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { Text, Wrapper } from "./styles";
 import { SwitchInput } from "components";
 import { useInput } from "hooks";
-import { setTheme, useAppDispatch, useAppSelector } from "store";
+import { getTheme, setTheme, useAppDispatch, useAppSelector } from "store";
 
 type InputValue = "1" | "2";
 
 export const ThemeChangeBlock = () => {
-  const { theme } = useAppSelector((state) => state.theme);
+  const { theme } = useAppSelector(getTheme);
   const dispatch = useAppDispatch();
   const handleTheme = () => {
     dispatch(setTheme(theme));
