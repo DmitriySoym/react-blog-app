@@ -17,6 +17,7 @@ const StyledLogo = styled.div`
 `;
 const LogoLink = styled(Link)`
   display: grid;
+  justify-self: flex-start;
 `;
 
 export { StyledHeader, StyledLogo, LogoLink };

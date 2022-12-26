@@ -1,7 +1,6 @@
 import { StyledAccount, Button } from "./styles";
 import { LogoOutIcon } from "assets";
-import { toggleAuth, RootState, useAppSelector, useAppDispatch } from "store";
-import { useDispatch, useSelector } from "react-redux";
+import { toggleAuth, useAppSelector, useAppDispatch } from "store";
 
 export const Account = () => {
   const dispatch = useAppDispatch();
@@ -11,13 +10,13 @@ export const Account = () => {
   };
   return (
     <StyledAccount>
-      {!isAuth ? (
+      {isAuth ? (
         <>
-          <LogoOutIcon /> <Button onClick={handleClick}>Sign In</Button>
+          <div>Authorized user</div>
         </>
       ) : (
         <>
-          <div>Authorized user</div>
+          <LogoOutIcon /> <Button onClick={handleClick}>Sign In</Button>
         </>
       )}
     </StyledAccount>
