@@ -6,8 +6,9 @@ import { useAppSelector } from "./hooks/hooks";
 import { useAppDispatch } from "./hooks/hooks";
 import { AppDispatch } from "./store";
 import { getTheme } from "./selectors/themeSelectors";
-import { geAccountInfo } from "./selectors/accauntSelectors";
+import { getAccountInfo } from "./selectors/accauntSelectors";
 import { fetchArticles } from "./slices/articles/articlesSlice";
+import { getAllArticles } from "./selectors/articlesSelectors";
 
 export {
   store,
@@ -16,8 +17,9 @@ export {
   useAppDispatch,
   setTheme,
   getTheme,
-  geAccountInfo,
+  getAccountInfo,
   fetchArticles,
+  getAllArticles,
 };
 export type { RootState };
 export type { AppDispatch };

@@ -8,6 +8,7 @@ export enum Color {
   WHITE = "#ffffff",
   GRAY = "#f3f3f3",
   ERROR = "#FD3419",
+  GRAY_DARK = "rgba(255, 255, 255, 0.5)",
 
   BACKGROUND = "var(--background-color)",
   TEXT = "var(--text-color)",

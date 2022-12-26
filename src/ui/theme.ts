@@ -17,7 +17,7 @@ export const darkTheme = css`
     --background-color: ${Color.SECONDARY};
     --text-color: ${Color.WHITE};
     --header-color: rgba(255, 255, 255, 0.1);
-    --footer-text: rgba(255, 255, 255, 0.5);
+    --footer-text: ${Color.GRAY_DARK};
     --slider-bg: ${Color.PRIMARY};
     --switch-hover: ${Color.PRIMARY_TWO};
   }

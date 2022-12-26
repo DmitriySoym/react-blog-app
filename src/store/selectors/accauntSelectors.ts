@@ -1,3 +1,3 @@
 import { RootState } from "store/store";
 
-export const geAccountInfo = (state: RootState) => state.account;
+export const getAccountInfo = (state: RootState) => state.account;
