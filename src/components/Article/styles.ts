@@ -23,6 +23,7 @@ const StyledArticle = styled.li`
   border-radius: 16px;
   overflow: hidden;
   background-color: ${Color.HEADER_BACKGROUND};
+  cursor: pointer;
   &:hover {
     box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
   }

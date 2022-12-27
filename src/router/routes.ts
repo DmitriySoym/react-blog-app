@@ -1,5 +1,5 @@
 export enum ROUTE {
-  HOME = "/",
+  HOME = "/React-blog-app",
   NEWS = "news",
   ARTICLES = "articles",
   NOT_FOUND = "*",

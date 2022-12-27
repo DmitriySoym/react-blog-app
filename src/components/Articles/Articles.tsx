@@ -5,7 +5,7 @@ import { IArticle } from "types";
 import { StyledArticles } from "./styles";
 
 export const Articles = () => {
-  const { articles, isLoading } = useAppSelector(getAllArticles);
+  const { articles, isLoading, error } = useAppSelector(getAllArticles);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -14,6 +14,7 @@ export const Articles = () => {
   return (
     <StyledArticles>
       {isLoading && <span>Loading...</span>}
+      {error && <span>{error}</span>}
       {articles &&
         articles.length > 0 &&
         articles.map((article: IArticle) => {
