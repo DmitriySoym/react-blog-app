@@ -3,6 +3,6 @@ import { darkTheme, lightTheme } from "./theme";
 import { nullStyle } from "./nullStyle";
 import { Media } from "./media";
 import { Typography } from "./typography";
-import { FontSize } from "./fontSize";
+import { Indents } from "./indents";
 
-export { Color, FontSize, lightTheme, darkTheme, nullStyle, Media, Typography };
+export { Color, lightTheme, darkTheme, nullStyle, Media, Typography, Indents };
