@@ -7,8 +7,8 @@ interface IProps {
 
 export const NewsItem = ({ news }: IProps) => {
   return (
-    <StyledNewsItem>
-      <Image src={news.imageUrl} alt={news.newSite} />
+    <StyledNewsItem bg={news.imageUrl}>
+      <Image bg={news.imageUrl} />
       <TextWrapper>
         <StyledDate>{new Date(news.publishedAt).toLocaleDateString()}</StyledDate>
         <Summary>

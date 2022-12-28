@@ -1,6 +1,7 @@
 import { NewsItem } from "components/NewsItem/NewsItem";
 import { useEffect } from "react";
 import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
+import { StyledNews } from "./styles";
 
 import { INews } from "types/types";
 
@@ -19,12 +20,12 @@ export const News = () => {
   }
 
   return (
-    <ul>
+    <StyledNews>
       {news &&
         news.length > 0 &&
         news.map((news: INews) => {
           return <NewsItem news={news} key={news.id} />;
         })}
-    </ul>
+    </StyledNews>
   );
 };
