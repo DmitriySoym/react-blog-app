@@ -1,5 +1,5 @@
 import { News } from "components";
 
-export const HeaderPage = () => {
+export const NewsPage = () => {
   return <News />;
 };

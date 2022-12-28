@@ -9,6 +9,8 @@ import { getTheme } from "./selectors/themeSelectors";
 import { getAccountInfo } from "./selectors/accauntSelectors";
 import { fetchArticles } from "./slices/articles/articlesSlice";
 import { getAllArticles } from "./selectors/articlesSelectors";
+import { getAllNews } from "./selectors/newsSelector";
+import { fetchNews } from "./slices/news/newsSlice";
 
 export {
   store,
@@ -20,6 +22,8 @@ export {
   getAccountInfo,
   fetchArticles,
   getAllArticles,
+  getAllNews,
+  fetchNews,
 };
 export type { RootState };
 export type { AppDispatch };
