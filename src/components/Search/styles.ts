@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Color, Typography } from "ui";
 
 const Input = styled.input`
+  display: grid;
   width: 100%;
   height: 96px;
   padding-left: 32px;
@@ -36,8 +37,9 @@ const Input = styled.input`
 `;
 
 const StyledCancelIcon = styled(CancelIcon)`
-  position: fixed;
-  right: 15%;
+  position: absolute;
+  right: 0%;
+  top: 40%;
   & path {
     stroke: ${Color.TEXT};
   }
@@ -50,4 +52,10 @@ const StyledSerch = styled(SearchIcon)`
   }
   cursor: pointer;
 `;
-export { Input, StyledCancelIcon, StyledSerch };
+
+const SearchWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 96px;
+`;
+export { Input, StyledCancelIcon, StyledSerch, SearchWrapper };

@@ -4,7 +4,7 @@ import { Color } from "ui";
 
 const StyledHeader = styled.header`
   display: grid;
-  grid-template-columns: 13.5% 73% 13.5%;
+  grid-template-columns: 200px auto 200px;
   justify-items: end;
   align-items: center;
   padding: 0 30px;

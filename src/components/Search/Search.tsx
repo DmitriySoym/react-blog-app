@@ -1,6 +1,6 @@
 import { useToggle } from "hooks";
 import { ChangeEvent, useEffect } from "react";
-import { Input, StyledCancelIcon, StyledSerch } from "./styles";
+import { Input, StyledCancelIcon, StyledSerch, SearchWrapper } from "./styles";
 
 interface ISearch {
   value: string;
@@ -21,10 +21,10 @@ export const Search = (props: ISearch) => {
       {isSearchActive ? (
         <StyledSerch onClick={handleSearch} />
       ) : (
-        <>
+        <SearchWrapper>
           <Input type="search" placeholder="Search..." {...props} />
           <StyledCancelIcon onClick={handleSearch} />
-        </>
+        </SearchWrapper>
       )}
     </>
   );
