@@ -18,6 +18,7 @@ const Summary = styled.p`
 `;
 
 const StyledArticle = styled.li`
+  justify-self: center;
   width: 352px;
   height: 388px;
   border-radius: 16px;
