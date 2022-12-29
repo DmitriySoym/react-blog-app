@@ -1,3 +1,4 @@
 import { router } from "./router";
+import { ROUTE } from "./routes";
 
-export { router };
+export { router, ROUTE };
