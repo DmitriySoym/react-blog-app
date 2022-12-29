@@ -1,3 +1,5 @@
+import { generatePath, Link } from "react-router-dom";
+import { ROUTE } from "router";
 import { IArticle } from "types";
 import { Image, StyledDate, Summary, StyledArticle, TextWrapper } from "./styles";
 
@@ -8,15 +10,17 @@ interface IProps {
 export const Article = ({ article }: IProps) => {
   return (
     <StyledArticle bg={article.imageUrl}>
-      <Image bg={article.imageUrl} />
-      <TextWrapper>
-        <StyledDate>{new Date(article.publishedAt).toLocaleDateString()}</StyledDate>
-        <Summary>
-          {article.title.length > 70
-            ? article.title.split(" ").slice(0, 10).join(" ") + "..."
-            : article.title}
-        </Summary>
-      </TextWrapper>
+      <Link to={generatePath(ROUTE.DETAILS, { id: article.id })}>
+        <Image bg={article.imageUrl} />
+        <TextWrapper>
+          <StyledDate>{new Date(article.publishedAt).toLocaleDateString()}</StyledDate>
+          <Summary>
+            {article.title.length > 70
+              ? article.title.split(" ").slice(0, 10).join(" ") + "..."
+              : article.title}
+          </Summary>
+        </TextWrapper>
+      </Link>
     </StyledArticle>
   );
 };

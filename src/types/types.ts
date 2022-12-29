@@ -1,5 +1,5 @@
 interface IArticle {
-  id: number;
+  id: string;
   url: string;
   publishedAt: string;
   summary: string;
@@ -9,7 +9,7 @@ interface IArticle {
 }
 
 interface INews {
-  id: number;
+  id: string;
   url: string;
   publishedAt: string;
   summary: string;
