@@ -1,4 +1,8 @@
-import { Articles } from "components";
+import { Articles, Main } from "components";
 export const HomePage = () => {
-  return <Articles />;
+  return (
+    <Main>
+      <Articles />
+    </Main>
+  );
 };

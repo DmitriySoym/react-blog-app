@@ -1,5 +1,9 @@
-import React from "react";
+import { Main } from "components";
 
 export const NotFoundPage = () => {
-  return <div>NotFoundPage</div>;
+  return (
+    <Main>
+      <div>NotFoundPage</div>
+    </Main>
+  );
 };

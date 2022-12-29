@@ -1,5 +1,9 @@
-import { News } from "components";
+import { News, Main } from "components";
 
 export const NewsPage = () => {
-  return <News />;
+  return (
+    <Main>
+      <News />
+    </Main>
+  );
 };

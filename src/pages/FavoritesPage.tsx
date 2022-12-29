@@ -1,3 +1,4 @@
+import { Main } from "components";
 export const FavoritesPage = () => {
-  return <div>FavoritesPage</div>;
+  return <Main>FavoritesPage</Main>;
 };

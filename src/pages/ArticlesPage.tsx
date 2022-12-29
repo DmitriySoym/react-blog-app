@@ -1,5 +1,9 @@
-import { Articles } from "components";
+import { Articles, Main } from "components";
 
 export const ArticlesPage = () => {
-  return <Articles />;
+  return (
+    <Main>
+      <Articles />
+    </Main>
+  );
 };

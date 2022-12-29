@@ -2,8 +2,13 @@ import { Outlet } from "react-router-dom";
 import { StyledMain, Title, NavWrapper } from "./styles";
 import { ROUTE } from "router/routes";
 import { CustomNavLink } from "components";
+import { ReactNode } from "react";
 
-export const Main = () => {
+interface IProps {
+  children: ReactNode;
+}
+
+export const Main = ({ children }: IProps) => {
   return (
     <StyledMain>
       <Title>Blog</Title>
@@ -12,7 +17,8 @@ export const Main = () => {
         <CustomNavLink to={ROUTE.NEWS}>News</CustomNavLink>
         <CustomNavLink to={ROUTE.FAVORIRES}>Favorites</CustomNavLink>
       </NavWrapper>
-      <Outlet />
+
+      {children}
     </StyledMain>
   );
 };
