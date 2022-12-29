@@ -9,6 +9,7 @@ import { SwitchInput } from "./SwitchInput/SwitchInput";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Search } from "./Search/Search";
 import { NewsItem } from "./NewsItem/NewsItem";
+import { RequareAuth } from "./RequareAuth/RequareAuth";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   CustomNavLink,
   Search,
   NewsItem,
+  RequareAuth,
 };

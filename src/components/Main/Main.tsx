@@ -10,6 +10,7 @@ export const Main = () => {
       <NavWrapper>
         <CustomNavLink to={ROUTE.ARTICLES}>Articles</CustomNavLink>
         <CustomNavLink to={ROUTE.NEWS}>News</CustomNavLink>
+        <CustomNavLink to={ROUTE.FAVORIRES}>Favorites</CustomNavLink>
       </NavWrapper>
       <Outlet />
     </StyledMain>
