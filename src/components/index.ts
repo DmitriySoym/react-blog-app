@@ -10,6 +10,7 @@ import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Search } from "./Search/Search";
 import { NewsItem } from "./NewsItem/NewsItem";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
+import { SignIn } from "./SignIn/SignIn";
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   Search,
   NewsItem,
   RequareAuth,
+  SignIn,
 };

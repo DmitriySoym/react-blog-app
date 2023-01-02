@@ -4,5 +4,6 @@ export enum ROUTE {
   ARTICLES = "/React-blog-app/articles",
   FAVORIRES = "/React-blog-app/favorites",
   DETAILS = "/React-blog-app/post/:id",
+  AUTH = "/React-blog-app/authorization",
   NOT_FOUND = "*",
 }

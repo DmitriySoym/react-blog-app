@@ -34,7 +34,7 @@ const H3 = css`
 `;
 
 const Subline = css`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: ${Color.TEXT};

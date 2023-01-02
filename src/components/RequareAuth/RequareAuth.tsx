@@ -4,5 +4,5 @@ import { getAccountInfo, useAppSelector } from "store";
 
 export const RequareAuth = () => {
   const { isAuth } = useAppSelector(getAccountInfo);
-  return isAuth ? <Outlet /> : <Navigate to={ROUTE.HOME} />;
+  return isAuth ? <Outlet /> : <Navigate to={ROUTE.AUTH} />;
 };

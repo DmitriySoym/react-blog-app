@@ -4,4 +4,5 @@ export enum Indents {
   MD = "var(--third-level)",
   SM = "var(--fourth-level)",
   XS = "var(--fifth-level)",
+  XXS = "var(--sixth-level)",
 }

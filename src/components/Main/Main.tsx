@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { StyledMain, Title, NavWrapper } from "./styles";
 import { ROUTE } from "router/routes";
 import { CustomNavLink } from "components";

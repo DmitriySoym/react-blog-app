@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { Color, Indents, Media, Typography } from "ui";
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -10,6 +10,14 @@ const StyledFooter = styled.footer`
   height: 92px;
   margin: 0 auto;
   border-top: 1px solid ${Color.TEXT_FOOTER};
+
+  ${Media.LG} {
+    padding: 0 ${Indents.SM};
+  }
+
+  ${Media.MD} {
+    padding: 0 ${Indents.XXS};
+  }
 `;
 
 const Text = styled.p`

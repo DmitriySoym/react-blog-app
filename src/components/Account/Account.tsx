@@ -1,6 +1,8 @@
 import { StyledAccount, Button } from "./styles";
 import { LogoOutIcon } from "assets";
 import { toggleAuth, useAppSelector, useAppDispatch, getAccountInfo } from "store";
+import { Link } from "react-router-dom";
+import { ROUTE } from "router";
 
 export const Account = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +18,10 @@ export const Account = () => {
         </>
       ) : (
         <>
-          <LogoOutIcon /> <Button onClick={handleClick}>Sign In</Button>
+          <LogoOutIcon />{" "}
+          <Link to={ROUTE.AUTH}>
+            <Button>Sign In</Button>
+          </Link>
         </>
       )}
     </StyledAccount>

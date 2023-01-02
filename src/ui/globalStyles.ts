@@ -8,6 +8,7 @@ HTML{
   --third-level: 48px;
   --fourth-level: 40px;
   --fifth-level : 32px;
+  --sixth-level: 24px;
 
   ${Media.LG}{
     --second-level: 56px;
