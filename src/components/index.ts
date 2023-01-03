@@ -13,6 +13,7 @@ import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
+import { SignInForm } from "./SignInForm/SignInForm";
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   SignIn,
   SignUp,
   SignUpForm,
+  SignInForm,
 };

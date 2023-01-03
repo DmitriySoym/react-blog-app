@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { StyledSignIn, HomeButton, Title } from "./styles";
-import { ROUTE } from "router";
+import { SignInForm } from "components/SignInForm/SignInForm";
 
 export const SignIn = () => {
   const navigate = useNavigate();
@@ -12,9 +12,7 @@ export const SignIn = () => {
     <StyledSignIn>
       <HomeButton onClick={handleBack}>Back to home</HomeButton>
       <Title>Sign In</Title>
-      <Link to={ROUTE.REG}>
-        <span>Sign Up</span>
-      </Link>
+      <SignInForm />
     </StyledSignIn>
   );
 };
