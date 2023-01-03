@@ -15,7 +15,7 @@ const StyledArticle = styled.li<{ bg: string }>`
   }
 
   &:hover div:first-of-type {
-    background-image: url(${(props) => props.bg});
+    background-image: url(${({ bg }) => bg});
   }
 `;
 
@@ -29,7 +29,7 @@ const Image = styled.div<{ bg: string }>`
       rgba(77, 10, 199, 0.6) -10.18%,
       rgba(145, 46, 242, 0.6) 108.59%
     ),
-    url(${(props) => props.bg});
+    url(${({ bg }) => bg});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

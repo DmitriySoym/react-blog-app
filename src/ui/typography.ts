@@ -53,10 +53,10 @@ const BODY = css`
 `;
 
 const BODY_TWO = css`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
-  line-height: 24px;
-  color: ${Color.MEDIUM};
+  line-height: 20px;
+  color: ${Color.TEXT};
 `;
 
 export const Typography = { H1, H2, H3, Subline, BODY, BODY_TWO };

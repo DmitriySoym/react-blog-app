@@ -20,7 +20,8 @@ const StyledSignIn = styled.div`
 `;
 
 const HomeButton = styled.button`
-  display: contents;
+  display: block;
+  width: fit-content;
   ${Typography.Subline};
   border: none;
   background: inherit;
@@ -31,6 +32,7 @@ const HomeButton = styled.button`
 `;
 
 const Title = styled.h1`
+  padding-bottom: ${Indents.XL};
   ${Typography.H1}
 `;
 

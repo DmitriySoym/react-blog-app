@@ -12,6 +12,7 @@ import { NewsItem } from "./NewsItem/NewsItem";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
+import { SignUpForm } from "./SignUpForm/SignUpForm";
 
 export {
   Header,
@@ -28,4 +29,5 @@ export {
   RequareAuth,
   SignIn,
   SignUp,
+  SignUpForm,
 };

@@ -8,6 +8,7 @@ const StyledSignUp = styled.div`
   max-width: 1120px;
   width: 100%;
   padding-top: ${Indents.LG};
+  padding-bottom: ${Indents.LG};
   margin: 0 auto;
 
   ${Media.LG} {
@@ -20,7 +21,8 @@ const StyledSignUp = styled.div`
 `;
 
 const HomeButton = styled.button`
-  display: contents;
+  display: block;
+  width: fit-content;
   ${Typography.Subline};
   border: none;
   background: inherit;
@@ -31,7 +33,8 @@ const HomeButton = styled.button`
 `;
 
 const Title = styled.h1`
-  ${Typography.H1}
+  padding-bottom: ${Indents.XL};
+  ${Typography.H1};
 `;
 
 export { StyledSignUp, HomeButton, Title };
