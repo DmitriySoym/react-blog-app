@@ -11,6 +11,8 @@ import { fetchArticles } from "./slices/articles/articlesSlice";
 import { getAllArticles } from "./selectors/articlesSelectors";
 import { getAllNews } from "./selectors/newsSelector";
 import { fetchNews } from "./slices/news/newsSlice";
+import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
+import { getDetailArticle } from "./selectors/detailArticleSelector";
 
 export {
   store,
@@ -24,6 +26,8 @@ export {
   getAllArticles,
   getAllNews,
   fetchNews,
+  fetchDetailArticle,
+  getDetailArticle,
 };
 export type { RootState };
 export type { AppDispatch };

@@ -3,6 +3,7 @@ import accountReduser from "./slices/account/accountSlice";
 import themeReduser from "./slices/theme/themeSlice";
 import articlesReduser from "./slices/articles/articlesSlice";
 import newsReduser from "./slices/news/newsSlice";
+import detailArticleReducer from "./slices/detailArticle/detailArticleSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     theme: themeReduser,
     articles: articlesReduser,
     news: newsReduser,
+    detailArticle: detailArticleReducer,
   },
 });
 

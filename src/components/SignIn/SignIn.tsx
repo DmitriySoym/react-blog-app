@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { StyledSignIn, HomeButton, Title } from "./styles";
 import { SignInForm } from "components/SignInForm/SignInForm";
+import { ROUTE } from "router";
 
 export const SignIn = () => {
   const navigate = useNavigate();
   const handleBack = () => {
-    navigate("/React-blog-app");
+    navigate(ROUTE.HOME);
   };
 
   return (
