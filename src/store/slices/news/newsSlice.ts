@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { INews } from "types/types";
+import { spaceBlogApi } from "services";
 
 interface INewsState {
   news: INews[];
@@ -11,9 +12,7 @@ export const fetchNews = createAsyncThunk<INews[], undefined, { rejectValue: str
   "news/fetchNews",
   async (_, { rejectWithValue }) => {
     try {
-      return await fetch("https://api.spaceflightnewsapi.net/v3/blogs?_limit=12").then((response) =>
-        response.json(),
-      );
+      return await spaceBlogApi.getAllNews(12);
     } catch (error) {
       return rejectWithValue("error");
     }

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IArticle } from "types";
+import { spaceBlogApi } from "services";
+import { AxiosError } from "axios";
 
 interface IDetailArticleState {
   detailArticle: IArticle;
@@ -7,15 +9,14 @@ interface IDetailArticleState {
   error: null | string;
 }
 
-export const fetchDetailArticle = createAsyncThunk<any, { id: string }, { rejectValue: string }>(
+export const fetchDetailArticle = createAsyncThunk<IArticle, string, { rejectValue: string }>(
   "detailArticle/fetchDetailArticle",
   async (params, { rejectWithValue }) => {
     try {
-      return await fetch(`https://api.spaceflightnewsapi.net/v3/articles/${params.id}`).then(
-        (response) => response.json(),
-      );
+      return await spaceBlogApi.getArticleById(params);
     } catch (error) {
-      return rejectWithValue("Error");
+      const errorResponse = error as AxiosError;
+      return rejectWithValue(errorResponse.message);
     }
   },
 );
