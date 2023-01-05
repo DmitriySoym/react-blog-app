@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { Color, Media, Typography } from "ui";
 
 const StyledAccount = styled.div`
   display: flex;
@@ -10,6 +10,10 @@ const StyledAccount = styled.div`
   padding: 0 32px;
   ${Typography.Subline}
   line-height: 34px;
+
+  ${Media.MD} {
+    display: none;
+  }
 `;
 
 const Button = styled.button`

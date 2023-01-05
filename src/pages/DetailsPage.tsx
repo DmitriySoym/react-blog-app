@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, fetchDetailArticle, useAppSelector, getDetailArticle } from "store";
-import { DetailArticle } from "components";
-import { StyledDetailPage, Button, Navigation, Post } from "./styles";
+import { DetailArticle, Article } from "components";
+import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
 
 export const DetailsPage = () => {
   const navigate = useNavigate();
@@ -25,6 +25,11 @@ export const DetailsPage = () => {
         <Post> / Post {detailArticle.id}</Post>
       </Navigation>
       <DetailArticle article={detailArticle} />
+      <Row>
+        <Article article={detailArticle} />
+        <Article article={detailArticle} />
+        <Article article={detailArticle} />
+      </Row>
     </StyledDetailPage>
   );
 };

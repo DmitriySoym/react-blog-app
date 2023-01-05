@@ -15,6 +15,7 @@ import { SignUp } from "./SignUp/SignUp";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { DetailArticle } from "./DetailArticle/DetailArticle";
+import { Article } from "./Article/Article";
 
 export {
   Header,
@@ -34,4 +35,5 @@ export {
   SignUpForm,
   SignInForm,
   DetailArticle,
+  Article,
 };

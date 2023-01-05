@@ -10,7 +10,8 @@ const Image = styled.img`
   width: 100%;
   height: 550px;
   padding-top: ${Indents.MD};
-  object-fit: contain;
+  object-fit: cover;
+  object-position: 50%;
 `;
 
 const Text = styled.p`

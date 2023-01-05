@@ -1,4 +1,4 @@
-import { Article } from "components/Article/Article";
+import { Article } from "components";
 import { useEffect } from "react";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IArticle } from "types";
