@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, fetchDetailArticle, useAppSelector, getDetailArticle } from "store";
+import { DetailArticle } from "components";
+import { StyledDetailPage, Button, Navigation, Post } from "./styles";
 
 export const DetailsPage = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
   const { id } = useParams();
 
   const [details] = useState(`${id}`);
@@ -11,7 +17,14 @@ export const DetailsPage = () => {
   useEffect(() => {
     dispatch(fetchDetailArticle(details));
   }, [details]);
-  console.log(detailArticle.newSite);
 
-  return <div>{detailArticle.title} </div>;
+  return (
+    <StyledDetailPage>
+      <Navigation>
+        <Button onClick={handleBack}>Home</Button>
+        <Post> / Post {detailArticle.id}</Post>
+      </Navigation>
+      <DetailArticle article={detailArticle} />
+    </StyledDetailPage>
+  );
 };

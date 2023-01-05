@@ -14,6 +14,7 @@ import { SignIn } from "./SignIn/SignIn";
 import { SignUp } from "./SignUp/SignUp";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
+import { DetailArticle } from "./DetailArticle/DetailArticle";
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   SignUp,
   SignUpForm,
   SignInForm,
+  DetailArticle,
 };

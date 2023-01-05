@@ -6,7 +6,7 @@ import {
   HomePage,
   FavoritesPage,
   SignInPage,
-  SignUp,
+  SignUpPage,
 } from "pages";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
@@ -22,7 +22,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
       <Route path={ROUTE.DETAILS} element={<DetailsPage />} />
       <Route path={ROUTE.AUTH} element={<SignInPage />} />
-      <Route path={ROUTE.REG} element={<SignUp />} />
+      <Route path={ROUTE.REG} element={<SignUpPage />} />
 
       <Route element={<RequareAuth />}>
         <Route path={ROUTE.FAVORIRES} element={<FavoritesPage />} />

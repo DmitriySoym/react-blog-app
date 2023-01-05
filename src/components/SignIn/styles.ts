@@ -8,6 +8,7 @@ const StyledSignIn = styled.div`
   max-width: 1120px;
   width: 100%;
   padding-top: ${Indents.LG};
+  padding-bottom: ${Indents.LG};
   margin: 0 auto;
 
   ${Media.LG} {
