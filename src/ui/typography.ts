@@ -53,9 +53,9 @@ const BODY = css`
 `;
 
 const BODY_TWO = css`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   color: ${Color.TEXT};
 `;
 

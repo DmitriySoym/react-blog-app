@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   background-color: ${Color.HEADER_BACKGROUND};
 
   ${Media.LG} {
-    padding: 0 ${Indents.SM};
+    padding: 0 ${Indents.XS};
   }
 
   ${Media.MD} {

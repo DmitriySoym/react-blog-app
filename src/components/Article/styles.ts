@@ -38,6 +38,7 @@ const Image = styled.div<{ bg: string }>`
 const StyledDate = styled.span`
   ${Typography.BODY_TWO};
   color: ${Color.TEXT_FOOTER};
+  padding-bottom: 5px;
 `;
 
 const Summary = styled.p`

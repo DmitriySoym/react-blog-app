@@ -12,17 +12,22 @@ const StyledFooter = styled.footer`
   border-top: 1px solid ${Color.TEXT_FOOTER};
 
   ${Media.LG} {
-    padding: 0 ${Indents.SM};
+    padding: 0 ${Indents.XS};
   }
 
   ${Media.MD} {
     padding: 0 ${Indents.XXS};
   }
+
+  ${Media.SM} {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 const Text = styled.p`
   ${Typography.BODY_TWO}
-  font-weight: 400;
+
   color: ${Color.TEXT_FOOTER};
 `;
 
