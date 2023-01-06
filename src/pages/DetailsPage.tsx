@@ -6,30 +6,31 @@ import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
 
 export const DetailsPage = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [details] = useState(`${id}`);
+  const { article, isLoading } = useAppSelector(getDetailArticle);
+  const dispatch = useAppDispatch();
+
   const handleBack = () => {
     navigate(-1);
   };
-  const { id } = useParams();
 
-  const [details] = useState(`${id}`);
-  const { detailArticle, isLoading } = useAppSelector(getDetailArticle);
-  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchDetailArticle(details));
-  }, [details]);
+  }, [details, dispatch]);
 
   return (
     <StyledDetailPage>
       <Navigation>
         <Button onClick={handleBack}>Home</Button>
-        <Post> / Post {detailArticle.id}</Post>
+        <Post> / Post {article.id}</Post>
       </Navigation>
-      <DetailArticle article={detailArticle} />
-      <Row>
-        <Article article={detailArticle} />
-        <Article article={detailArticle} />
-        <Article article={detailArticle} />
-      </Row>
+      <DetailArticle article={article} />
+      {/* <Row>
+        <Article article={article} />
+        <Article article={article} />
+        <Article article={article} />
+      </Row> */}
     </StyledDetailPage>
   );
 };

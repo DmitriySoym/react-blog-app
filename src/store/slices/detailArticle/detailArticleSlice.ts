@@ -4,7 +4,7 @@ import { spaceBlogApi } from "services";
 import { AxiosError } from "axios";
 
 interface IDetailArticleState {
-  detailArticle: IArticle;
+  article: IArticle;
   isLoading: boolean;
   error: null | string;
 }
@@ -22,7 +22,7 @@ export const fetchDetailArticle = createAsyncThunk<IArticle, string, { rejectVal
 );
 
 const initialState: IDetailArticleState = {
-  detailArticle: {} as IArticle,
+  article: {} as IArticle,
   isLoading: false,
   error: null,
 };
@@ -39,7 +39,7 @@ const detailArticleSlice = createSlice({
     });
     builder.addCase(fetchDetailArticle.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.detailArticle = action.payload;
+      state.article = action.payload;
     });
     builder.addCase(fetchDetailArticle.rejected, (state, action) => {
       if (action.payload) {
