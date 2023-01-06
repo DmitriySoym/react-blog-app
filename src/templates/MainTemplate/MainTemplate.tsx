@@ -1,6 +1,6 @@
-import { Footer, Header, Main } from "../../components";
 import { StyledApp } from "styles";
 import { Outlet } from "react-router-dom";
+import { Header, Footer } from "components";
 
 export const MainTemplate = () => {
   return (

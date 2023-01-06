@@ -18,5 +18,4 @@ interface INews {
   newSite: string;
 }
 
-export type { IArticle };
-export type { INews };
+export type { IArticle, INews };
