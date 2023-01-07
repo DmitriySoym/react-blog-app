@@ -64,4 +64,16 @@ const Error = styled.span`
   color: red;
 `;
 
-export { StyledForm, Label, Input, Button, Error };
+const Text = styled.span`
+  padding-top: ${Indents.XXS};
+  ${Typography.BODY_TWO};
+  font-weight: 500;
+  text-align: center;
+  color: ${Color.TEXT_FOOTER};
+
+  & a {
+    color: ${Color.PRIMARY};
+  }
+`;
+
+export { StyledForm, Label, Input, Button, Error, Text };

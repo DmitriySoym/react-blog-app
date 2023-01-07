@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { StyledSignIn, HomeButton, Title } from "./styles";
-import { SignInForm } from "components/SignInForm/SignInForm";
+import { StyledSignUp, HomeButton, Title } from "./styles";
+import { SignUpForm } from "components/SignUpForm/SignUpForm";
 import { ROUTE } from "router";
 
-export const SignIn = () => {
+export const SignUpPage = () => {
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(ROUTE.HOME);
   };
 
   return (
-    <StyledSignIn>
+    <StyledSignUp>
       <HomeButton onClick={handleBack}>Back to home</HomeButton>
-      <Title>Sign In</Title>
-      <SignInForm />
-    </StyledSignIn>
+      <Title>Sign Up</Title>
+      <SignUpForm />
+    </StyledSignUp>
   );
 };

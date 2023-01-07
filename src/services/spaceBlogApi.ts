@@ -2,7 +2,7 @@ import axios from "axios";
 import { IArticle } from "types";
 
 class SpaceBlogApi {
-  private readonly BASE_URL = "https://api.spaceflightnewsapi.net/v3/";
+  private readonly BASE_URL = process.env.REACT_APP_BASE_URL_SPACE_BLOG_API;
   private readonly END_POINTS = {
     articles: "articles",
     blogs: "blogs",

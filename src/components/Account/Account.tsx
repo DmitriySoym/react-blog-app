@@ -1,20 +1,18 @@
-import { StyledAccount, Button } from "./styles";
+import { StyledAccount, Button, UserLogo, Name } from "./styles";
 import { LogoOutIcon } from "assets";
-import { toggleAuth, useAppSelector, useAppDispatch, getAccountInfo } from "store";
+import { useAppSelector, getAccountInfo } from "store";
 import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 
 export const Account = () => {
-  const dispatch = useAppDispatch();
-  const { isAuth } = useAppSelector(getAccountInfo);
-  const handleClick = () => {
-    dispatch(toggleAuth());
-  };
+  const { isAuth, name } = useAppSelector(getAccountInfo);
+
   return (
     <StyledAccount>
       {isAuth ? (
         <>
-          <div>Authorized user</div>
+          <UserLogo>{name[0]}</UserLogo>
+          <Name>{name}</Name>
         </>
       ) : (
         <>

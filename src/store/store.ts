@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import accountReduser from "./slices/account/accountSlice";
+import userReduser from "./slices/account/accountSlice";
 import themeReduser from "./slices/theme/themeSlice";
 import articlesReduser from "./slices/articles/articlesSlice";
 import newsReduser from "./slices/news/newsSlice";
@@ -7,7 +7,7 @@ import detailArticleReducer from "./slices/detailArticle/detailArticleSlice";
 
 export const store = configureStore({
   reducer: {
-    account: accountReduser,
+    user: userReduser,
     theme: themeReduser,
     articles: articlesReduser,
     news: newsReduser,

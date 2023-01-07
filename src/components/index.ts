@@ -10,8 +10,7 @@ import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Search } from "./Search/Search";
 import { NewsItem } from "./NewsItem/NewsItem";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
-import { SignIn } from "./SignIn/SignIn";
-import { SignUp } from "./SignUp/SignUp";
+
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { DetailArticle } from "./DetailArticle/DetailArticle";
@@ -30,8 +29,6 @@ export {
   Search,
   NewsItem,
   RequareAuth,
-  SignIn,
-  SignUp,
   SignUpForm,
   SignInForm,
   DetailArticle,

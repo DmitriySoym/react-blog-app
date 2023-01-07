@@ -1,5 +1,5 @@
 import { store } from "./store";
-import { toggleAuth } from "./slices/account/accountSlice";
+import { setUser, removeUser } from "./slices/account/accountSlice";
 import { setTheme } from "./slices/theme/themeSlice";
 import { RootState } from "./store";
 import { useAppSelector } from "./hooks/hooks";
@@ -16,7 +16,8 @@ import { getDetailArticle } from "./selectors/detailArticleSelector";
 
 export {
   store,
-  toggleAuth,
+  setUser,
+  removeUser,
   useAppSelector,
   useAppDispatch,
   setTheme,

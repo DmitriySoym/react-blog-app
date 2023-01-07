@@ -1,5 +1,9 @@
-import { StyledForm, Label, Input, Button, Error } from "./styles";
+import { StyledForm, Label, Input, Button, Error, Text } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { setUser, useAppDispatch } from "store";
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { ROUTE } from "router";
+import { Link, useNavigate } from "react-router-dom";
 
 interface ISignUpForm {
   name: string;
@@ -9,15 +13,38 @@ interface ISignUpForm {
 }
 
 export const SignUpForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ISignUpForm>();
 
-  const onSubmit: SubmitHandler<ISignUpForm> = (data: any) => {
-    console.log(data);
+  const dispatch = useAppDispatch();
+
+  const onSubmit: SubmitHandler<ISignUpForm> = ({ password, email, name, surname }) => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        dispatch(
+          setUser({
+            email: email,
+            name: name,
+            isAuth: true,
+          }),
+        );
+        navigate(ROUTE.HOME);
+      })
+      .then(() => {
+        const currentUser = auth.currentUser;
+        if (currentUser) {
+          updateProfile(currentUser, {
+            displayName: name,
+          });
+        }
+      });
   };
+
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
@@ -32,19 +59,6 @@ export const SignUpForm = () => {
           })}
         />
         {errors.name && <Error>{errors.name.message}</Error>}
-      </Label>
-      <Label>
-        Your surname
-        <Input
-          type="text"
-          placeholder="Your surname"
-          {...register("surname", {
-            required: "Please, enter your surname",
-            minLength: { value: 3, message: "Surname length minimum 3 symbols" },
-            maxLength: { value: 20, message: "Surname length maximum 20 symbols" },
-          })}
-        />
-        {errors.surname && <Error>{errors.surname.message}</Error>}
       </Label>
       <Label>
         Your email
@@ -63,6 +77,9 @@ export const SignUpForm = () => {
       </Label>
       {errors.password && <Error>{errors.password.message}</Error>}
       <Button type="submit">Sign Up</Button>
+      <Text>
+        Already have an account? <Link to={ROUTE.AUTH}>Sign In</Link>
+      </Text>
     </StyledForm>
   );
 };

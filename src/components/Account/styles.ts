@@ -16,7 +16,7 @@ const StyledAccount = styled.div`
   }
 `;
 
-const Button = styled.button`
+const Button = styled.p`
   margin-left: 10px;
   border: none;
   ${Typography.BODY_TWO}
@@ -29,4 +29,20 @@ const Button = styled.button`
   }
 `;
 
-export { StyledAccount, Button };
+const UserLogo = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(133.87deg, #4d0ac7 -10.18%, #912ef2 108.59%);
+  border-radius: 4px;
+  text-align: center;
+  color: ${Color.WHITE};
+`;
+
+const Name = styled.div`
+  padding: 0 10px;
+`;
+
+export { StyledAccount, Button, UserLogo, Name };

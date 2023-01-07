@@ -1,7 +1,9 @@
 import { StyledForm, Label, Input, Button, Error, Text, ResetPass } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { setUser, useAppDispatch } from "store";
 
 interface ISignUpForm {
   name: string;
@@ -16,8 +18,27 @@ export const SignInForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ISignUpForm>();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<ISignUpForm> = (data: any) => {};
+  const onSubmit: SubmitHandler<ISignUpForm> = ({ email, password }) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
+      console.log(user);
+      dispatch(
+        setUser({
+          email: user.email,
+          name: user.displayName,
+          isAuth: true,
+        }),
+      );
+
+      navigate(ROUTE.HOME);
+    });
+    // .catch((error) => {
+    // });
+  };
+
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
@@ -38,10 +59,7 @@ export const SignInForm = () => {
 
       <Button type="submit">Sign In</Button>
       <Text>
-        Don’t have an account?{" "}
-        <Link to={ROUTE.REG}>
-          <span>Sign Up</span>
-        </Link>
+        Don’t have an account? <Link to={ROUTE.REG}>Sign Up</Link>
       </Text>
     </StyledForm>
   );
