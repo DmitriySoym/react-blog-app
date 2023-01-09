@@ -13,6 +13,8 @@ import { getAllNews } from "./selectors/newsSelector";
 import { fetchNews } from "./slices/news/newsSlice";
 import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
 import { getDetailArticle } from "./selectors/detailArticleSelector";
+import { fetchDetailNews } from "./slices/detailNews/detailNewsSlice";
+import { getDetailNews } from "./selectors/detailNewsSelector";
 
 export {
   store,
@@ -28,7 +30,8 @@ export {
   getAllNews,
   fetchNews,
   fetchDetailArticle,
+  fetchDetailNews,
   getDetailArticle,
+  getDetailNews,
 };
-export type { RootState };
-export type { AppDispatch };
+export type { RootState, AppDispatch };

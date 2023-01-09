@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const OriginArticle = styled.a`
+const OriginNews = styled.a`
   height: 56px;
   padding: 10px;
   background-color: ${Color.PRIMARY};
@@ -33,4 +33,4 @@ const OriginArticle = styled.a`
   line-height: 24px;
 `;
 
-export { Title, Image, Text, OriginArticle, Wrapper };
+export { Title, Image, Text, Wrapper, OriginNews };

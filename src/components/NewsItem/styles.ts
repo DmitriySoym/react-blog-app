@@ -3,7 +3,8 @@ import { Typography, Color } from "ui";
 
 const StyledNewsItem = styled.li<{ bg: string }>`
   justify-self: center;
-  width: 352px;
+  max-width: 352px;
+  width: 100%;
   height: 388px;
   border-radius: 16px;
   overflow: hidden;

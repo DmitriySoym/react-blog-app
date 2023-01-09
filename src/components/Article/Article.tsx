@@ -10,7 +10,7 @@ interface IProps {
 export const Article = ({ article }: IProps) => {
   return (
     <StyledArticle bg={article.imageUrl}>
-      <Link to={generatePath(ROUTE.DETAILS, { id: article.id })}>
+      <Link to={generatePath(ROUTE.DETAIL_POST, { id: article.id })}>
         <Image bg={article.imageUrl} />
         <TextWrapper>
           <StyledDate>{new Date(article.publishedAt).toLocaleDateString()}</StyledDate>

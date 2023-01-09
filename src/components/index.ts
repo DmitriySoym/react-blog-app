@@ -14,6 +14,7 @@ import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { DetailArticle } from "./DetailArticle/DetailArticle";
+import { DetailNews } from "./DetailNews/DetailNews";
 import { Article } from "./Article/Article";
 
 export {
@@ -33,4 +34,5 @@ export {
   SignInForm,
   DetailArticle,
   Article,
+  DetailNews,
 };

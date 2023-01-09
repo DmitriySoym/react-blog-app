@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IArticle } from "types";
+import { IArticle, INews } from "types";
 
 class SpaceBlogApi {
   private readonly BASE_URL = process.env.REACT_APP_BASE_URL_SPACE_BLOG_API;
@@ -25,13 +25,18 @@ class SpaceBlogApi {
     const params = {
       _limit: options,
     };
-    const { data } = await this.API.get<IArticle[]>(this.END_POINTS.blogs, { params });
+    const { data } = await this.API.get<INews[]>(this.END_POINTS.blogs, { params });
 
     return data;
   }
 
   public async getArticleById(id: string) {
     const { data } = await this.API.get<IArticle>(`${this.END_POINTS.articles}/${id}`);
+    return data;
+  }
+
+  public async getNewsById(id: string) {
+    const { data } = await this.API.get<INews>(`${this.END_POINTS.blogs}/${id}`);
     return data;
   }
 }

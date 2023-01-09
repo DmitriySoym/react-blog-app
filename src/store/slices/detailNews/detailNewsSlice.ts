@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IArticle, INews } from "types";
+import { INews } from "types";
 import { spaceBlogApi } from "services";
 
 interface IDetailPostState {
-  post: IArticle;
+  news: INews;
   isLoading: boolean;
   error: null | string;
 }
 
-export const fetchDetailArticle = createAsyncThunk<IArticle, string, { rejectValue: string }>(
-  "detailArticle/fetchDetailArticle",
+export const fetchDetailNews = createAsyncThunk<INews, string, { rejectValue: string }>(
+  "detailNews/fetchDetailNews",
   async (params, { rejectWithValue }) => {
     try {
-      return await spaceBlogApi.getArticleById(params);
+      return await spaceBlogApi.getNewsById(params);
     } catch (error) {
       return rejectWithValue("Error");
     }
@@ -20,26 +20,26 @@ export const fetchDetailArticle = createAsyncThunk<IArticle, string, { rejectVal
 );
 
 const initialState: IDetailPostState = {
-  post: {} as IArticle | INews,
+  news: {} as INews,
   isLoading: false,
   error: null,
 };
 
-const detailArticlelice = createSlice({
-  name: "detailArticle",
+const detailNewslelice = createSlice({
+  name: "detailNews",
   initialState,
   reducers: {},
 
   extraReducers(builder) {
-    builder.addCase(fetchDetailArticle.pending, (state) => {
+    builder.addCase(fetchDetailNews.pending, (state) => {
       state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(fetchDetailArticle.fulfilled, (state, action) => {
+    builder.addCase(fetchDetailNews.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.post = action.payload;
+      state.news = action.payload;
     });
-    builder.addCase(fetchDetailArticle.rejected, (state, action) => {
+    builder.addCase(fetchDetailNews.rejected, (state, action) => {
       if (action.payload) {
         state.isLoading = false;
         state.error = action.payload;
@@ -48,4 +48,4 @@ const detailArticlelice = createSlice({
   },
 });
 
-export default detailArticlelice.reducer;
+export default detailNewslelice.reducer;

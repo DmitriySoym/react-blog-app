@@ -24,7 +24,6 @@ export const SignInForm = () => {
   const onSubmit: SubmitHandler<ISignUpForm> = ({ email, password }) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
-      console.log(user);
       dispatch(
         setUser({
           email: user.email,

@@ -4,6 +4,7 @@ import themeReduser from "./slices/theme/themeSlice";
 import articlesReduser from "./slices/articles/articlesSlice";
 import newsReduser from "./slices/news/newsSlice";
 import detailArticleReducer from "./slices/detailArticle/detailArticleSlice";
+import detailNewsReducer from "./slices/detailNews/detailNewsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     articles: articlesReduser,
     news: newsReduser,
     detailArticle: detailArticleReducer,
+    detailNews: detailNewsReducer,
   },
 });
 
