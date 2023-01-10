@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 interface ISignUpForm {
   name: string;
-  surname: string;
+  passwordConfirm: string;
   email: string;
   password: string;
 }
@@ -22,40 +22,48 @@ export const SignUpForm = () => {
 
   const dispatch = useAppDispatch();
 
-  const onSubmit: SubmitHandler<ISignUpForm> = ({ password, email, name, surname }) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        dispatch(
-          setUser({
-            email: email,
-            name: name,
-            isAuth: true,
-          }),
-        );
-        navigate(ROUTE.HOME);
-      })
-      .then(() => {
-        const currentUser = auth.currentUser;
-        if (currentUser) {
-          updateProfile(currentUser, {
-            displayName: name,
-          });
-        }
-      });
+  const onSubmit: SubmitHandler<ISignUpForm> = ({ password, email, name, passwordConfirm }) => {
+    if (password === passwordConfirm) {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          dispatch(
+            setUser({
+              email: email,
+              name: name,
+              isAuth: true,
+            }),
+          );
+          navigate(ROUTE.HOME);
+        })
+        .then(() => {
+          const currentUser = auth.currentUser;
+          if (currentUser) {
+            updateProfile(currentUser, {
+              displayName: name,
+            });
+          }
+        });
+    } else {
+      alert("Passwords do not match");
+    }
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <Label>
-        Your name
+        Your Name and Surname
         <Input
           type="text"
-          placeholder="Your name"
+          placeholder="Your Name and Surname"
           {...register("name", {
-            required: "Please, enter your name",
+            required: "Please, enter your full Name",
             minLength: { value: 3, message: "Name length minimum 3 symbols" },
-            maxLength: { value: 20, message: "Name length maximum 20 symbols" },
+            maxLength: { value: 25, message: "Name length maximum 25 symbols" },
+            pattern: {
+              value: /^[a-zA-ZА-ЯЁа-яё\s]+ [a-zA-ZА-ЯЁа-яё\s]+$/,
+              message: "Please, enter correct your full Name",
+            },
           })}
         />
         {errors.name && <Error>{errors.name.message}</Error>}
@@ -75,7 +83,17 @@ export const SignUpForm = () => {
           })}
         />
       </Label>
-      {errors.password && <Error>{errors.password.message}</Error>}
+      <Label>
+        Confirm password
+        <Input
+          type="password"
+          placeholder="Confirm password"
+          {...register("passwordConfirm", {
+            required: { value: true, message: "Passwords do not match" },
+          })}
+        />
+      </Label>
+      {errors.passwordConfirm && <Error>{errors.passwordConfirm.message}</Error>}
       <Button type="submit">Sign Up</Button>
       <Text>
         Already have an account? <Link to={ROUTE.AUTH}>Sign In</Link>

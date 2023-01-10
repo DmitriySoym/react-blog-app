@@ -1,13 +1,14 @@
 import styled from "styled-components";
-import { Color, Media, Typography } from "ui";
+import { Color, Media, Typography, Indents } from "ui";
 
 const StyledAccount = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 232px;
   width: 100%;
-  padding: 0 32px;
+  padding-left: ${Indents.SM};
   ${Typography.Subline}
   line-height: 34px;
 
@@ -38,10 +39,11 @@ const UserLogo = styled.button`
   background: linear-gradient(133.87deg, #4d0ac7 -10.18%, #912ef2 108.59%);
   border-radius: 4px;
   text-align: center;
+  font-size: 16px;
   color: ${Color.WHITE};
 `;
 
-const Name = styled.div`
+const Name = styled.p`
   padding: 0 10px;
 `;
 

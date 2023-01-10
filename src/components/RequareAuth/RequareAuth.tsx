@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { ROUTE } from "router";
-import { getAccountInfo, useAppSelector } from "store";
+import { useAuth } from "hooks";
 
 export const RequareAuth = () => {
-  const { isAuth } = useAppSelector(getAccountInfo);
+  const { isAuth } = useAuth();
+
   return isAuth ? <Outlet /> : <Navigate to={ROUTE.AUTH} />;
 };

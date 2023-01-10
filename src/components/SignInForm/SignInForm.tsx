@@ -23,19 +23,22 @@ export const SignInForm = () => {
 
   const onSubmit: SubmitHandler<ISignUpForm> = ({ email, password }) => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
-      dispatch(
-        setUser({
-          email: user.email,
-          name: user.displayName,
-          isAuth: true,
-        }),
-      );
-
-      navigate(ROUTE.HOME);
-    });
-    // .catch((error) => {
-    // });
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            name: user.displayName,
+            isAuth: true,
+          }),
+        );
+        navigate(ROUTE.HOME);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(error.code);
+      });
   };
 
   return (
@@ -53,7 +56,9 @@ export const SignInForm = () => {
             required: true,
           })}
         />
-        <ResetPass>Forgot password?</ResetPass>
+        <Link to={ROUTE.RESET_PASSWORD}>
+          <ResetPass>Forgot password?</ResetPass>
+        </Link>
       </Label>
 
       <Button type="submit">Sign In</Button>

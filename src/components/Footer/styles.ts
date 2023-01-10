@@ -27,7 +27,6 @@ const StyledFooter = styled.footer`
 
 const Text = styled.p`
   ${Typography.BODY_TWO}
-
   color: ${Color.TEXT_FOOTER};
 `;
 

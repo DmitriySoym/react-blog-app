@@ -9,6 +9,7 @@ import {
   SignUpPage,
   DetailsArticlePage,
   DetailsNewsPage,
+  ResetPasswordPage,
 } from "pages";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
@@ -25,6 +26,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.DETAIL_NEWS} element={<DetailsNewsPage />} />
       <Route path={ROUTE.AUTH} element={<SignInPage />} />
       <Route path={ROUTE.REG} element={<SignUpPage />} />
+      <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
 
       <Route element={<RequareAuth />}>
         <Route path={ROUTE.FAVORIRES} element={<FavoritesPage />} />

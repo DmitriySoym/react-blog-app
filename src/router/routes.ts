@@ -7,5 +7,6 @@ export enum ROUTE {
   DETAIL_NEWS = "/React-blog-app/news/:id",
   AUTH = "/React-blog-app/authorization",
   REG = "/React-blog-app/registration",
+  RESET_PASSWORD = "/React-blog-app/resetpass",
   NOT_FOUND = "*",
 }

@@ -30,6 +30,7 @@ const OriginNews = styled.a`
   border-radius: 4px;
   ${Typography.H3};
   color: ${Color.WHITE};
+  font-weight: 400;
   line-height: 24px;
 `;
 
