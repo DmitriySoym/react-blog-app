@@ -3,7 +3,7 @@ import { News, Main, Tabs, SortPosts } from "components";
 export const NewsPage = () => {
   return (
     <Main>
-      <Tabs />
+      {/* <Tabs /> */}
       <SortPosts />
       <News />
     </Main>

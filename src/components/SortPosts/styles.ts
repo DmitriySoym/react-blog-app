@@ -27,7 +27,7 @@ const Period = styled.a`
   transition: 0.3s;
 
   &:hover {
-    background-color: ${Color.PRIMARY};
+    background-color: ${Color.PRIMARY_TWO};
     color: ${Color.WHITE};
   }
 

@@ -19,9 +19,9 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
-      <Route path={ROUTE.ARTICLES} element={<ArticlesPage />} />
-      <Route path={ROUTE.NEWS} element={<NewsPage />} />
-      <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
+      {/* <Route path={ROUTE.ARTICLES} element={<ArticlesPage />} /> */}
+      {/* <Route path={ROUTE.NEWS} element={<NewsPage />} /> */}
+      {/* <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} /> */}
       <Route path={ROUTE.DETAIL_POST} element={<DetailsArticlePage />} />
       <Route path={ROUTE.DETAIL_NEWS} element={<DetailsNewsPage />} />
       <Route path={ROUTE.AUTH} element={<SignInPage />} />

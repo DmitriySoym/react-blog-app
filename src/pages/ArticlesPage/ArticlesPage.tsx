@@ -3,7 +3,7 @@ import { Articles, Main, Tabs, SortPosts } from "components";
 export const ArticlesPage = () => {
   return (
     <Main>
-      <Tabs />
+      {/* <Tabs /> */}
       <SortPosts />
       <Articles />
     </Main>

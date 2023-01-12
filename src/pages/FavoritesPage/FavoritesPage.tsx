@@ -2,7 +2,7 @@ import { Main, Tabs, SortPosts } from "components";
 export const FavoritesPage = () => {
   return (
     <Main>
-      <Tabs />
+      {/* <Tabs /> */}
       <SortPosts />
       FavoritesPage
     </Main>
