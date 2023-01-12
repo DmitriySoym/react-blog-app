@@ -23,7 +23,7 @@ export const Account = () => {
             {name[0].toUpperCase() + name.split(" ")[1][0].toUpperCase()}
           </UserLogo>
           <Name>{name}</Name>
-          <div id="modal">{isOpen && <AccountInfo />}</div>
+          <div>{isOpen && <AccountInfo />}</div>
         </>
       ) : (
         <>

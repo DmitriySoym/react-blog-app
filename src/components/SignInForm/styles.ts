@@ -77,6 +77,8 @@ const Text = styled.span`
 `;
 
 const ResetPass = styled.span`
+  display: block;
+  padding-top: 15px;
   ${Typography.BODY_TWO};
   font-weight: 500;
   padding-top: 16px;

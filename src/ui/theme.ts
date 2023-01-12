@@ -9,6 +9,7 @@ export const lightTheme = css`
     --footer-text: ${Color.MEDIUM};
     --slider-bg: ${Color.EXTRA_LIGHT};
     --switch-hover: ${Color.MEDIUM};
+    --sort-button: ${Color.EXTRA_LIGHT};
   }
 `;
 
@@ -20,5 +21,6 @@ export const darkTheme = css`
     --footer-text: ${Color.GRAY_DARK};
     --slider-bg: ${Color.PRIMARY};
     --switch-hover: ${Color.PRIMARY_TWO};
+    --sort-button: rgba(255, 255, 255, 0.1);
   }
 `;

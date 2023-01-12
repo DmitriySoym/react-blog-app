@@ -8,6 +8,12 @@ interface IArticlesState {
   error: null | string;
 }
 
+const getArticles = async () => {
+  const articlesQty = await spaceBlogApi.getAllArticlesCount();
+  return articlesQty;
+};
+const articlesQty = getArticles();
+
 export const fetchArticles = createAsyncThunk<IArticle[], undefined, { rejectValue: string }>(
   "articles/fetchArticles",
   async (_, { rejectWithValue }) => {

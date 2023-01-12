@@ -3,11 +3,12 @@ import { Typography, Color } from "ui";
 
 const StyledAccountInfo = styled.div`
   position: absolute;
-  bottom: -127px;
-  right: -25px;
+  top: 97px;
+  right: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 200px;
   height: 100px;
   box-shadow: 0px 12px 40px 9px rgb(0 0 0 / 10%);
@@ -19,6 +20,10 @@ const Text = styled.span`
   color: ${Color.TEXT_FOOTER};
 `;
 
+const Name = styled.span`
+  ${Typography.BODY_TWO}
+`;
+
 const Button = styled.button`
   width: 60%;
   padding: 0 5px;
@@ -28,4 +33,4 @@ const Button = styled.button`
   color: ${Color.WHITE};
   font-weight: 400;
 `;
-export { StyledAccountInfo, Text, Button };
+export { StyledAccountInfo, Text, Button, Name };

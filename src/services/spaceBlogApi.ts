@@ -12,11 +12,19 @@ class SpaceBlogApi {
     baseURL: this.BASE_URL,
   });
 
+  // const allArticles =
+
   public async getAllArticles(options: number) {
     const params = {
       _limit: options,
     };
     const { data } = await this.API.get<IArticle[]>(this.END_POINTS.articles, { params });
+
+    return data;
+  }
+
+  public async getAllArticlesCount() {
+    const { data } = await this.API.get<number>(`${this.END_POINTS.articles}/count`);
 
     return data;
   }

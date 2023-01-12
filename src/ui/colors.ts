@@ -16,4 +16,5 @@ export enum Color {
   TEXT_FOOTER = "var(--footer-text)",
   SLIDER_BG = "var(--slider-bg)",
   SWITCH_HOVER = "var(--switch-hover)",
+  SORT_BTN = "var(--sort-button)",
 }

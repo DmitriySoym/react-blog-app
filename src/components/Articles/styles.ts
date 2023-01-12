@@ -5,7 +5,7 @@ const StyledArticles = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
-  padding-top: ${Indents.LG};
+  /* padding-top: ${Indents.LG}; */
   padding-bottom: ${Indents.XL};
 
   ${Media.LG} {

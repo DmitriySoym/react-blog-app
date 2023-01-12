@@ -3,7 +3,7 @@ import { useAuth } from "hooks";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { removeUser, useAppDispatch } from "store";
-import { StyledAccountInfo, Text, Button } from "./styles";
+import { StyledAccountInfo, Text, Button, Name } from "./styles";
 
 export const AccountInfo = () => {
   const { name, isAuth } = useAuth();
@@ -19,7 +19,7 @@ export const AccountInfo = () => {
     <Portal target={PortalTarget.MODAL}>
       <StyledAccountInfo>
         <Text>Your account:</Text>
-        {name}
+        <Name>{name}</Name>
         <Button onClick={handleClick}>Exit</Button>
       </StyledAccountInfo>
     </Portal>

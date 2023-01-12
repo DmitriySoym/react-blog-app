@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector, getDetailNews, fetchDetailNews } from "store";
 import { DetailNews } from "components";
 import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
-import { Console } from "console";
 
 export const DetailsNewsPage = () => {
   const navigate = useNavigate();

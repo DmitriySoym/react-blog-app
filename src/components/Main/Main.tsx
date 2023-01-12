@@ -11,11 +11,6 @@ export const Main = ({ children }: IProps) => {
   return (
     <StyledMain>
       <Title>Blog</Title>
-      <NavWrapper>
-        <CustomNavLink to={ROUTE.ARTICLES}>Articles</CustomNavLink>
-        <CustomNavLink to={ROUTE.NEWS}>News</CustomNavLink>
-        <CustomNavLink to={ROUTE.FAVORIRES}>Favorites</CustomNavLink>
-      </NavWrapper>
 
       {children}
     </StyledMain>

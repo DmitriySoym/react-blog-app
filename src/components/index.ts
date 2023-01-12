@@ -18,6 +18,8 @@ import { Article } from "./Article/Article";
 import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
 import { Portal, PortalTarget } from "./Portal/Portal";
+import { Tabs } from "./Tabs/Tabs";
+import { SortPosts } from "./SortPosts/SortPosts";
 
 export {
   Header,
@@ -41,4 +43,6 @@ export {
   AccountInfo,
   Portal,
   PortalTarget,
+  Tabs,
+  SortPosts,
 };

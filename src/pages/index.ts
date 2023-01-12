@@ -1,8 +1,8 @@
-import { ArticlesPage } from "./ArticlesPage";
-import { NotFoundPage } from "./NotFoundPage";
-import { NewsPage } from "./NewsPage";
-import { HomePage } from "./HomePage";
-import { FavoritesPage } from "./FavoritesPage";
+import { ArticlesPage } from "./ArticlesPage/ArticlesPage";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
+import { NewsPage } from "./NewsPage/NewsPage";
+import { HomePage } from "./HomePge/HomePage";
+import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { SignInPage } from "./SignInPage/SignInPage";
 import { SignUpPage } from "./SignUpPage/SignUpPage";
 import { DetailsNewsPage } from "./DetailsNewsPage/DetailsNewsPage";
