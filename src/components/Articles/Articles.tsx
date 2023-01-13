@@ -1,4 +1,4 @@
-import { Article, StyledSpinner } from "components";
+import { Article, Spinner } from "components";
 import { useEffect } from "react";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IArticle } from "types";
@@ -9,11 +9,11 @@ export const Articles = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchArticles());
+    dispatch(fetchArticles({ page: 1 }));
   }, [dispatch]);
 
   if (isLoading) {
-    return <StyledSpinner />;
+    return <Spinner />;
   } else if (error) {
     return <span>{error}</span>;
   }

@@ -11,10 +11,15 @@ const StyledAccount = styled.div`
   padding-left: ${Indents.SM};
   ${Typography.Subline}
   line-height: 34px;
+  cursor: pointer;
 
   ${Media.MD} {
     display: none;
   }
+
+  /* &:hover {
+    box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+  } */
 `;
 
 const Button = styled.p`
@@ -30,7 +35,7 @@ const Button = styled.p`
   }
 `;
 
-const UserLogo = styled.button`
+const UserLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

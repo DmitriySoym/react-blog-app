@@ -1,4 +1,4 @@
-import { Articles, Main, News, Tabs, SortPosts, SignInForm } from "components";
+import { Articles, Main, News, Tabs, SortPosts, Pagination } from "components";
 import { useEffect, useState } from "react";
 import { TabOne } from "components/Tabs/Tabs";
 import { useAuth } from "hooks";
@@ -18,12 +18,15 @@ export const HomePage = () => {
   }, [activeTab]);
 
   return (
-    <Main>
-      <Tabs tab={activeTab} setTab={setActiveTab} />
-      <SortPosts />
-      {activeTab === TabOne.ARTICLE && <Articles />}
-      {activeTab === TabOne.NEWS && <News />}
-      {activeTab === TabOne.FAVORITES && isAuth === true && <span>Faivorite page.</span>}
-    </Main>
+    <>
+      <Main>
+        <Tabs tab={activeTab} setTab={setActiveTab} />
+        <SortPosts />
+        {activeTab === TabOne.ARTICLE && <Articles />}
+        {activeTab === TabOne.NEWS && <News />}
+        {activeTab === TabOne.FAVORITES && isAuth === true && <span>Faivorite page.</span>}
+      </Main>
+      <Pagination />
+    </>
   );
 };

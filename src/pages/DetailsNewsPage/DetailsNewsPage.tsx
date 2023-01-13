@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector, getDetailNews, fetchDetailNews } from "store";
-import { DetailNews } from "components";
+import { DetailNews, Spinner } from "components";
 import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
 
 export const DetailsNewsPage = () => {
@@ -20,7 +20,7 @@ export const DetailsNewsPage = () => {
   }, [details, dispatch]);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <Spinner />;
   }
 
   return (

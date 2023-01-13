@@ -12,11 +12,10 @@ class SpaceBlogApi {
     baseURL: this.BASE_URL,
   });
 
-  // const allArticles =
-
-  public async getAllArticles(options: number) {
+  public async getAllArticles(page: number) {
     const params = {
-      _limit: options,
+      _limit: 12,
+      _start: page,
     };
     const { data } = await this.API.get<IArticle[]>(this.END_POINTS.articles, { params });
 
@@ -29,9 +28,10 @@ class SpaceBlogApi {
     return data;
   }
 
-  public async getAllNews(options: number) {
+  public async getAllNews(page: number) {
     const params = {
-      _limit: options,
+      _limit: 12,
+      _start: page,
     };
     const { data } = await this.API.get<INews[]>(this.END_POINTS.blogs, { params });
 

@@ -4,26 +4,22 @@ import { useAppSelector, getAccountInfo } from "store";
 import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo } from "components/AccountInfo/AccountInfo";
-import { useState } from "react";
-import { useToggle } from "hooks";
+import { useEffect, useState } from "react";
 
 export const Account = () => {
   const { isAuth, name } = useAppSelector(getAccountInfo);
-  // const [isOpen = false, setIsOpen] = useToggle();
-  const [isOpen, toggleModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const handleModal = () => {
-    toggleModal((isOpen) => (isOpen === false ? true : false));
+    setIsOpen((isOpen) => (isOpen === false ? true : false));
   };
 
   return (
-    <StyledAccount>
+    <StyledAccount onClick={handleModal}>
       {isAuth ? (
         <>
-          <UserLogo onClick={handleModal}>
-            {name[0].toUpperCase() + name.split(" ")[1][0].toUpperCase()}
-          </UserLogo>
+          <UserLogo>{name[0].toUpperCase() + name.split(" ")[1][0].toUpperCase()}</UserLogo>
           <Name>{name}</Name>
-          <div>{isOpen && <AccountInfo />}</div>
+          {isOpen && <AccountInfo />}
         </>
       ) : (
         <>

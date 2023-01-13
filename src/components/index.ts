@@ -20,7 +20,8 @@ import { AccountInfo } from "./AccountInfo/AccountInfo";
 import { Portal, PortalTarget } from "./Portal/Portal";
 import { Tabs } from "./Tabs/Tabs";
 import { SortPosts } from "./SortPosts/SortPosts";
-import { StyledSpinner } from "./Spinner/styles";
+import { Spinner } from "./Spinner/Spinner";
+import { Pagination } from "./Pagination/Pagination";
 
 export {
   Header,
@@ -46,5 +47,6 @@ export {
   PortalTarget,
   Tabs,
   SortPosts,
-  StyledSpinner,
+  Spinner,
+  Pagination,
 };

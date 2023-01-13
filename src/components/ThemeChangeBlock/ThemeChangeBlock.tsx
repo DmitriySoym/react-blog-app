@@ -23,7 +23,7 @@ export const ThemeChangeBlock = () => {
 
   return (
     <Wrapper>
-      <Text>Dark theme</Text>
+      <Text>{currentValue === "1" ? "Light theme" : "Dark theme"}</Text>
       <SwitchInput
         onClick={handleTheme}
         onTouchStart={handleTheme}

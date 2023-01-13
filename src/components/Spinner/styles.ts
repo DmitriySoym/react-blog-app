@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { Color } from "ui";
 
 const StyledSpinner = styled.div`
-  color: ${Color.PRIMARY};
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 0 auto;
+  color: ${Color.PRIMARY};
+
   min-height: 100%;
 
   &::after {

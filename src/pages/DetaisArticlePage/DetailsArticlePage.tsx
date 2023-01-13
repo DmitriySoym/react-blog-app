@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, fetchDetailArticle, useAppSelector, getDetailArticle } from "store";
-import { DetailArticle, Article } from "components";
+import { DetailArticle, Spinner } from "components";
 import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
 
 export const DetailsArticlePage = () => {
@@ -18,6 +18,10 @@ export const DetailsArticlePage = () => {
   useEffect(() => {
     dispatch(fetchDetailArticle(details));
   }, [details, dispatch]);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <StyledDetailPage>

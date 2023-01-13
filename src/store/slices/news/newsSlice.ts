@@ -8,11 +8,11 @@ interface INewsState {
   error: null | string;
 }
 
-export const fetchNews = createAsyncThunk<INews[], undefined, { rejectValue: string }>(
+export const fetchNews = createAsyncThunk<INews[], { page: number }, { rejectValue: string }>(
   "news/fetchNews",
-  async (_, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      return await spaceBlogApi.getAllNews(12);
+      return await spaceBlogApi.getAllNews(params.page);
     } catch (error) {
       return rejectWithValue("error");
     }

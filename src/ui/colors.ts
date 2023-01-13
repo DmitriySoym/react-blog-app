@@ -17,4 +17,5 @@ export enum Color {
   SLIDER_BG = "var(--slider-bg)",
   SWITCH_HOVER = "var(--switch-hover)",
   SORT_BTN = "var(--sort-button)",
+  DISABLED = "var(--disabled)",
 }

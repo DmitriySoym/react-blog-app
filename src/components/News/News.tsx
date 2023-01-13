@@ -1,4 +1,4 @@
-import { NewsItem, StyledSpinner } from "components";
+import { NewsItem, Spinner } from "components";
 import { useEffect } from "react";
 import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { StyledNews } from "./styles";
@@ -10,11 +10,11 @@ export const News = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchNews());
+    dispatch(fetchNews({ page: 1 }));
   }, [dispatch]);
 
   if (isLoading) {
-    return <StyledSpinner />;
+    return <Spinner />;
   } else if (error) {
     return <span>{error}</span>;
   }

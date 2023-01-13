@@ -14,16 +14,17 @@ const getArticles = async () => {
 };
 const articlesQty = getArticles();
 
-export const fetchArticles = createAsyncThunk<IArticle[], undefined, { rejectValue: string }>(
-  "articles/fetchArticles",
-  async (_, { rejectWithValue }) => {
-    try {
-      return await spaceBlogApi.getAllArticles(12);
-    } catch (error) {
-      return rejectWithValue("error");
-    }
-  },
-);
+export const fetchArticles = createAsyncThunk<
+  IArticle[],
+  { page: number },
+  { rejectValue: string }
+>("articles/fetchArticles", async (params, { rejectWithValue }) => {
+  try {
+    return await spaceBlogApi.getAllArticles(params.page);
+  } catch (error) {
+    return rejectWithValue("error");
+  }
+});
 
 const initialState: IArticlesState = {
   articles: [],
