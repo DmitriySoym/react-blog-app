@@ -1,4 +1,4 @@
-import { Article } from "components";
+import { Article, StyledSpinner } from "components";
 import { useEffect } from "react";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IArticle } from "types";
@@ -11,10 +11,17 @@ export const Articles = () => {
   useEffect(() => {
     dispatch(fetchArticles());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <StyledSpinner />;
+  } else if (error) {
+    return <span>{error}</span>;
+  }
+
   return (
     <StyledArticles>
-      {isLoading && <span>Loading...</span>}
-      {error && <span>{error}</span>}
+      {/* {isLoading && <StyledSpinner />}
+      {error && <span>{error}</span>} */}
       {articles &&
         articles.length > 0 &&
         articles.map((article: IArticle) => {

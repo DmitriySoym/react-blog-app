@@ -1,4 +1,4 @@
-import { NewsItem } from "components/NewsItem/NewsItem";
+import { NewsItem, StyledSpinner } from "components";
 import { useEffect } from "react";
 import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { StyledNews } from "./styles";
@@ -14,7 +14,7 @@ export const News = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <StyledSpinner />;
   } else if (error) {
     return <span>{error}</span>;
   }

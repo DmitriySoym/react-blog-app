@@ -1,7 +1,4 @@
 import { NavWrapper, Tab } from "./styles";
-import { CustomNavLink } from "components";
-import { ROUTE } from "router";
-import { useToggle } from "hooks";
 import { Dispatch, SetStateAction, useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -16,7 +13,7 @@ interface IProps {
 }
 
 export const Tabs = ({ tab, setTab }: IProps) => {
-  const [isActive, setIsActive] = useState<TabOne>();
+  const [isActive, setIsActive] = useState<TabOne>(TabOne.ARTICLE);
 
   const handleArticles = () => {
     setTab(TabOne.ARTICLE);
@@ -47,28 +44,3 @@ export const Tabs = ({ tab, setTab }: IProps) => {
     </NavWrapper>
   );
 };
-
-// export interface ITab {
-//   id: string;
-//   label: string;
-// }
-// export interface ITabsProps {
-//   tabs: ITab[];
-//   onClick: (id: string) => void;
-//   selectedId: string;
-// }
-
-// export const Tabs = ({ tabs, onClick, selectedId }: ITabsProps) => {
-//   const [isActive, setIsActive] = useState();
-
-//   return (
-//     <NavWrapper>
-//       {tabs &&
-//         tabs.map((tab) => (
-//           <Tab isActive={selectedId === tab.id} key={tab.id} onClick={() => onClick(tab.id)}>
-//             {tab.label}
-//           </Tab>
-//         ))}
-//     </NavWrapper>
-//   );
-// };
