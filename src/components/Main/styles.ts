@@ -8,7 +8,7 @@ const StyledMain = styled.main`
   height: 100%;
   margin: 0 auto;
 
-  ${Media.LG} {
+  ${Media.XL} {
     padding: 0 ${Indents.XS};
   }
 

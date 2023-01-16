@@ -21,6 +21,7 @@ const Label = styled.label`
   flex-direction: column;
   padding-bottom: ${Indents.SM};
   ${Typography.BODY_TWO};
+  font-weight: 600;
 `;
 
 const Input = styled.input`

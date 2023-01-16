@@ -49,7 +49,6 @@ export const Pagination = () => {
 
   useEffect(() => {
     dispatch(fetchArticles({ page: currentPage.page }));
-    console.log(fetchArticles({ page: 10 }));
   }, [dispatch, currentPage]);
 
   useEffect(() => {

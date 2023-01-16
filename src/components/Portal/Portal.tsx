@@ -1,9 +1,6 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { createPortal } from "react-dom";
-
-export enum PortalTarget {
-  MODAL = "modal",
-}
+import { PortalTarget } from "types";
 
 interface IProps {
   target: PortalTarget;

@@ -10,7 +10,7 @@ const StyledDetailPage = styled.div`
   padding-top: ${Indents.XL};
   padding-bottom: ${Indents.XL};
 
-  ${Media.LG} {
+  ${Media.XL} {
     padding-left: ${Indents.SM};
     padding-right: ${Indents.SM};
   }
@@ -42,7 +42,7 @@ const Row = styled.ul`
   padding-top: ${Indents.XL};
   border-top: 1px solid ${Color.TEXT_FOOTER};
 
-  ${Media.LG} {
+  ${Media.XL} {
     overflow: hidden;
     & li {
       width: 328px;

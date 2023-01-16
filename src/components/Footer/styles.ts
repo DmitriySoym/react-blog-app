@@ -11,7 +11,7 @@ const StyledFooter = styled.footer`
   margin: 0 auto;
   border-top: 1px solid ${Color.TEXT_FOOTER};
 
-  ${Media.LG} {
+  ${Media.XL} {
     padding: 0 ${Indents.XS};
   }
 

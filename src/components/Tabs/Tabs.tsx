@@ -1,18 +1,13 @@
 import { NavWrapper, Tab } from "./styles";
 import { Dispatch, SetStateAction, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { TabOne } from "types";
 
-export const enum TabOne {
-  ARTICLE = "articles",
-  NEWS = "news",
-  FAVORITES = "favorites",
-}
 interface IProps {
   tab: TabOne;
   setTab: Dispatch<SetStateAction<TabOne>>;
 }
 
-export const Tabs = ({ tab, setTab }: IProps) => {
+export const Tabs = ({ setTab }: IProps) => {
   const [isActive, setIsActive] = useState<TabOne>(TabOne.ARTICLE);
 
   const handleArticles = () => {

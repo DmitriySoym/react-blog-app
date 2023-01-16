@@ -1,13 +1,14 @@
 import { Articles, Main, News, Tabs, SortPosts, Pagination } from "components";
 import { useEffect, useState } from "react";
-import { TabOne } from "components/Tabs/Tabs";
 import { useAuth } from "hooks";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
+import { SortByDate, TabOne } from "types";
 
 export const HomePage = () => {
   const { isAuth } = useAuth();
   const [activeTab, setActiveTab] = useState<TabOne>(TabOne.ARTICLE);
+  const [activeDate, setActiveDate] = useState<SortByDate>(SortByDate.DAY);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export const HomePage = () => {
     <>
       <Main>
         <Tabs tab={activeTab} setTab={setActiveTab} />
-        <SortPosts />
+        <SortPosts period={activeDate} setPeriod={setActiveDate} />
         {activeTab === TabOne.ARTICLE && <Articles />}
         {activeTab === TabOne.NEWS && <News />}
         {activeTab === TabOne.FAVORITES && isAuth === true && <span>Faivorite page.</span>}

@@ -9,7 +9,7 @@ const StyledNews = styled.ul`
   padding-top: ${Indents.LG};
   padding-bottom: ${Indents.XL};
 
-  ${Media.LG} {
+  ${Media.XL} {
     grid-template-columns: repeat(2, 1fr);
     row-gap: ${Indents.SM};
   }

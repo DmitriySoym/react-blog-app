@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Typography, Indents } from "ui";
+import { Color, Typography, Indents, Media } from "ui";
 
 const StyledSortPosts = styled.div`
   display: flex;
@@ -7,20 +7,60 @@ const StyledSortPosts = styled.div`
   padding: ${Indents.LG} 0;
 `;
 
-const TimeSort = styled.div`
+const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 535px;
+
+  ${Media.LG} {
+    display: none;
+  }
 `;
 
-const Period = styled.a`
+const TimeSort = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  & .sortByDateSelect {
+    display: none;
+    max-width: 328px;
+    width: 100%;
+    ${Typography.Subline};
+
+    ${Media.LG} {
+      display: block;
+    }
+
+    ${Media.SM} {
+      max-width: 272px;
+    }
+  }
+
+  & .sortByTitle {
+    max-width: 328px;
+    width: 100%;
+    ${Typography.Subline};
+
+    ${Media.MD} {
+      display: block;
+    }
+
+    ${Media.SM} {
+      max-width: 272px;
+    }
+  }
+`;
+
+const Period = styled.button<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 123px;
+  width: 115px;
   height: 56px;
-  background: ${Color.SORT_BTN};
   ${Typography.BODY_TWO};
+  background-color: ${({ isActive }) => (isActive ? `${Color.PRIMARY}` : `${Color.SORT_BTN}`)};
+  color: ${({ isActive }) => (isActive ? `${Color.WHITE}` : `${Color.TEXT}`)};
   font-weight: 500;
   border-radius: 4px;
   cursor: pointer;
@@ -30,10 +70,5 @@ const Period = styled.a`
     background-color: ${Color.PRIMARY_TWO};
     color: ${Color.WHITE};
   }
-
-  &:active {
-    background-color: ${Color.PRIMARY};
-    color: ${Color.WHITE};
-  }
 `;
-export { StyledSortPosts, TimeSort, Period };
+export { StyledSortPosts, TimeSort, Period, ButtonWrapper };

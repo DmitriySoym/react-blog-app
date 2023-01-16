@@ -4,7 +4,7 @@ export const ArticlesPage = () => {
   return (
     <Main>
       {/* <Tabs /> */}
-      <SortPosts />
+      {/* <SortPosts /> */}
       <Articles />
     </Main>
   );

@@ -11,7 +11,7 @@ const StyledSignUp = styled.div`
   padding-bottom: ${Indents.LG};
   margin: 0 auto;
 
-  ${Media.LG} {
+  ${Media.XL} {
     padding: ${Indents.LG} ${Indents.SM};
   }
 

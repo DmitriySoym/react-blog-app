@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   height: 96px;
   background-color: ${Color.HEADER_BACKGROUND};
 
-  ${Media.LG} {
+  ${Media.XL} {
     padding: 0 ${Indents.XS};
   }
 

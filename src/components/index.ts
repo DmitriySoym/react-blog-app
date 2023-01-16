@@ -17,11 +17,16 @@ import { DetailNews } from "./DetailNews/DetailNews";
 import { Article } from "./Article/Article";
 import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
-import { Portal, PortalTarget } from "./Portal/Portal";
+import { Portal } from "./Portal/Portal";
 import { Tabs } from "./Tabs/Tabs";
 import { SortPosts } from "./SortPosts/SortPosts";
 import { Spinner } from "./Spinner/Spinner";
 import { Pagination } from "./Pagination/Pagination";
+import { CustomTitleSelect, optionSortByTitle } from "./CustomTitleSelect/CustomTitleSelect";
+import {
+  CustomSortByDateSelect,
+  optionDate,
+} from "./CustomSortByDateSelect/CustomSortByDateSelect";
 
 export {
   Header,
@@ -44,9 +49,12 @@ export {
   ResetPassForm,
   AccountInfo,
   Portal,
-  PortalTarget,
   Tabs,
   SortPosts,
   Spinner,
   Pagination,
+  CustomSortByDateSelect,
+  optionDate,
+  CustomTitleSelect,
+  optionSortByTitle,
 };

@@ -1,9 +1,9 @@
-import { Portal, PortalTarget } from "components";
+import { Portal } from "components";
 import { useAuth } from "hooks";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { removeUser, useAppDispatch } from "store";
+import { PortalTarget } from "types";
 import { StyledAccountInfo, Text, Button, Name } from "./styles";
 
 export const AccountInfo = () => {

@@ -3,7 +3,7 @@ export const FavoritesPage = () => {
   return (
     <Main>
       {/* <Tabs /> */}
-      <SortPosts />
+      {/* <SortPosts /> */}
       FavoritesPage
     </Main>
   );

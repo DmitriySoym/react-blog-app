@@ -10,7 +10,7 @@ HTML{
   --fifth-level : 32px;
   --sixth-level: 24px;
 
-  ${Media.LG}{
+  ${Media.XL}{
     --second-level: 56px;
   }
 
@@ -33,4 +33,6 @@ body{
 ${nullStyle}
 ${lightTheme}
 ${darkTheme}
+
+
 `;
