@@ -1,4 +1,4 @@
-import { Articles, Main, News, Tabs, SortPosts, Pagination } from "components";
+import { Articles, Main, News, Tabs, SortPosts, Pagination, Title } from "components";
 import { useEffect, useState } from "react";
 import { useAuth } from "hooks";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ export const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuth === false && activeTab === TabOne.FAVORITES) {
+    if (!isAuth && activeTab === TabOne.FAVORITES) {
       alert("Sign in, please.");
       navigate(ROUTE.AUTH);
     }
@@ -21,6 +21,7 @@ export const HomePage = () => {
   return (
     <>
       <Main>
+        <Title value="Blog" />
         <Tabs tab={activeTab} setTab={setActiveTab} />
         <SortPosts period={activeDate} setPeriod={setActiveDate} />
         {activeTab === TabOne.ARTICLE && <Articles />}

@@ -27,6 +27,7 @@ import {
   CustomSortByDateSelect,
   optionDate,
 } from "./CustomSortByDateSelect/CustomSortByDateSelect";
+import { Title } from "./Title/Title";
 
 export {
   Header,
@@ -57,4 +58,5 @@ export {
   optionDate,
   CustomTitleSelect,
   optionSortByTitle,
+  Title,
 };
