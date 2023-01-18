@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Typography, Indents } from "ui";
+import { Color, Typography, Indents, Media } from "ui";
 
 const StyledPagination = styled.div`
   display: flex;
@@ -25,6 +25,12 @@ const ButtonPrev = styled.button`
   &:disabled {
     color: ${Color.DISABLED};
   }
+
+  ${Media.MD} {
+    & :nth-child(2) {
+      display: none;
+    }
+  }
 `;
 const ButtonNext = styled.button`
   background-color: ${Color.BACKGROUND};
@@ -37,31 +43,42 @@ const ButtonNext = styled.button`
   &:active {
     color: ${Color.PRIMARY};
   }
+
+  ${Media.MD} {
+    & :first-child {
+      display: none;
+    }
+  }
 `;
 
-const Pages = styled.ul`
+const Pages = styled.div`
   display: flex;
   justify-content: space-between;
   width: 180px;
 `;
-const FirstPage = styled.li`
-  ${Typography.BODY};
+const FirstPage = styled.button`
+  ${Typography.Subline};
+  font-weight: 600;
   cursor: pointer;
 
   &:hover {
     color: ${Color.PRIMARY_TWO};
   }
 
-  &:active,
-  &:focus {
+  &:disabled {
     color: ${Color.PRIMARY};
   }
 `;
-const SecondPage = styled.li`
-  ${Typography.BODY};
+const SecondPage = styled.button`
+  ${Typography.Subline};
+  font-weight: 600;
+
+  &:disabled {
+    color: ${Color.PRIMARY};
+  }
 `;
 
-const LastPage = styled.li`
+const LastPage = styled.button`
   ${Typography.BODY};
 `;
 

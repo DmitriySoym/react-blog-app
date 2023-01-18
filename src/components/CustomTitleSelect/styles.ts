@@ -31,7 +31,7 @@ const customSortStyles: StylesConfig<ISelectOption> = {
 
     "&:before": {
       /* eslint-disable */
-      content: '"Date: "',
+      content: '"Title: "',
       /* eslint-enable */
       color: `${Color.TEXT_FOOTER}`,
     },

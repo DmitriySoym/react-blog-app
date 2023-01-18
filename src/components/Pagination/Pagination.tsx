@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { spaceBlogApi } from "services";
 import { fetchArticles, fetchNews, useAppDispatch } from "store";
+
 import {
   StyledPagination,
   ButtonPrev,
@@ -13,7 +15,9 @@ import {
 export const Pagination = () => {
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState({ page: 1, current: 1 });
-  const [buttonPrevState, setButtonPrevState] = useState(true);
+  const [buttonPrevState, setButtonPrevState] = useState<boolean>(true);
+  const [currentPageState, setCurrentPageState] = useState<boolean>(false);
+  const [lastPage, setLastPage] = useState<number>();
 
   const handleCurrentPage = () => {
     setCurrentPage({
@@ -45,14 +49,19 @@ export const Pagination = () => {
 
   useEffect(() => {
     currentPage.current === 1 ? setButtonPrevState(true) : setButtonPrevState(false);
+    currentPage.current !== 1 ? setCurrentPageState(true) : setCurrentPageState(false);
   }, [currentPage.current]);
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: currentPage.page }));
+    dispatch(fetchArticles({ page: currentPage.page, query: "" }));
+    // spaceBlogApi.getAllArticlesCount().then((data) => setLastPage(Math.ceil(data / 12)));
+    // console.log("art");
   }, [dispatch, currentPage]);
 
   useEffect(() => {
     dispatch(fetchNews({ page: currentPage.page }));
+    // spaceBlogApi.getAllNewsCount().then((data) => setLastPage(Math.ceil(data / 12)));
+    // console.log("news");
   }, [dispatch, currentPage]);
 
   return (
@@ -62,9 +71,13 @@ export const Pagination = () => {
         <span>Prev</span>
       </ButtonPrev>
       <Pages>
-        <FirstPage onClick={handleFirsttPage}>1</FirstPage>
-        <SecondPage>{currentPage.current === 1 ? 2 : currentPage.current}</SecondPage>
-        {/* <LastPage>{currentPage.current}</LastPage> */}
+        <FirstPage onClick={handleFirsttPage} disabled={buttonPrevState}>
+          1
+        </FirstPage>
+        <SecondPage disabled={currentPageState}>
+          {currentPage.current === 1 ? 2 : currentPage.current}
+        </SecondPage>
+        <LastPage>{lastPage}</LastPage>
       </Pages>
       <ButtonNext onClick={handleNextPage}>
         <span>Next</span>

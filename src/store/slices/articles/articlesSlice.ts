@@ -8,23 +8,28 @@ interface IArticlesState {
   error: null | string;
 }
 
-const getArticles = async () => {
-  const articlesQty = await spaceBlogApi.getAllArticlesCount();
-  return articlesQty;
-};
-const articlesQty = getArticles();
-
 export const fetchArticles = createAsyncThunk<
   IArticle[],
-  { page: number },
+  { page: number; query: string },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getAllArticles(params.page);
+    return await spaceBlogApi.getAllArticles(params.page, params.query);
   } catch (error) {
     return rejectWithValue("error");
   }
 });
+
+// export const fetchArticlesCount = createAsyncThunk<number>(
+//   "articles/fetchArticlesCount",
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       return await spaceBlogApi.getAllArticlesCount();
+//     } catch (error) {
+//       return rejectWithValue("error");
+//     }
+//   },
+// );
 
 const initialState: IArticlesState = {
   articles: [],

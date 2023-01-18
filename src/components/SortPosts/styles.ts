@@ -22,6 +22,11 @@ const TimeSort = styled.div`
   justify-content: space-between;
   width: 100%;
 
+  ${Media.MD} {
+    flex-direction: column;
+    align-items: center;
+  }
+
   & .sortByDateSelect {
     display: none;
     max-width: 328px;
@@ -30,6 +35,10 @@ const TimeSort = styled.div`
 
     ${Media.LG} {
       display: block;
+    }
+
+    ${Media.MD} {
+      margin-bottom: ${Indents.SM};
     }
 
     ${Media.SM} {

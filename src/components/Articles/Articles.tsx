@@ -9,7 +9,7 @@ export const Articles = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: 1 }));
+    dispatch(fetchArticles({ page: 1, query: "" }));
   }, [dispatch]);
 
   if (isLoading) {

@@ -12,6 +12,7 @@ export const Search = (props: ISearch) => {
   const handleSearch = () => {
     toggleSearchActive();
   };
+
   useEffect(() => {
     handleSearch();
   }, []);
