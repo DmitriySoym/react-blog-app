@@ -1,4 +1,4 @@
-import { StyledForm, Label, Input, Button, Error, Text, ResetPass } from "./styles";
+import { StyledForm, Label, Input, Button, Text, ResetPass } from "./styles";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -15,7 +15,9 @@ export const SignInForm = () => {
   const {
     register,
     handleSubmit,
+    /* eslint-disable */
     formState: { errors },
+    /* eslint-enable */
   } = useForm<ISignUpForm>();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -35,8 +37,7 @@ export const SignInForm = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(error.code);
+        alert(errorCode.slice(5).replace(/-/gi, " "));
       });
   };
 

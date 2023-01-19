@@ -1,9 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { setUser, useAppDispatch } from "store";
 import { Label, Input, Button, Text, StyledForm } from "./styles";
-// import {resetUserPassword} from "firebase"
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 interface IResetPassForm {
@@ -14,21 +12,21 @@ export const ResetPassForm = () => {
   const {
     register,
     handleSubmit,
+    /* eslint-disable */
     formState: { errors },
+    /* eslint-enable */
   } = useForm<IResetPassForm>();
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IResetPassForm> = ({ email }) => {
     const auth = getAuth();
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        // Password reset email sent!
         navigate(ROUTE.HOME);
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+
         if (errorCode) {
           alert("User not found");
         }
