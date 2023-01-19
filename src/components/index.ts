@@ -22,12 +22,10 @@ import { Tabs } from "./Tabs/Tabs";
 import { SortPosts } from "./SortPosts/SortPosts";
 import { Spinner } from "./Spinner/Spinner";
 import { Pagination } from "./Pagination/Pagination";
-import { CustomTitleSelect, optionSortByTitle } from "./CustomTitleSelect/CustomTitleSelect";
-import {
-  CustomSortByDateSelect,
-  optionDate,
-} from "./CustomSortByDateSelect/CustomSortByDateSelect";
+import { CustomTitleSelect } from "./CustomTitleSelect/CustomTitleSelect";
+import { CustomSortByDateSelect } from "./CustomSortByDateSelect/CustomSortByDateSelect";
 import { Title } from "./Title/Title";
+import { SortButtons } from "./SortButtons/SortButtons";
 
 export {
   Header,
@@ -55,8 +53,7 @@ export {
   Spinner,
   Pagination,
   CustomSortByDateSelect,
-  optionDate,
   CustomTitleSelect,
-  optionSortByTitle,
   Title,
+  SortButtons,
 };

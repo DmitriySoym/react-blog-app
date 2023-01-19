@@ -5,10 +5,12 @@ import {
   TabOne,
   PortalTarget,
   IOptionDateSort,
-  SortPosts,
+  SortPost,
   ISelectOption,
+  ITab,
+  IButton,
 } from "./types";
 
-export type { IArticle, INews, IOptionDateSort, ISelectOption };
+export type { IArticle, INews, IOptionDateSort, ISelectOption, ITab, IButton };
 
-export { SortByDate, TabOne, PortalTarget, SortPosts };
+export { SortByDate, TabOne, PortalTarget, SortPost };

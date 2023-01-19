@@ -35,7 +35,7 @@ const enum PortalTarget {
   MODAL = "modal",
 }
 
-const enum SortPosts {
+const enum SortPost {
   AZ = "az",
   ZA = "za",
 }
@@ -50,6 +50,16 @@ interface ISelectOption {
   label: string;
 }
 
-export type { IArticle, INews, IOptionDateSort, ISelectOption };
+interface ITab {
+  id: TabOne;
+  label: string;
+}
 
-export { SortByDate, TabOne, PortalTarget, SortPosts };
+interface IButton {
+  id: string;
+  title: string;
+}
+
+export type { IArticle, INews, IOptionDateSort, ISelectOption, ITab, IButton };
+
+export { SortByDate, TabOne, PortalTarget, SortPost };
