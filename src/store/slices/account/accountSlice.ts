@@ -16,9 +16,9 @@ const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setUser: (state, action) => {
-      state.name = action.payload.name;
-      state.email = action.payload.email;
+    setUser: (state, { payload }) => {
+      state.name = payload.name;
+      state.email = payload.email;
       state.isAuth = true;
     },
     removeUser: (state) => {

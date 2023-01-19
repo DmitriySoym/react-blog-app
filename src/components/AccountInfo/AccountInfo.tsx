@@ -1,5 +1,5 @@
 import { Portal } from "components";
-import { useAuth } from "hooks";
+import { useAppSelector, getAccountInfo } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { removeUser, useAppDispatch } from "store";
@@ -7,7 +7,7 @@ import { PortalTarget } from "types";
 import { StyledAccountInfo, Text, Button, Name } from "./styles";
 
 export const AccountInfo = () => {
-  const { name } = useAuth();
+  const { name } = useAppSelector(getAccountInfo);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
