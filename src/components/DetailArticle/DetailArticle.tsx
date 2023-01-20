@@ -1,8 +1,8 @@
-import { IArticle } from "types";
+import { IPost } from "types";
 import { Title, Image, Text, OriginArticle, Wrapper } from "./styles";
 
 interface IProps {
-  article: IArticle;
+  article: IPost;
 }
 
 export const DetailArticle = ({ article }: IProps) => {

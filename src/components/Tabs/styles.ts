@@ -11,6 +11,7 @@ const Tab = styled.a<{ isActive: boolean }>`
   width: 141px;
   height: 48px;
   ${Typography.Subline}
+  font-weight: 600;
   text-align: center;
   transition: 0.3s;
   border-bottom: ${({ isActive }) =>

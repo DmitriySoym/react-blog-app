@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IArticle, INews } from "types";
+import { IPost } from "types";
 
 class SpaceBlogApi {
   private readonly BASE_URL = process.env.REACT_APP_BASE_URL_SPACE_BLOG_API;
@@ -18,7 +18,7 @@ class SpaceBlogApi {
       _start: page,
       _summary_contains: query,
     };
-    const { data } = await this.API.get<IArticle[]>(this.END_POINTS.articles, { params });
+    const { data } = await this.API.get<IPost[]>(this.END_POINTS.articles, { params });
     return data;
   }
 
@@ -39,18 +39,18 @@ class SpaceBlogApi {
       _limit: 12,
       _start: page,
     };
-    const { data } = await this.API.get<INews[]>(this.END_POINTS.blogs, { params });
+    const { data } = await this.API.get<IPost[]>(this.END_POINTS.blogs, { params });
 
     return data;
   }
 
   public async getArticleById(id: string) {
-    const { data } = await this.API.get<IArticle>(`${this.END_POINTS.articles}/${id}`);
+    const { data } = await this.API.get<IPost>(`${this.END_POINTS.articles}/${id}`);
     return data;
   }
 
   public async getNewsById(id: string) {
-    const { data } = await this.API.get<INews>(`${this.END_POINTS.blogs}/${id}`);
+    const { data } = await this.API.get<IPost>(`${this.END_POINTS.blogs}/${id}`);
     return data;
   }
 }

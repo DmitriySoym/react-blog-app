@@ -1,14 +1,4 @@
-interface IArticle {
-  id: string;
-  url: string;
-  publishedAt: string;
-  summary: string;
-  title: string;
-  imageUrl: string;
-  newSite: string;
-}
-
-interface INews {
+interface IPost {
   id: string;
   url: string;
   publishedAt: string;
@@ -60,6 +50,6 @@ interface IButton {
   title: string;
 }
 
-export type { IArticle, INews, IOptionDateSort, ISelectOption, ITab, IButton };
+export type { IOptionDateSort, ISelectOption, ITab, IButton, IPost };
 
 export { SortByDate, TabOne, PortalTarget, SortPost };

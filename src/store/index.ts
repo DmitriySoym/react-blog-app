@@ -15,6 +15,8 @@ import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
 import { getDetailArticle } from "./selectors/detailArticleSelector";
 import { fetchDetailNews } from "./slices/detailNews/detailNewsSlice";
 import { getDetailNews } from "./selectors/detailNewsSelector";
+import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
+import { getFavorites } from "./selectors/favoriteSelector";
 
 export {
   store,
@@ -33,5 +35,7 @@ export {
   fetchDetailNews,
   getDetailArticle,
   getDetailNews,
+  toggleFavorite,
+  getFavorites,
 };
 export type { RootState, AppDispatch };

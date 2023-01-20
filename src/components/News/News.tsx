@@ -1,9 +1,9 @@
-import { NewsItem, Spinner } from "components";
+import { Spinner, Post } from "components";
 import { useEffect } from "react";
 import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { StyledNews } from "./styles";
 
-import { INews } from "types/types";
+import { IPost } from "types/types";
 
 export const News = () => {
   const { news, isLoading, error } = useAppSelector(getAllNews);
@@ -23,8 +23,8 @@ export const News = () => {
     <StyledNews>
       {news &&
         news.length > 0 &&
-        news.map((news: INews) => {
-          return <NewsItem news={news} key={news.id} />;
+        news.map((news: IPost) => {
+          return <Post post={news} key={news.id} />;
         })}
     </StyledNews>
   );

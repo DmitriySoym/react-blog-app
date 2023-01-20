@@ -1,7 +1,7 @@
-import { Article, Spinner } from "components";
+import { Post, Spinner } from "components";
 import { useEffect } from "react";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
-import { IArticle } from "types";
+import { IPost } from "types";
 import { StyledArticles } from "./styles";
 
 export const Articles = () => {
@@ -20,12 +20,10 @@ export const Articles = () => {
 
   return (
     <StyledArticles>
-      {/* {isLoading && <StyledSpinner />}
-      {error && <span>{error}</span>} */}
       {articles &&
         articles.length > 0 &&
-        articles.map((article: IArticle) => {
-          return <Article article={article} key={article.id} />;
+        articles.map((post: IPost) => {
+          return <Post post={post} key={post.id} />;
         })}
     </StyledArticles>
   );

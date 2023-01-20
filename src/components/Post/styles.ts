@@ -15,7 +15,7 @@ const StyledArticle = styled.li<{ bg: string }>`
     box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
   }
 
-  &:hover div:first-of-type {
+  &:hover div:nth-child(1) {
     background-image: url(${({ bg }) => bg});
   }
 `;
@@ -42,6 +42,38 @@ const StyledDate = styled.span`
   padding-bottom: 5px;
 `;
 
+const ButtonFavorite = styled.button`
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  path {
+    fill: ${Color.PRIMARY};
+  }
+
+  &:disabled {
+    transform: none;
+    path {
+      fill: ${Color.DISABLED};
+    }
+  }
+
+  & svg {
+    width: 24px;
+    height: 18px;
+  }
+`;
+
+const TextInfo = styled.p`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Summary = styled.p`
   ${Typography.H3}
 `;
@@ -52,4 +84,4 @@ const TextWrapper = styled.div`
   padding: 32px;
 `;
 
-export { Image, StyledDate, Summary, StyledArticle, TextWrapper };
+export { Image, StyledDate, Summary, StyledArticle, TextWrapper, TextInfo, ButtonFavorite };

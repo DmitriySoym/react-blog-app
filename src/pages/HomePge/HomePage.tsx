@@ -1,4 +1,4 @@
-import { Articles, Main, News, Tabs, SortPosts, Pagination, Title } from "components";
+import { Articles, Main, News, Tabs, SortPosts, Pagination, Title, Favorites } from "components";
 import { useEffect, useState } from "react";
 import { useAppSelector, getAccountInfo } from "store";
 import { useNavigate } from "react-router-dom";
@@ -35,7 +35,7 @@ export const HomePage = () => {
         <SortPosts />
         {activeTab === TabOne.ARTICLE && <Articles />}
         {activeTab === TabOne.NEWS && <News />}
-        {activeTab === TabOne.FAVORITES && <span>Faivorite page.</span>}
+        {activeTab === TabOne.FAVORITES && <Favorites />}
       </Main>
       <Pagination />
     </>

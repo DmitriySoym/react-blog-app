@@ -58,6 +58,7 @@ const Pages = styled.div`
 `;
 const FirstPage = styled.button`
   ${Typography.Subline};
+  background-color: inherit;
   font-weight: 600;
   cursor: pointer;
 
@@ -71,6 +72,7 @@ const FirstPage = styled.button`
 `;
 const SecondPage = styled.button`
   ${Typography.Subline};
+  background-color: inherit;
   font-weight: 600;
 
   &:disabled {

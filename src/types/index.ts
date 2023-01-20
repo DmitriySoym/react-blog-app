@@ -1,6 +1,4 @@
 import {
-  IArticle,
-  INews,
   SortByDate,
   TabOne,
   PortalTarget,
@@ -9,8 +7,9 @@ import {
   ISelectOption,
   ITab,
   IButton,
+  IPost,
 } from "./types";
 
-export type { IArticle, INews, IOptionDateSort, ISelectOption, ITab, IButton };
+export type { IOptionDateSort, ISelectOption, ITab, IButton, IPost };
 
 export { SortByDate, TabOne, PortalTarget, SortPost };

@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IArticle } from "types";
+import { IPost } from "types";
 import { spaceBlogApi } from "services";
 
 interface IArticlesState {
-  articles: IArticle[];
+  articles: IPost[];
   isLoading: boolean;
   error: null | string;
 }
 
 export const fetchArticles = createAsyncThunk<
-  IArticle[],
+  IPost[],
   { page: number; query: string },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
@@ -19,17 +19,6 @@ export const fetchArticles = createAsyncThunk<
     return rejectWithValue("error");
   }
 });
-
-// export const fetchArticlesCount = createAsyncThunk<number>(
-//   "articles/fetchArticlesCount",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       return await spaceBlogApi.getAllArticlesCount();
-//     } catch (error) {
-//       return rejectWithValue("error");
-//     }
-//   },
-// );
 
 const initialState: IArticlesState = {
   articles: [],

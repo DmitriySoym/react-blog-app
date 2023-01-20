@@ -12,11 +12,11 @@ const StyledSignIn = styled.div`
   margin: 0 auto;
 
   ${Media.XL} {
-    padding: 0 ${Indents.SM};
+    padding: ${Indents.LG} ${Indents.SM};
   }
 
   ${Media.MD} {
-    padding: 0 ${Indents.XXS};
+    padding: ${Indents.LG} ${Indents.XXS};
   }
 `;
 

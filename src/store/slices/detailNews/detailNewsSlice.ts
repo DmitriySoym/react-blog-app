@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { INews } from "types";
+import { IPost } from "types";
 import { spaceBlogApi } from "services";
 
 interface IDetailPostState {
-  news: INews;
+  news: IPost;
   isLoading: boolean;
   error: null | string;
 }
 
-export const fetchDetailNews = createAsyncThunk<INews, string, { rejectValue: string }>(
+export const fetchDetailNews = createAsyncThunk<IPost, string, { rejectValue: string }>(
   "detailNews/fetchDetailNews",
   async (params, { rejectWithValue }) => {
     try {
@@ -20,7 +20,7 @@ export const fetchDetailNews = createAsyncThunk<INews, string, { rejectValue: st
 );
 
 const initialState: IDetailPostState = {
-  news: {} as INews,
+  news: {} as IPost,
   isLoading: false,
   error: null,
 };
