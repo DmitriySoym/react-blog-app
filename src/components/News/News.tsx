@@ -1,4 +1,4 @@
-import { Spinner, Post } from "components";
+import { Spinner, PostNews } from "components";
 import { useEffect } from "react";
 import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
 import { StyledNews } from "./styles";
@@ -24,7 +24,7 @@ export const News = () => {
       {news &&
         news.length > 0 &&
         news.map((news: IPost) => {
-          return <Post post={news} key={news.id} />;
+          return <PostNews post={news} key={news.id} />;
         })}
     </StyledNews>
   );

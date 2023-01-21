@@ -1,6 +1,5 @@
-import { ArticlesPage } from "./ArticlesPage/ArticlesPage";
 import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
-import { NewsPage } from "./NewsPage/NewsPage";
+
 import { HomePage } from "./HomePge/HomePage";
 import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
 import { SignInPage } from "./SignInPage/SignInPage";
@@ -11,9 +10,7 @@ import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 import { SearchPage } from "./SearchPage/SearchPage";
 
 export {
-  ArticlesPage,
   NotFoundPage,
-  NewsPage,
   HomePage,
   FavoritesPage,
   SignInPage,

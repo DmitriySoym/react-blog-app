@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector, getDetailNews, fetchDetailNews } from "store";
-import { DetailNews, Spinner } from "components";
-import { StyledDetailPage, Button, Navigation, Post, Row } from "./styles";
+import { DetailNews, Spinner, NavigateButton } from "components";
+import { StyledDetailPage, Post } from "./styles";
 
 export const DetailsNewsPage = () => {
-  const navigate = useNavigate();
   const { id = "" } = useParams();
   const [details] = useState(id);
   const { news, isLoading } = useAppSelector(getDetailNews);
   const dispatch = useAppDispatch();
-
-  const handleBack = () => {
-    navigate(-1);
-  };
 
   useEffect(() => {
     dispatch(fetchDetailNews(details));
@@ -25,10 +20,9 @@ export const DetailsNewsPage = () => {
 
   return (
     <StyledDetailPage>
-      <Navigation>
-        <Button onClick={handleBack}>Home</Button>
+      <NavigateButton>
         <Post> / Post {news.id}</Post>
-      </Navigation>
+      </NavigateButton>
       <DetailNews news={news} />
       {/* <Row>
         <Article article={article} />

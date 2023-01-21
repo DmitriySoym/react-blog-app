@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Text, Wrapper } from "./styles";
 import { SwitchInput } from "components";
 import { useInput } from "hooks";
@@ -16,10 +16,6 @@ export const ThemeChangeBlock = () => {
 
   const themeValue = useInput();
   const [currentValue, setCurrentValue] = useState<InputValue>("1");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("theme", theme);
-  }, [theme]);
 
   return (
     <Wrapper>

@@ -13,7 +13,8 @@ import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { DetailArticle } from "./DetailArticle/DetailArticle";
 import { DetailNews } from "./DetailNews/DetailNews";
-import { Post } from "./Post/Post";
+import { PostArticle } from "./PostArticle/PostArticle";
+import { PostNews } from "./PostNews/PostNews";
 import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
 import { Portal } from "./Portal/Portal";
@@ -26,6 +27,7 @@ import { CustomSortByDateSelect } from "./CustomSortByDateSelect/CustomSortByDat
 import { Title } from "./Title/Title";
 import { SortButtons } from "./SortButtons/SortButtons";
 import { Favorites } from "./Favorites/Favorites";
+import { NavigateButton } from "./NavigateButton/NavigateButton";
 
 export {
   Header,
@@ -42,7 +44,7 @@ export {
   SignUpForm,
   SignInForm,
   DetailArticle,
-  Post,
+  PostArticle,
   DetailNews,
   ResetPassForm,
   AccountInfo,
@@ -56,4 +58,6 @@ export {
   Title,
   SortButtons,
   Favorites,
+  NavigateButton,
+  PostNews,
 };

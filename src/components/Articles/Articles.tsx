@@ -1,4 +1,4 @@
-import { Post, Spinner } from "components";
+import { PostArticle, Spinner } from "components";
 import { useEffect } from "react";
 import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
 import { IPost } from "types";
@@ -23,7 +23,7 @@ export const Articles = () => {
       {articles &&
         articles.length > 0 &&
         articles.map((post: IPost) => {
-          return <Post post={post} key={post.id} />;
+          return <PostArticle post={post} key={post.id} />;
         })}
     </StyledArticles>
   );

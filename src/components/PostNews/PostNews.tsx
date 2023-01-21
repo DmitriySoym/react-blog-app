@@ -23,7 +23,7 @@ interface IProps {
   post: IPost;
 }
 
-export const Post = ({ post }: IProps) => {
+export const PostNews = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
   const { favorites } = useAppSelector(getFavorites);
@@ -35,7 +35,7 @@ export const Post = ({ post }: IProps) => {
 
   return (
     <StyledArticle bg={post.imageUrl}>
-      <Link to={generatePath(ROUTE.DETAIL_POST, { id: post.id })}>
+      <Link to={generatePath(ROUTE.DETAIL_NEWS, { id: post.id })}>
         <Image bg={post.imageUrl} />
       </Link>
       <TextWrapper>
@@ -50,7 +50,7 @@ export const Post = ({ post }: IProps) => {
             {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
           </ButtonFavorite>
         </TextInfo>
-        <Link to={generatePath(ROUTE.DETAIL_POST, { id: post.id })}>
+        <Link to={generatePath(ROUTE.DETAIL_NEWS, { id: post.id })}>
           <Summary>
             {post.title.length > 70
               ? post.title.split(" ").slice(0, 10).join(" ") + "..."
