@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const authCheck = () => {
+  if (!localStorage.getItem("account")) {
+    localStorage.setItem("account", JSON.stringify({}));
+  }
+  return JSON.parse(localStorage.getItem("account") as string);
+};
+
+export const authStatus = authCheck();
 interface IAccountState {
   name: string;
   email: string;
@@ -7,9 +15,9 @@ interface IAccountState {
 }
 
 const initialState: IAccountState = {
-  name: "",
-  email: "",
-  isAuth: false,
+  name: authStatus.name,
+  email: authStatus.email,
+  isAuth: authStatus.isAuth,
 };
 
 const accountSlice = createSlice({
@@ -20,11 +28,13 @@ const accountSlice = createSlice({
       state.name = payload.name;
       state.email = payload.email;
       state.isAuth = true;
+      localStorage.setItem("account", JSON.stringify(state));
     },
     removeUser: (state) => {
       state.email = "";
       state.name = "";
       state.isAuth = false;
+      localStorage.setItem("account", JSON.stringify(state));
     },
   },
 });

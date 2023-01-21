@@ -11,7 +11,13 @@ import {
   TextInfo,
   ButtonFavorite,
 } from "./styles";
-import { toggleFavorite, getAccountInfo, useAppDispatch, useAppSelector } from "store";
+import {
+  toggleFavorite,
+  getAccountInfo,
+  useAppDispatch,
+  useAppSelector,
+  getFavorites,
+} from "store";
 
 interface IProps {
   post: IPost;
@@ -20,10 +26,12 @@ interface IProps {
 export const Post = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
-
+  const { favorites } = useAppSelector(getFavorites);
   const handleAddToFavorite = () => {
     dispatch(toggleFavorite(post));
   };
+
+  const isFavorite = favorites.map((post) => post.id).find((id) => id === post.id);
 
   return (
     <StyledArticle bg={post.imageUrl}>
@@ -35,16 +43,11 @@ export const Post = ({ post }: IProps) => {
           <StyledDate>{new Date(post.publishedAt).toLocaleDateString()}</StyledDate>
           <ButtonFavorite
             type="submit"
-            // onClick={handleAddToFavorite}
-
-            onClick={(e): void => {
-              e.preventDefault();
-              handleAddToFavorite();
-            }}
+            onClick={handleAddToFavorite}
             title="add to favorites"
-            // disabled={!isAuth}
+            disabled={!isAuth}
           >
-            <BsBookmark />
+            {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
           </ButtonFavorite>
         </TextInfo>
         <Link to={generatePath(ROUTE.DETAIL_POST, { id: post.id })}>

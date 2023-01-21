@@ -1,10 +1,10 @@
-import { IOptionDateSort, ISelectOption, SortByDate } from "types";
-import Select from "react-select";
+import { IOptionDateSort } from "types";
+import Select, { SingleValue } from "react-select";
 import { customStyles } from "./styles";
 
 interface IProps {
   options: IOptionDateSort[];
-  onChange: (newValue: IOptionDateSort | null) => void;
+  onChange: (newValue: SingleValue<IOptionDateSort>) => void;
   value: IOptionDateSort;
 }
 

@@ -4,7 +4,7 @@ import { useAppSelector, getAccountInfo } from "store";
 import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo } from "components/AccountInfo/AccountInfo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Account = () => {
   const { isAuth, name } = useAppSelector(getAccountInfo);

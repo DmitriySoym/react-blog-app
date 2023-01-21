@@ -13,7 +13,7 @@ interface IFavoritetState {
 }
 
 const initialState: IFavoritetState = {
-  favorites: [],
+  favorites: showFavoritesPost(),
 };
 
 const favoriteSlice = createSlice({

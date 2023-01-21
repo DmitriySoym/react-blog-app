@@ -53,7 +53,7 @@ const ButtonFavorite = styled.button`
   }
 
   path {
-    fill: ${Color.PRIMARY};
+    fill: red;
   }
 
   &:disabled {

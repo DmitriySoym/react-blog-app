@@ -1,4 +1,4 @@
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { customSortStyles } from "./styles";
 
 export interface ISelectOption {
@@ -8,7 +8,7 @@ export interface ISelectOption {
 
 interface IProps {
   options: ISelectOption[];
-  onChange: (newValue: ISelectOption | null) => void;
+  onChange: (newValue: SingleValue<ISelectOption>) => void;
   value: ISelectOption;
 }
 
