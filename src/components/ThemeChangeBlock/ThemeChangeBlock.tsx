@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Text, Wrapper, SwitchThemeButton, StyledSwitchWrapper, Switch } from "./styles";
-import { useInput } from "hooks";
 import { getTheme, setTheme, useAppDispatch, useAppSelector } from "store";
 
 type Theme = "light" | "dark";

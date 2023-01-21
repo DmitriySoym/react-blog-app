@@ -27,11 +27,11 @@ export const PostArticle = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
   const { favorites } = useAppSelector(getFavorites);
+  const isFavorite = favorites.map((post) => post.id).find((id) => id === post.id);
+
   const handleAddToFavorite = () => {
     dispatch(toggleFavorite(post));
   };
-
-  const isFavorite = favorites.map((post) => post.id).find((id) => id === post.id);
 
   return (
     <StyledArticle bg={post.imageUrl}>

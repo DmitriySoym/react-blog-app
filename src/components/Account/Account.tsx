@@ -9,6 +9,7 @@ import { useState } from "react";
 export const Account = () => {
   const { isAuth, name } = useAppSelector(getAccountInfo);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleModal = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
   };

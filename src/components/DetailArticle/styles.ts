@@ -24,6 +24,8 @@ const Wrapper = styled.div`
 `;
 
 const OriginArticle = styled.a`
+  display: flex;
+  align-items: center;
   height: 56px;
   padding: 10px;
   background-color: ${Color.PRIMARY};
@@ -34,4 +36,36 @@ const OriginArticle = styled.a`
   line-height: 24px;
 `;
 
-export { Title, Image, Text, OriginArticle, Wrapper };
+const ButtonsRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ButtonFavorite = styled.button`
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  path {
+    fill: red;
+  }
+
+  &:disabled {
+    transform: none;
+    path {
+      fill: ${Color.DISABLED};
+    }
+  }
+
+  & svg {
+    width: 28px;
+    height: 28px;
+  }
+`;
+
+export { Title, Image, Text, OriginArticle, Wrapper, ButtonFavorite, ButtonsRow };

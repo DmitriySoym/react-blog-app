@@ -1,5 +1,5 @@
 import { store } from "./store";
-import { setUser, removeUser } from "./slices/account/accountSlice";
+import { setUser, userLogout } from "./slices/account/accountSlice";
 import { setTheme } from "./slices/theme/themeSlice";
 import { RootState } from "./store";
 import { useAppSelector } from "./hooks/hooks";
@@ -21,7 +21,7 @@ import { getFavorites } from "./selectors/favoriteSelector";
 export {
   store,
   setUser,
-  removeUser,
+  userLogout,
   useAppSelector,
   useAppDispatch,
   setTheme,

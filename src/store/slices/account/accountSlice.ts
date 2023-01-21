@@ -30,7 +30,7 @@ const accountSlice = createSlice({
       state.isAuth = true;
       localStorage.setItem("account", JSON.stringify(state));
     },
-    removeUser: (state) => {
+    userLogout: (state) => {
       state.email = "";
       state.name = "";
       state.isAuth = false;
@@ -41,4 +41,4 @@ const accountSlice = createSlice({
 
 export default accountSlice.reducer;
 
-export const { setUser, removeUser } = accountSlice.actions;
+export const { setUser, userLogout } = accountSlice.actions;
