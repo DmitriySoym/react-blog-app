@@ -5,7 +5,7 @@ import { Footer } from "./Footer/Footer";
 import { Main } from "./Main/Main";
 import { Articles } from "./Articles/Articles";
 import { News } from "./News/News";
-
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Search } from "./Search/Search";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
@@ -59,4 +59,5 @@ export {
   Favorites,
   NavigateButton,
   PostNews,
+  BurgerMenu,
 };

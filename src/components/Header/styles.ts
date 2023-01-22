@@ -4,7 +4,7 @@ import { Color, Indents, Media } from "ui";
 
 const StyledHeader = styled.header`
   display: grid;
-  grid-template-columns: 200px auto 200px;
+  grid-template-columns: 200px auto;
   justify-items: end;
   align-items: center;
   padding: 0 ${Indents.XS};
@@ -16,6 +16,8 @@ const StyledHeader = styled.header`
   }
 
   ${Media.MD} {
+    display: flex;
+    justify-content: space-between;
     padding: 0 ${Indents.XXS};
   }
 `;

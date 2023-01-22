@@ -1,5 +1,31 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { Color, Media, Typography, Indents } from "ui";
+
+const Wrapper = styled(motion.div)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 100%;
+
+  ${Media.MD} {
+    position: absolute;
+
+    top: 96px;
+    left: 0;
+    z-index: 10;
+    display: flex;
+
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 30px;
+    height: calc(100vh - 100px);
+    background-color: inherit;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+`;
 
 const StyledAccount = styled.div`
   position: relative;
@@ -14,12 +40,10 @@ const StyledAccount = styled.div`
   cursor: pointer;
 
   ${Media.MD} {
-    display: none;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 0;
   }
-
-  /* &:hover {
-    box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
-  } */
 `;
 
 const Button = styled.p`
@@ -32,6 +56,10 @@ const Button = styled.p`
   &:hover {
     cursor: pointer;
     color: ${Color.PRIMARY_TWO};
+  }
+
+  ${Media.MD} {
+    margin: 0;
   }
 `;
 
@@ -50,6 +78,10 @@ const UserLogo = styled.div`
 
 const Name = styled.p`
   padding: 0 10px;
+
+  ${Media.MD} {
+    padding: 10px 0;
+  }
 `;
 
-export { StyledAccount, Button, UserLogo, Name };
+export { StyledAccount, Button, UserLogo, Name, Wrapper };

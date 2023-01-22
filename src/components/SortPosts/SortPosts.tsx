@@ -29,6 +29,7 @@ export const SortPosts = () => {
   const [activeButton, setActiveButton] = useState(buttons[0].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[0]);
+  const isTablet = width < 992.98;
 
   const handleSetTitleSort = (newValue: SingleValue<ISelectOption>) => {
     if (newValue) {
@@ -62,11 +63,11 @@ export const SortPosts = () => {
   return (
     <StyledSortPosts>
       <TimeSort>
-        {width >= 992.98 && (
+        {!isTablet && (
           <SortButtons buttons={buttons} onClick={handleSetDate} isActivebutton={activeButton} />
         )}
 
-        {width < 992.98 && (
+        {isTablet && (
           <CustomSortByDateSelect
             options={optionDate}
             value={isActiveDateSelect}

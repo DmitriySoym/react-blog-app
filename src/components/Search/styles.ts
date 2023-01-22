@@ -1,6 +1,6 @@
 import { CancelIcon, SearchIcon } from "assets";
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { Color, Media, Typography } from "ui";
 
 const Input = styled.input`
   display: grid;
@@ -51,6 +51,10 @@ const StyledSerch = styled(SearchIcon)`
     stroke: ${Color.TEXT};
   }
   cursor: pointer;
+
+  ${Media.MD} {
+    margin-top: 15px;
+  }
 `;
 
 const SearchWrapper = styled.div`

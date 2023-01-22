@@ -13,6 +13,7 @@ const StyledAccountInfo = styled.div`
   height: 100px;
   box-shadow: 0px 12px 40px 9px rgb(0 0 0 / 10%);
   text-align: center;
+  z-index: 10;
 `;
 
 const Text = styled.span`
