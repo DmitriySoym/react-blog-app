@@ -57,9 +57,24 @@ const StyledSerch = styled(SearchIcon)`
   }
 `;
 
-const SearchWrapper = styled.div`
+const ButtonSubmit = styled(SearchIcon)`
+  display: none;
+  position: absolute;
+  right: -34px;
+  top: 140px;
+  & path {
+    stroke: ${Color.TEXT};
+  }
+  cursor: pointer;
+
+  ${Media.MD} {
+    margin-top: 15px;
+  }
+`;
+
+const SearchWrapper = styled.form`
   position: relative;
   width: 100%;
   height: 96px;
 `;
-export { Input, StyledCancelIcon, StyledSerch, SearchWrapper };
+export { Input, StyledCancelIcon, StyledSerch, SearchWrapper, ButtonSubmit };

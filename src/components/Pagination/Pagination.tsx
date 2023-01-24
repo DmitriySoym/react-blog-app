@@ -54,14 +54,10 @@ export const Pagination = () => {
 
   useEffect(() => {
     dispatch(fetchArticles({ page: currentPage.page, query: "" }));
-    // spaceBlogApi.getAllArticlesCount().then((data) => setLastPage(Math.ceil(data / 12)));
-    // console.log("art");
   }, [dispatch, currentPage]);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: currentPage.page }));
-    // spaceBlogApi.getAllNewsCount().then((data) => setLastPage(Math.ceil(data / 12)));
-    // console.log("news");
+    dispatch(fetchNews({ page: currentPage.page, query: "" }));
   }, [dispatch, currentPage]);
 
   return (

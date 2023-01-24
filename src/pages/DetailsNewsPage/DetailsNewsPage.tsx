@@ -24,6 +24,7 @@ export const DetailsNewsPage = () => {
         <Post> / Post {news.id}</Post>
       </NavigateButton>
       <DetailNews post={news} />
+      {/* <DetailNews post={news} /> */}
       {/* <Row>
         <Article article={article} />
         <Article article={article} />

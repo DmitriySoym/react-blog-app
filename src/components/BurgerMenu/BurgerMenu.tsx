@@ -1,5 +1,5 @@
 import { Burger } from "./styles";
-import { useToggle } from "hooks";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 interface BurgerMenuProps {
   isMobile: boolean;
@@ -7,21 +7,8 @@ interface BurgerMenuProps {
   isMenuOpen: boolean;
 }
 
-const burgerVariants = {
-  open: { opacity: 0.5 },
-  closed: {},
-  idle: {},
-};
-
-export const BurgerMenu = ({ toggleMenu, isMobile, isMenuOpen }: BurgerMenuProps) => {
-  const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : "idle";
-
+export const BurgerMenu = ({ toggleMenu, isMenuOpen }: BurgerMenuProps) => {
   return (
-    <Burger
-      animate={currentVariant}
-      variants={burgerVariants}
-      onClick={toggleMenu}
-      initial="idle"
-    ></Burger>
+    <Burger onClick={toggleMenu}>{isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}</Burger>
   );
 };

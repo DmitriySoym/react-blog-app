@@ -1,11 +1,11 @@
 import { StyledAccount, Button, UserLogo, Name, Wrapper } from "./styles";
 import { LogoOutIcon } from "assets";
 import { useAppSelector, getAccountInfo } from "store";
-import { Link } from "react-router-dom";
+import { generatePath, Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo, Search } from "components";
-import { useState } from "react";
-import { useInput } from "hooks";
+import { FormEvent, useEffect, useState } from "react";
+import { useDebounce, useInput } from "hooks";
 
 interface MenuProps {
   isMobile: boolean;
@@ -15,23 +15,24 @@ interface MenuProps {
 
 const menuVariants = {
   open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: "-100%" },
-  idle: {},
+  closed: { opacity: 0.4, x: "-100%" },
 };
 
-export const Account = ({ isMenuOpen, isMobile, handleClose }: MenuProps) => {
-  const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : "idle";
+const start = {};
+
+export const Account = ({ isMenuOpen, isMobile }: MenuProps) => {
+  const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : start;
+  const navigate = useNavigate();
   const { isAuth, name } = useAppSelector(getAccountInfo);
   const [isOpen, setIsOpen] = useState(false);
-  const search = useInput();
 
   const handleModal = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
   };
 
   return (
-    <Wrapper animate={currentVariant} variants={menuVariants} initial="idle">
-      <Search value={search.value} onChange={search.onChange} />
+    <Wrapper transition={{ duration: 0.5 }} animate={currentVariant} variants={menuVariants}>
+      <Search />
       <StyledAccount onClick={handleModal}>
         {isAuth ? (
           <>
@@ -43,7 +44,7 @@ export const Account = ({ isMenuOpen, isMobile, handleClose }: MenuProps) => {
           <>
             <LogoOutIcon />{" "}
             <Link to={ROUTE.AUTH}>
-              <Button onClick={handleClose}>Sign In</Button>
+              <Button>Sign In</Button>
             </Link>
           </>
         )}

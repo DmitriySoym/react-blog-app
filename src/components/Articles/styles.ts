@@ -5,7 +5,6 @@ const StyledArticles = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
-  /* padding-top: ${Indents.LG}; */
   padding-bottom: ${Indents.XL};
 
   ${Media.XL} {
@@ -18,4 +17,13 @@ const StyledArticles = styled.ul`
   }
 `;
 
-export { StyledArticles };
+const ErrorWrapper = styled.div`
+  & img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+
+export { StyledArticles, ErrorWrapper };

@@ -1,21 +1,30 @@
 import { PostArticle, Spinner } from "components";
 import { useEffect } from "react";
-import { fetchArticles, getAllArticles, useAppDispatch, useAppSelector } from "store";
+import { fetchArticles, getAllposts, useAppDispatch, useAppSelector } from "store";
 import { IPost } from "types";
-import { StyledArticles } from "./styles";
+import { StyledArticles, ErrorWrapper } from "./styles";
+import errorImg from "../../assets/img/error.gif";
 
-export const Articles = () => {
-  const { articles, isLoading, error } = useAppSelector(getAllArticles);
+interface IProps {
+  articles: IPost[];
+}
+
+export const Articles = ({ articles }: IProps) => {
+  const { isLoading, error } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: 1, query: "" }));
+    dispatch(fetchArticles({ page: 0, query: "" }));
   }, [dispatch]);
 
   if (isLoading) {
     return <Spinner />;
   } else if (error) {
-    return <span>{error}</span>;
+    return (
+      <ErrorWrapper>
+        <img src={errorImg} alt="error" />
+      </ErrorWrapper>
+    );
   }
 
   return (
@@ -28,3 +37,5 @@ export const Articles = () => {
     </StyledArticles>
   );
 };
+
+/* {Array.isArray(posts) && */

@@ -1,6 +1,6 @@
 import { Articles, Main, News, Tabs, SortPosts, Pagination, Title, Favorites } from "components";
 import { useEffect, useState } from "react";
-import { useAppSelector, getAccountInfo } from "store";
+import { useAppSelector, getAccountInfo, getAllposts } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { ITab, TabOne } from "types";
@@ -11,6 +11,8 @@ export const HomePage = () => {
     { id: TabOne.NEWS, label: "News" },
     { id: TabOne.FAVORITES, label: "Favorites" },
   ];
+
+  const { articles, news } = useAppSelector(getAllposts);
 
   const { isAuth } = useAppSelector(getAccountInfo);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
@@ -33,8 +35,8 @@ export const HomePage = () => {
         <Title value="Blog" />
         <Tabs isActiveTab={activeTab} tabs={tabs} onClick={handleTabClick} />
         <SortPosts />
-        {activeTab === TabOne.ARTICLE && <Articles />}
-        {activeTab === TabOne.NEWS && <News />}
+        {activeTab === TabOne.ARTICLE && <Articles articles={articles} />}
+        {activeTab === TabOne.NEWS && <News news={news} />}
         {activeTab === TabOne.FAVORITES && <Favorites />}
       </Main>
       <Pagination />

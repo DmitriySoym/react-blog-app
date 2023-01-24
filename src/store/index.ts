@@ -7,16 +7,16 @@ import { useAppDispatch } from "./hooks/hooks";
 import { AppDispatch } from "./store";
 import { getTheme } from "./selectors/themeSelectors";
 import { getAccountInfo } from "./selectors/accauntSelectors";
-import { fetchArticles } from "./slices/articles/articlesSlice";
-import { getAllArticles } from "./selectors/articlesSelectors";
-import { getAllNews } from "./selectors/newsSelector";
-import { fetchNews } from "./slices/news/newsSlice";
+import { fetchArticles, fetchNews } from "./slices/postsSlice/postsSlice";
+import { getAllposts } from "./selectors/postsSelectors";
+// import { getAllNews } from "./selectors/newsSelector";
 import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
 import { getDetailArticle } from "./selectors/detailArticleSelector";
 import { fetchDetailNews } from "./slices/detailNews/detailNewsSlice";
 import { getDetailNews } from "./selectors/detailNewsSelector";
 import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavorites } from "./selectors/favoriteSelector";
+import { setSearchQuery } from "./slices/postsSlice/postsSlice";
 
 export {
   store,
@@ -28,8 +28,8 @@ export {
   getTheme,
   getAccountInfo,
   fetchArticles,
-  getAllArticles,
-  getAllNews,
+  getAllposts,
+  // getAllNews,
   fetchNews,
   fetchDetailArticle,
   fetchDetailNews,
@@ -37,5 +37,6 @@ export {
   getDetailNews,
   toggleFavorite,
   getFavorites,
+  setSearchQuery,
 };
 export type { RootState, AppDispatch };

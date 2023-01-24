@@ -1,22 +1,31 @@
 import { Spinner, PostNews } from "components";
 import { useEffect } from "react";
-import { fetchNews, getAllNews, useAppDispatch, useAppSelector } from "store";
-import { StyledNews } from "./styles";
+import { fetchNews, getAllposts, useAppDispatch, useAppSelector } from "store";
+import { StyledNews, ErrorWrapper } from "./styles";
+import errorImg from "../../assets/img/error.gif";
 
 import { IPost } from "types/types";
 
-export const News = () => {
-  const { news, isLoading, error } = useAppSelector(getAllNews);
+interface IProps {
+  news: IPost[];
+}
+
+export const News = ({ news }: IProps) => {
+  const { isLoading, error } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchNews({ page: 1 }));
+    dispatch(fetchNews({ page: 0, query: "" }));
   }, [dispatch]);
 
   if (isLoading) {
     return <Spinner />;
   } else if (error) {
-    return <span>{error}</span>;
+    return (
+      <ErrorWrapper>
+        <img src={errorImg} alt="error" />
+      </ErrorWrapper>
+    );
   }
 
   return (

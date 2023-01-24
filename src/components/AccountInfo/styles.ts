@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Typography, Color } from "ui";
 
 const StyledAccountInfo = styled.div`
-  position: absolute;
+  position: fixed;
   top: 97px;
   right: 15px;
   display: flex;
@@ -11,9 +11,11 @@ const StyledAccountInfo = styled.div`
   justify-content: space-around;
   width: 200px;
   height: 100px;
+  background-color: ${Color.BACKGROUND};
   box-shadow: 0px 12px 40px 9px rgb(0 0 0 / 10%);
   text-align: center;
   z-index: 10;
+  cursor: pointer;
 `;
 
 const Text = styled.span`

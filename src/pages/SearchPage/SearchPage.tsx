@@ -1,23 +1,35 @@
-import { useNavigate } from "react-router-dom";
-// import { StyledResrtForm, HomeButton, Title } from "./styles";
-import { ResetPassForm } from "components";
-import { ROUTE } from "router";
+import { Main, NavigateButton, PostArticle } from "components";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { fetchArticles, getAllposts, useAppDispatch, useAppSelector } from "store";
+import { IPost } from "types";
+import { Wrapper } from "./styles";
 
 export const SearchPage = () => {
-  return <div>SearchPage</div>;
+  const { serchValue = "" } = useParams();
+  const { articles } = useAppSelector(getAllposts);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    serchValue &&
+      dispatch(
+        fetchArticles({
+          page: 0,
+          query: serchValue,
+        }),
+      );
+  }, [dispatch, serchValue]);
+
+  return (
+    <Main>
+      <NavigateButton />
+      <Wrapper>
+        {articles &&
+          articles.length > 0 &&
+          articles.map((post: IPost) => {
+            return <PostArticle post={post} key={post.id} />;
+          })}
+      </Wrapper>
+    </Main>
+  );
 };
-
-// export const ResetPasswordPage = () => {
-//   const navigate = useNavigate();
-//   const handleBack = () => {
-//     navigate(ROUTE.HOME);
-//   };
-
-//   return (
-//     <StyledResrtForm>
-//       <HomeButton onClick={handleBack}>Back to home</HomeButton>
-//       <Title>Reset password</Title>
-//       <ResetPassForm />
-//     </StyledResrtForm>
-//   );
-// };

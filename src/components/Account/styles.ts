@@ -5,12 +5,11 @@ import { Color, Media, Typography, Indents } from "ui";
 const Wrapper = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
 
   ${Media.MD} {
     position: absolute;
-
     top: 96px;
     left: 0;
     z-index: 10;
@@ -21,8 +20,7 @@ const Wrapper = styled(motion.div)`
     align-items: flex-start;
     padding: 30px;
     height: calc(100vh - 100px);
-    background-color: inherit;
-    opacity: 0;
+    background-color: ${Color.BACKGROUND};
     transform: translateX(-100%);
   }
 `;
@@ -47,7 +45,7 @@ const StyledAccount = styled.div`
 `;
 
 const Button = styled.p`
-  margin-left: 10px;
+  padding-right: 40px;
   border: none;
   ${Typography.BODY_TWO}
   line-height: 34px;

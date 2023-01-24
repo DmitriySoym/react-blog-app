@@ -12,13 +12,14 @@ class SpaceBlogApi {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllArticles(page: number, query: string) {
+  public async getAllPosts(page: number, query: string, endpoint: string) {
     const params = {
-      _limit: 12,
+      _limit: 9,
       _start: page,
-      _summary_contains: query,
+      _title_contains: query,
     };
-    const { data } = await this.API.get<IPost[]>(this.END_POINTS.articles, { params });
+
+    const { data } = await this.API.get<IPost[]>("/" + endpoint, { params });
     return data;
   }
 
@@ -30,16 +31,6 @@ class SpaceBlogApi {
 
   public async getAllNewsCount() {
     const { data } = await this.API.get<number>(`${this.END_POINTS.blogs}/count`);
-
-    return data;
-  }
-
-  public async getAllNews(page: number) {
-    const params = {
-      _limit: 12,
-      _start: page,
-    };
-    const { data } = await this.API.get<IPost[]>(this.END_POINTS.blogs, { params });
 
     return data;
   }
