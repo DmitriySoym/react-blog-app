@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { spaceBlogApi } from "services";
+
 import { fetchArticles, fetchNews, useAppDispatch } from "store";
 
 import {
@@ -53,11 +53,11 @@ export const Pagination = () => {
   }, [currentPage.current]);
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: currentPage.page, query: "" }));
+    dispatch(fetchArticles({ page: currentPage.page, query: "", sortParams: "" }));
   }, [dispatch, currentPage]);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: currentPage.page, query: "" }));
+    dispatch(fetchNews({ page: currentPage.page, query: "", sortParams: "" }));
   }, [dispatch, currentPage]);
 
   return (

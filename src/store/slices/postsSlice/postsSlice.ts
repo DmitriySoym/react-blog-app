@@ -6,21 +6,26 @@ interface ISearchParams {
   searchQuery: string | null;
 }
 
+interface ISortParams {
+  sortQuery: string | null;
+}
+
 interface IPostState {
   articles: IPost[];
   news: IPost[];
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
+  sortParams: ISortParams;
 }
 
 export const fetchArticles = createAsyncThunk<
   IPost[],
-  { page: number; query: string },
+  { page: number; query: string; sortParams: string },
   { rejectValue: string }
 >("post/fetchArticles", async (params, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getAllPosts(params.page, params.query, "articles");
+    return await spaceBlogApi.getAllPosts(params.page, params.query, params.sortParams, "articles");
   } catch (error) {
     return rejectWithValue("error");
   }
@@ -28,11 +33,11 @@ export const fetchArticles = createAsyncThunk<
 
 export const fetchNews = createAsyncThunk<
   IPost[],
-  { page: number; query: string },
+  { page: number; query: string; sortParams: string },
   { rejectValue: string }
 >("post/fetchNews", async (params, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getAllPosts(params.page, params.query, "blogs");
+    return await spaceBlogApi.getAllPosts(params.page, params.query, params.sortParams, "blogs");
   } catch (error) {
     return rejectWithValue("error");
   }
@@ -46,6 +51,9 @@ const initialState: IPostState = {
   searchParams: {
     searchQuery: null,
   },
+  sortParams: {
+    sortQuery: null,
+  },
 };
 
 const articlesSlice = createSlice({
@@ -54,6 +62,9 @@ const articlesSlice = createSlice({
   reducers: {
     setSearchQuery: (state, { payload }) => {
       state.searchParams.searchQuery = payload.searchQuery;
+    },
+    setSortQuery: (state, { payload }) => {
+      state.sortParams.sortQuery = payload.sortQuery;
     },
   },
   extraReducers(builder) {
@@ -91,4 +102,4 @@ const articlesSlice = createSlice({
 
 export default articlesSlice.reducer;
 
-export const { setSearchQuery } = articlesSlice.actions;
+export const { setSearchQuery, setSortQuery } = articlesSlice.actions;

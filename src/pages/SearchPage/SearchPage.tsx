@@ -16,6 +16,7 @@ export const SearchPage = () => {
         fetchArticles({
           page: 0,
           query: serchValue,
+          sortParams: "",
         }),
       );
   }, [dispatch, serchValue]);

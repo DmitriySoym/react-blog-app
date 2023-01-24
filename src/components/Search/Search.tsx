@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { useAppDispatch } from "store";
+import { getMenuBurgerStatus, setIsMenuOpen, useAppDispatch, useAppSelector } from "store";
 import { Input, StyledCancelIcon, StyledSerch, SearchWrapper, ButtonSubmit } from "./styles";
 
 interface ISerchValue {
@@ -13,12 +13,22 @@ interface ISerchValue {
 export const Search = () => {
   const { reset, register, handleSubmit } = useForm<ISerchValue>();
   const [isSearchActive, toggleSearchActive] = useToggle();
-
   const navigate = useNavigate();
+  //-----------
+  const { isMenuOpen } = useAppSelector(getMenuBurgerStatus);
+  const dispatch = useAppDispatch();
+  const handleMenuToggle = () => {
+    dispatch(setIsMenuOpen());
+  };
+  //-------------
 
   const handleSearchToggle = () => {
     toggleSearchActive();
     reset();
+    handleMenuToggle();
+
+    console.log(isMenuOpen);
+    console.log(handleMenuToggle());
   };
 
   const handleSearch: SubmitHandler<ISerchValue> = (query) => {

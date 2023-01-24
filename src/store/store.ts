@@ -5,6 +5,7 @@ import postReduser from "./slices/postsSlice/postsSlice";
 import detailArticleReducer from "./slices/detailArticle/detailArticleSlice";
 import detailNewsReducer from "./slices/detailNews/detailNewsSlice";
 import favoriteReducer from "./slices/favoritesSlice/favoritesSlice";
+import menuBurgerReduser from "./slices/menuBurgerSlice/menuBurgerSclice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     detailArticle: detailArticleReducer,
     detailNews: detailNewsReducer,
     favorites: favoriteReducer,
+    menuBurger: menuBurgerReduser,
   },
 });
 

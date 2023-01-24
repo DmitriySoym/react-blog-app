@@ -19,7 +19,6 @@ import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
 import { Portal } from "./Portal/Portal";
 import { Tabs } from "./Tabs/Tabs";
-import { SortPosts } from "./SortPosts/SortPosts";
 import { Spinner } from "./Spinner/Spinner";
 import { Pagination } from "./Pagination/Pagination";
 import { CustomTitleSelect } from "./CustomTitleSelect/CustomTitleSelect";
@@ -49,7 +48,6 @@ export {
   AccountInfo,
   Portal,
   Tabs,
-  SortPosts,
   Spinner,
   Pagination,
   CustomSortByDateSelect,

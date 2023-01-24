@@ -15,7 +15,7 @@ export const News = ({ news }: IProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchNews({ page: 0, query: "" }));
+    dispatch(fetchNews({ page: 0, query: "", sortParams: "" }));
   }, [dispatch]);
 
   if (isLoading) {

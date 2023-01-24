@@ -12,11 +12,12 @@ class SpaceBlogApi {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllPosts(page: number, query: string, endpoint: string) {
+  public async getAllPosts(page: number, query: string, sortParams: string, endpoint: string) {
     const params = {
       _limit: 9,
       _start: page,
       _title_contains: query,
+      _sort: sortParams,
     };
 
     const { data } = await this.API.get<IPost[]>("/" + endpoint, { params });
