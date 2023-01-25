@@ -3,6 +3,7 @@ import {
   Main,
   News,
   Tabs,
+  tabs,
   Pagination,
   Title,
   Favorites,
@@ -11,64 +12,35 @@ import {
   SortButtons,
 } from "components";
 import { useEffect, useState } from "react";
-import { useAppSelector, getAccountInfo, getAllposts } from "store";
+import {
+  useAppSelector,
+  getAccountInfo,
+  getAllposts,
+  optionDate,
+  buttons,
+  optionSortByTitle,
+} from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { IButton, IOptionDateSort, ISelectOption, ITab, SortByDate, SortPost, TabOne } from "types";
+import { IOptionDateSort, ISelectOption, TabOne } from "types";
 import { SingleValue } from "react-select";
 import { StyledSortPosts, TimeSort } from "./styles";
 import { useWindowSize } from "hooks";
-
-const tabs: ITab[] = [
-  { id: TabOne.ARTICLE, label: "Articles" },
-  { id: TabOne.NEWS, label: "News" },
-  { id: TabOne.FAVORITES, label: "Favorites" },
-];
-
-//------24/01
-const buttons: IButton[] = [
-  { id: "0", title: "Day" },
-  { id: "1", title: "Week" },
-  { id: "2", title: "Month" },
-  { id: "3", title: "Year" },
-];
-
-const optionSortByTitle: ISelectOption[] = [
-  { value: SortPost.AZ, label: "Title (A-Z)" },
-  { value: SortPost.ZA, label: "Title (Z-A)" },
-];
-
-export const optionDate: IOptionDateSort[] = [
-  { value: SortByDate.DAY, label: "Day" },
-  { value: SortByDate.WEEK, label: "Week" },
-  { value: SortByDate.MONTH, label: "Month" },
-  { value: SortByDate.YEAR, label: "Year" },
-];
-
-//--------------------
 
 export const HomePage = () => {
   const { articles, news } = useAppSelector(getAllposts);
   const { isAuth } = useAppSelector(getAccountInfo);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuth && activeTab === TabOne.FAVORITES) {
-      alert("Sign in, please.");
-      navigate(ROUTE.AUTH);
-    }
-  }, [activeTab, isAuth, navigate]);
-
-  const handleActiveTab = (id: TabOne) => {
-    setActiveTab(id);
-  };
-  //------------24/01
   const { width = 0 } = useWindowSize();
   const [activeButton, setActiveButton] = useState(buttons[0].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[0]);
   const isTablet = width < 992.98;
+
+  const handleActiveTab = (id: TabOne) => {
+    setActiveTab(id);
+  };
 
   const handleSetTitleSort = (newValue: SingleValue<ISelectOption>) => {
     if (newValue) {
@@ -79,7 +51,6 @@ export const HomePage = () => {
   const handleSetDate = (id: string) => {
     setActiveButton(id);
     setIsActiveDateSelect(optionDate[+id]);
-    console.log(id);
   };
 
   const handleSetActiveDateSelect = (newValue: SingleValue<IOptionDateSort>) => {
@@ -99,21 +70,13 @@ export const HomePage = () => {
       }
     }
   };
-  // const { results, totalCount, isLoading } = useAppSelector(getBlog);
-  // const dispatch = useAppDispatch();
 
-  // const [offset, setOffset] = useState<number>(0);
-  // const [sort, setSort] = useState<Sort>();
-  // const [period, setPeriod] = useState<Period>();
-
-  // const handlePageChange = useCallback(({ selected }: { selected: number }) => {
-  //   setOffset(selected * PerPage);
-  // }, []);
-  // useEffect(() => {
-  //   dispatch(fetchAllBlogEntries({ category, sort, offset }));
-  // }, [dispatch, category, sort, offset]);
-
-  //----------------------
+  useEffect(() => {
+    if (!isAuth && activeTab === TabOne.FAVORITES) {
+      alert("Sign in, please.");
+      navigate(ROUTE.AUTH);
+    }
+  }, [activeTab, isAuth, navigate]);
 
   return (
     <>

@@ -75,6 +75,10 @@ const Text = styled.span`
   & a {
     color: ${Color.PRIMARY};
   }
+
+  & a:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
 `;
 
 export { StyledForm, Label, Input, Button, Error, Text };

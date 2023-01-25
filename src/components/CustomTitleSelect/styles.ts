@@ -3,7 +3,12 @@ import { ISelectOption } from "types";
 import { Color } from "ui";
 
 const customSortStyles: StylesConfig<ISelectOption> = {
-  control: (baseStyles) => ({
+  container: (baseStyles, state) => ({
+    ...baseStyles,
+    border: state.isFocused ? `1p solid ${Color.PRIMARY}` : "none",
+  }),
+
+  control: (baseStyles, state) => ({
     ...baseStyles,
     height: 56,
     backgroundColor: `${Color.HEADER_BACKGROUND}`,
@@ -17,6 +22,13 @@ const customSortStyles: StylesConfig<ISelectOption> = {
     ...baseStyles,
     backgroundColor: `${Color.HEADER_BACKGROUND}`,
     color: `${Color.TEXT}`,
+    cursor: "pointer",
+    "&:hover": {
+      /* eslint-disable */
+      content: `""`,
+      /* eslint-enable */
+      color: `${Color.PRIMARY}`,
+    },
   }),
 
   menu: (baseStyles, state) => ({

@@ -7,6 +7,12 @@ interface IProps {
   isActiveTab: string;
 }
 
+export const tabs: ITab[] = [
+  { id: TabOne.ARTICLE, label: "Articles" },
+  { id: TabOne.NEWS, label: "News" },
+  { id: TabOne.FAVORITES, label: "Favorites" },
+];
+
 export const Tabs = ({ tabs, onClick, isActiveTab }: IProps) => {
   return (
     <NavWrapper>

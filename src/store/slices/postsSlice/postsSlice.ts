@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IPost } from "types";
+import { IButton, IOptionDateSort, IPost, ISelectOption, SortByDate, SortPost } from "types";
 import { spaceBlogApi } from "services";
 
 interface ISearchParams {
@@ -18,6 +18,30 @@ interface IPostState {
   searchParams: ISearchParams;
   sortParams: ISortParams;
 }
+
+export enum PostsCategory {
+  ARTICLES = "articles",
+  NEWS = "news",
+}
+
+export const optionDate: IOptionDateSort[] = [
+  { value: SortByDate.DAY, label: "Day" },
+  { value: SortByDate.WEEK, label: "Week" },
+  { value: SortByDate.MONTH, label: "Month" },
+  { value: SortByDate.YEAR, label: "Year" },
+];
+
+export const buttons: IButton[] = [
+  { id: "0", title: "Day" },
+  { id: "1", title: "Week" },
+  { id: "2", title: "Month" },
+  { id: "3", title: "Year" },
+];
+
+export const optionSortByTitle: ISelectOption[] = [
+  { value: SortPost.AZ, label: "Title (A-Z)" },
+  { value: SortPost.ZA, label: "Title (Z-A)" },
+];
 
 export const fetchArticles = createAsyncThunk<
   IPost[],

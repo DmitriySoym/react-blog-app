@@ -4,6 +4,10 @@ import { Indents, Typography, Color, Media } from "ui";
 const Button = styled.button`
   background-color: inherit;
   ${Typography.Subline};
+
+  &:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
 `;
 
 const Post = styled.span`

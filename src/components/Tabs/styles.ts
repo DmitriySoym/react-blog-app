@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Indents, Typography, Media, Color } from "ui";
+import { Indents, Typography, Color } from "ui";
 
 const NavWrapper = styled.div`
   display: flex;

@@ -15,7 +15,13 @@ import { fetchDetailNews } from "./slices/detailNews/detailNewsSlice";
 import { getDetailNews } from "./selectors/detailNewsSelector";
 import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavorites } from "./selectors/favoriteSelector";
-import { setSearchQuery, setSortQuery } from "./slices/postsSlice/postsSlice";
+import {
+  setSearchQuery,
+  setSortQuery,
+  optionDate,
+  buttons,
+  optionSortByTitle,
+} from "./slices/postsSlice/postsSlice";
 import { getMenuBurgerStatus } from "./selectors/menuBurgerSelector";
 import { setIsMenuOpen } from "./slices/menuBurgerSlice/menuBurgerSclice";
 
@@ -41,5 +47,8 @@ export {
   getMenuBurgerStatus,
   setIsMenuOpen,
   setSortQuery,
+  optionDate,
+  buttons,
+  optionSortByTitle,
 };
 export type { RootState, AppDispatch };
