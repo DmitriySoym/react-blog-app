@@ -56,7 +56,7 @@ const Pages = styled.div`
   justify-content: space-between;
   width: 180px;
 `;
-const FirstPage = styled.button`
+const Page = styled.button`
   ${Typography.Subline};
   background-color: inherit;
   font-weight: 600;
@@ -70,7 +70,7 @@ const FirstPage = styled.button`
     color: ${Color.PRIMARY};
   }
 `;
-const SecondPage = styled.button`
+const CurentPage = styled.button`
   ${Typography.Subline};
   background-color: inherit;
   font-weight: 600;
@@ -84,4 +84,4 @@ const LastPage = styled.button`
   ${Typography.BODY};
 `;
 
-export { StyledPagination, ButtonPrev, ButtonNext, Pages, FirstPage, LastPage, SecondPage };
+export { StyledPagination, ButtonPrev, ButtonNext, Pages, Page, LastPage, CurentPage };

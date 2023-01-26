@@ -19,7 +19,7 @@ class SpaceBlogApi {
     endpoint: string,
   ) {
     const params = {
-      _limit: 9,
+      _limit: 12,
       _start: page,
       _title_contains: query,
       _sort: sortParams,
@@ -45,11 +45,6 @@ class SpaceBlogApi {
     const { data } = await this.API.get<IPost>(`${this.END_POINTS.articles}/${id}`);
     return data;
   }
-
-  // public async getNewsById(id: string, endPoint: string) {
-  //   const { data } = await this.API.get<IPost>(`${this.END_POINTS.blogs}/${id}`);
-  //   return data;
-  // }
 
   public async getNewsById(id: string, endPoint: string) {
     const { data } = await this.API.get<IPost>("/" + endPoint + "/" + id);

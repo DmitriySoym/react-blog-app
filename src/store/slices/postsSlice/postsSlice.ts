@@ -12,6 +12,7 @@ interface ISortParams {
 
 interface IPostState {
   posts: IPost[];
+  page: number;
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
@@ -53,6 +54,7 @@ export const fetchAllPosts = createAsyncThunk<
 
 const initialState: IPostState = {
   posts: [],
+  page: 0,
   isLoading: false,
   error: null,
   searchParams: {
@@ -77,9 +79,9 @@ const articlesSlice = createSlice({
     setEndPoint: (state, { payload }) => {
       state.endPoint = payload;
     },
-    // setTitleSortParams:(state, {payload}) =>{
-
-    // }
+    setPage: (state, { payload }) => {
+      state.page = payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchAllPosts.pending, (state) => {
@@ -101,4 +103,4 @@ const articlesSlice = createSlice({
 
 export default articlesSlice.reducer;
 
-export const { setSearchQuery, setSortQuery, setEndPoint } = articlesSlice.actions;
+export const { setSearchQuery, setSortQuery, setEndPoint, setPage } = articlesSlice.actions;

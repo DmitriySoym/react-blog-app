@@ -27,11 +27,11 @@ const Image = styled.div<{ bg: string }>`
   background-blend-mode: multiply;
   background-image: linear-gradient(
       133.87deg,
-      rgba(77, 10, 199, 0.6) -10.18%,
-      rgba(145, 46, 242, 0.6) 108.59%
+      rgba(77, 10, 199, 0.4) -10.18%,
+      rgba(145, 46, 242, 0.4) 108.59%
     ),
     url(${({ bg }) => bg});
-  background-position: center;
+  background-position: 0 25%;
   background-repeat: no-repeat;
   background-size: cover;
 `;

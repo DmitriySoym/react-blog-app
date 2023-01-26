@@ -23,6 +23,7 @@ import {
   buttons,
   optionSortByTitle,
   setEndPoint,
+  setPage,
 } from "./slices/postsSlice/postsSlice";
 import { getMenuBurgerStatus } from "./selectors/menuBurgerSelector";
 import { setIsMenuOpen } from "./slices/menuBurgerSlice/menuBurgerSclice";
@@ -52,5 +53,6 @@ export {
   optionSortByTitle,
   fetchAllPosts,
   setEndPoint,
+  setPage,
 };
 export type { RootState, AppDispatch };

@@ -11,7 +11,7 @@ const Image = styled.img`
   height: 550px;
   padding-top: ${Indents.MD};
   object-fit: cover;
-  object-position: 50%;
+  object-position: 50% 20%;
 `;
 
 const Text = styled.p`
