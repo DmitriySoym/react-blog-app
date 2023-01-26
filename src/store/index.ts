@@ -7,12 +7,13 @@ import { useAppDispatch } from "./hooks/hooks";
 import { AppDispatch } from "./store";
 import { getTheme } from "./selectors/themeSelectors";
 import { getAccountInfo } from "./selectors/accauntSelectors";
-import { fetchArticles, fetchNews } from "./slices/postsSlice/postsSlice";
+
+import { fetchAllPosts } from "./slices/postsSlice/postsSlice";
 import { getAllposts } from "./selectors/postsSelectors";
 import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
 import { getDetailArticle } from "./selectors/detailArticleSelector";
-import { fetchDetailNews } from "./slices/detailNews/detailNewsSlice";
-import { getDetailNews } from "./selectors/detailNewsSelector";
+import { fetchDetailPost } from "./slices/detailPost/detailPostlelice";
+import { getDetailPost } from "./selectors/detailPostSelector";
 import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavorites } from "./selectors/favoriteSelector";
 import {
@@ -21,6 +22,7 @@ import {
   optionDate,
   buttons,
   optionSortByTitle,
+  setEndPoint,
 } from "./slices/postsSlice/postsSlice";
 import { getMenuBurgerStatus } from "./selectors/menuBurgerSelector";
 import { setIsMenuOpen } from "./slices/menuBurgerSlice/menuBurgerSclice";
@@ -34,13 +36,11 @@ export {
   setTheme,
   getTheme,
   getAccountInfo,
-  fetchArticles,
   getAllposts,
-  fetchNews,
   fetchDetailArticle,
-  fetchDetailNews,
+  fetchDetailPost,
   getDetailArticle,
-  getDetailNews,
+  getDetailPost,
   toggleFavorite,
   getFavorites,
   setSearchQuery,
@@ -50,5 +50,7 @@ export {
   optionDate,
   buttons,
   optionSortByTitle,
+  fetchAllPosts,
+  setEndPoint,
 };
 export type { RootState, AppDispatch };

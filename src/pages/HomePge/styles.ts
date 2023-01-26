@@ -50,4 +50,20 @@ const TimeSort = styled.div`
   }
 `;
 
-export { StyledSortPosts, TimeSort };
+const StyledPostsList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 40px;
+  padding-bottom: ${Indents.XL};
+
+  ${Media.XL} {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: ${Indents.SM};
+  }
+
+  ${Media.MD} {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+export { StyledSortPosts, TimeSort, StyledPostsList };

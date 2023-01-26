@@ -17,17 +17,12 @@ const enum SortByDate {
 
 const enum TabOne {
   ARTICLE = "articles",
-  NEWS = "news",
+  NEWS = "blogs",
   FAVORITES = "favorites",
 }
 
 const enum PortalTarget {
   MODAL = "modal",
-}
-
-const enum SortPost {
-  AZ = "az",
-  ZA = "za",
 }
 
 interface IOptionDateSort {
@@ -43,6 +38,7 @@ interface ISelectOption {
 interface ITab {
   id: TabOne;
   label: string;
+  value: string;
 }
 
 interface IButton {
@@ -52,4 +48,4 @@ interface IButton {
 
 export type { IOptionDateSort, ISelectOption, ITab, IButton, IPost };
 
-export { SortByDate, TabOne, PortalTarget, SortPost };
+export { SortByDate, TabOne, PortalTarget };

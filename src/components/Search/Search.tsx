@@ -26,9 +26,6 @@ export const Search = () => {
     toggleSearchActive();
     reset();
     handleMenuToggle();
-
-    console.log(isMenuOpen);
-    console.log(handleMenuToggle());
   };
 
   const handleSearch: SubmitHandler<ISerchValue> = (query) => {

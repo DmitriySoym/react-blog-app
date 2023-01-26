@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { fetchArticles, fetchNews, useAppDispatch } from "store";
+import { useAppDispatch } from "store";
 
 import {
   StyledPagination,
@@ -52,13 +52,13 @@ export const Pagination = () => {
     currentPage.current !== 1 ? setCurrentPageState(true) : setCurrentPageState(false);
   }, [currentPage.current]);
 
-  useEffect(() => {
-    dispatch(fetchArticles({ page: currentPage.page, query: "", sortParams: "" }));
-  }, [dispatch, currentPage]);
+  // useEffect(() => {
+  //   dispatch(fetchArticles({ page: currentPage.page, query: "", sortParams: "" }));
+  // }, [dispatch, currentPage]);
 
-  useEffect(() => {
-    dispatch(fetchNews({ page: currentPage.page, query: "", sortParams: "" }));
-  }, [dispatch, currentPage]);
+  // useEffect(() => {
+  //   dispatch(fetchNews({ page: currentPage.page, query: "", sortParams: "" }));
+  // }, [dispatch, currentPage]);
 
   return (
     <StyledPagination>

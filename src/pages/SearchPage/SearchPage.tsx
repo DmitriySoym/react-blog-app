@@ -1,22 +1,23 @@
-import { Main, NavigateButton, PostArticle } from "components";
+import { Main, NavigateButton, PostItem } from "components";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticles, getAllposts, useAppDispatch, useAppSelector } from "store";
-import { IPost } from "types";
+import { fetchAllPosts, getAllposts, useAppDispatch, useAppSelector } from "store";
+import { IPost, TabOne } from "types";
 import { Wrapper } from "./styles";
 
 export const SearchPage = () => {
   const { serchValue = "" } = useParams();
-  const { articles } = useAppSelector(getAllposts);
+  const { posts } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     serchValue &&
       dispatch(
-        fetchArticles({
+        fetchAllPosts({
           page: 0,
           query: serchValue,
           sortParams: "",
+          endpoint: TabOne.ARTICLE,
         }),
       );
   }, [dispatch, serchValue]);
@@ -25,10 +26,10 @@ export const SearchPage = () => {
     <Main>
       <NavigateButton />
       <Wrapper>
-        {articles &&
-          articles.length > 0 &&
-          articles.map((post: IPost) => {
-            return <PostArticle post={post} key={post.id} />;
+        {posts &&
+          posts.length > 0 &&
+          posts.map((post: IPost) => {
+            return <PostItem post={post} key={post.id} />;
           })}
       </Wrapper>
     </Main>

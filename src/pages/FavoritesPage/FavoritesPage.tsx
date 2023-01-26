@@ -1,4 +1,4 @@
-import { Main, PostArticle, NavigateButton } from "components";
+import { Main, PostItem, NavigateButton } from "components";
 
 import { getFavorites, useAppSelector } from "store";
 import { IPost } from "types";
@@ -15,7 +15,7 @@ export const FavoritesPage = () => {
         {favorites &&
           favorites.length > 0 &&
           favorites.map((post: IPost) => {
-            return <PostArticle post={post} key={post.id} />;
+            return <PostItem post={post} key={post.id} />;
           })}
       </FavoritesRow>
     </Main>

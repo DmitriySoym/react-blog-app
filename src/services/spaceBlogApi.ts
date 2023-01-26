@@ -12,7 +12,12 @@ class SpaceBlogApi {
     baseURL: this.BASE_URL,
   });
 
-  public async getAllPosts(page: number, query: string, sortParams: string, endpoint: string) {
+  public async getAllPostsStartPage(
+    page: number,
+    query: string,
+    sortParams: string,
+    endpoint: string,
+  ) {
     const params = {
       _limit: 9,
       _start: page,
@@ -41,8 +46,13 @@ class SpaceBlogApi {
     return data;
   }
 
-  public async getNewsById(id: string) {
-    const { data } = await this.API.get<IPost>(`${this.END_POINTS.blogs}/${id}`);
+  // public async getNewsById(id: string, endPoint: string) {
+  //   const { data } = await this.API.get<IPost>(`${this.END_POINTS.blogs}/${id}`);
+  //   return data;
+  // }
+
+  public async getNewsById(id: string, endPoint: string) {
+    const { data } = await this.API.get<IPost>("/" + endPoint + "/" + id);
     return data;
   }
 }

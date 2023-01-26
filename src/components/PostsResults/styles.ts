@@ -1,12 +1,10 @@
 import styled from "styled-components";
-
 import { Media, Indents } from "ui";
 
-const StyledNews = styled.ul`
+const StyledArticles = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
-  padding-top: ${Indents.LG};
   padding-bottom: ${Indents.XL};
 
   ${Media.XL} {
@@ -20,6 +18,7 @@ const StyledNews = styled.ul`
 `;
 
 const ErrorWrapper = styled.div`
+  padding: ${Indents.LG} 0;
   & img {
     display: block;
     width: 100%;
@@ -28,4 +27,4 @@ const ErrorWrapper = styled.div`
   }
 `;
 
-export { StyledNews, ErrorWrapper };
+export { StyledArticles, ErrorWrapper };

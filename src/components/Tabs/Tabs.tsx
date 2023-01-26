@@ -8,9 +8,9 @@ interface IProps {
 }
 
 export const tabs: ITab[] = [
-  { id: TabOne.ARTICLE, label: "Articles" },
-  { id: TabOne.NEWS, label: "News" },
-  { id: TabOne.FAVORITES, label: "Favorites" },
+  { id: TabOne.ARTICLE, label: "Articles", value: "articles" },
+  { id: TabOne.NEWS, label: "News", value: "news" },
+  { id: TabOne.FAVORITES, label: "Favorites", value: "" },
 ];
 
 export const Tabs = ({ tabs, onClick, isActiveTab }: IProps) => {

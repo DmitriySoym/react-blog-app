@@ -3,7 +3,7 @@ import userReduser from "./slices/account/accountSlice";
 import themeReduser from "./slices/theme/themeSlice";
 import postReduser from "./slices/postsSlice/postsSlice";
 import detailArticleReducer from "./slices/detailArticle/detailArticleSlice";
-import detailNewsReducer from "./slices/detailNews/detailNewsSlice";
+import detailPostReducer from "./slices/detailPost/detailPostlelice";
 import favoriteReducer from "./slices/favoritesSlice/favoritesSlice";
 import menuBurgerReduser from "./slices/menuBurgerSlice/menuBurgerSclice";
 
@@ -13,7 +13,7 @@ export const store = configureStore({
     theme: themeReduser,
     posts: postReduser,
     detailArticle: detailArticleReducer,
-    detailNews: detailNewsReducer,
+    detailPost: detailPostReducer,
     favorites: favoriteReducer,
     menuBurger: menuBurgerReduser,
   },

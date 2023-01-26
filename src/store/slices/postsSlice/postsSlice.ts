@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IButton, IOptionDateSort, IPost, ISelectOption, SortByDate, SortPost } from "types";
+import { IButton, IOptionDateSort, IPost, ISelectOption, SortByDate, TabOne } from "types";
 import { spaceBlogApi } from "services";
 
 interface ISearchParams {
@@ -11,12 +11,12 @@ interface ISortParams {
 }
 
 interface IPostState {
-  articles: IPost[];
-  news: IPost[];
+  posts: IPost[];
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
   sortParams: ISortParams;
+  endPoint: TabOne;
 }
 
 export enum PostsCategory {
@@ -39,37 +39,24 @@ export const buttons: IButton[] = [
 ];
 
 export const optionSortByTitle: ISelectOption[] = [
-  { value: SortPost.AZ, label: "Title (A-Z)" },
-  { value: SortPost.ZA, label: "Title (Z-A)" },
+  { value: "title", label: "Title (A-Z)" },
+  { value: "title:DESC", label: "Title (Z-A)" },
 ];
 
-export const fetchArticles = createAsyncThunk<
+export const fetchAllPosts = createAsyncThunk<
   IPost[],
-  { page: number; query: string; sortParams: string },
+  { endpoint: string; page: number; query: string; sortParams: string },
   { rejectValue: string }
->("post/fetchArticles", async (params, { rejectWithValue }) => {
+>("post/fetchAllPosts", async ({ page, query, sortParams, endpoint }, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getAllPosts(params.page, params.query, params.sortParams, "articles");
-  } catch (error) {
-    return rejectWithValue("error");
-  }
-});
-
-export const fetchNews = createAsyncThunk<
-  IPost[],
-  { page: number; query: string; sortParams: string },
-  { rejectValue: string }
->("post/fetchNews", async (params, { rejectWithValue }) => {
-  try {
-    return await spaceBlogApi.getAllPosts(params.page, params.query, params.sortParams, "blogs");
+    return await spaceBlogApi.getAllPostsStartPage(page, query, sortParams, endpoint);
   } catch (error) {
     return rejectWithValue("error");
   }
 });
 
 const initialState: IPostState = {
-  articles: [],
-  news: [],
+  posts: [],
   isLoading: false,
   error: null,
   searchParams: {
@@ -78,6 +65,7 @@ const initialState: IPostState = {
   sortParams: {
     sortQuery: null,
   },
+  endPoint: TabOne.ARTICLE,
 };
 
 const articlesSlice = createSlice({
@@ -90,32 +78,20 @@ const articlesSlice = createSlice({
     setSortQuery: (state, { payload }) => {
       state.sortParams.sortQuery = payload.sortQuery;
     },
+    setEndPoint: (state, { payload }) => {
+      state.endPoint = payload;
+    },
   },
   extraReducers(builder) {
-    builder.addCase(fetchArticles.pending, (state) => {
+    builder.addCase(fetchAllPosts.pending, (state) => {
       state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(fetchArticles.fulfilled, (state, action) => {
+    builder.addCase(fetchAllPosts.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.articles = action.payload;
+      state.posts = action.payload;
     });
-    builder.addCase(fetchArticles.rejected, (state, action) => {
-      if (action.payload) {
-        state.isLoading = false;
-        state.error = action.payload;
-      }
-    });
-
-    builder.addCase(fetchNews.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchNews.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.news = action.payload;
-    });
-    builder.addCase(fetchNews.rejected, (state, action) => {
+    builder.addCase(fetchAllPosts.rejected, (state, action) => {
       if (action.payload) {
         state.isLoading = false;
         state.error = action.payload;
@@ -126,4 +102,4 @@ const articlesSlice = createSlice({
 
 export default articlesSlice.reducer;
 
-export const { setSearchQuery, setSortQuery } = articlesSlice.actions;
+export const { setSearchQuery, setSortQuery, setEndPoint } = articlesSlice.actions;

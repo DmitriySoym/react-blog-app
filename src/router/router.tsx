@@ -9,6 +9,7 @@ import {
   ResetPasswordPage,
   SearchPage,
   NotFoundPage,
+  DetailsPostlePage,
 } from "pages";
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
@@ -18,7 +19,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
-      <Route path={ROUTE.DETAIL_ARTICLE} element={<DetailsArticlePage />} />
+      <Route path={ROUTE.DETAIL_POST} element={<DetailsPostlePage />} />
       <Route path={ROUTE.DETAIL_NEWS} element={<DetailsNewsPage />} />
       <Route path={ROUTE.AUTH} element={<SignInPage />} />
       <Route path={ROUTE.REG} element={<SignUpPage />} />

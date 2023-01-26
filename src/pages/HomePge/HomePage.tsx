@@ -1,7 +1,6 @@
 import {
-  Articles,
+  PostsResults,
   Main,
-  News,
   Tabs,
   tabs,
   Pagination,
@@ -19,6 +18,9 @@ import {
   optionDate,
   buttons,
   optionSortByTitle,
+  useAppDispatch,
+  fetchAllPosts,
+  setEndPoint,
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -28,18 +30,24 @@ import { StyledSortPosts, TimeSort } from "./styles";
 import { useWindowSize } from "hooks";
 
 export const HomePage = () => {
-  const { articles, news } = useAppSelector(getAllposts);
+  const { posts } = useAppSelector(getAllposts);
   const { isAuth } = useAppSelector(getAccountInfo);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const navigate = useNavigate();
-  const { width = 0 } = useWindowSize();
   const [activeButton, setActiveButton] = useState(buttons[0].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[0]);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const navigate = useNavigate();
+  const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;
+  const dispatch = useAppDispatch();
 
+  //-----
+  const data = useAppSelector(getAllposts);
+  //----
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
+    dispatch(setEndPoint(id));
   };
 
   const handleSetTitleSort = (newValue: SingleValue<ISelectOption>) => {
@@ -72,11 +80,22 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
+    dispatch(
+      fetchAllPosts({
+        page: currentPage,
+        query: "",
+        sortParams: "",
+        endpoint: activeTab,
+      }),
+    );
+  }, [dispatch, currentPage, activeTab]);
+
+  useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {
       alert("Sign in, please.");
       navigate(ROUTE.AUTH);
     }
-  }, [activeTab, isAuth, navigate]);
+  }, [activeTab, isAuth]);
 
   return (
     <>
@@ -106,9 +125,8 @@ export const HomePage = () => {
             />{" "}
           </TimeSort>
         </StyledSortPosts>
-        {activeTab === TabOne.ARTICLE && <Articles articles={articles} />}
-        {activeTab === TabOne.NEWS && <News news={news} />}
         {activeTab === TabOne.FAVORITES && <Favorites />}
+        <PostsResults posts={posts} />
       </Main>
       <Pagination />
     </>
