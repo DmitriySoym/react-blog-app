@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  useAppDispatch,
-  // fetchDetailArticle,
-  useAppSelector,
-  getDetailArticle,
-  fetchDetailPost,
-  getDetailPost,
-  getAllposts,
-} from "store";
+import { useAppDispatch, useAppSelector, fetchDetailPost, getDetailPost, getAllposts } from "store";
 import { DetailArticle, Spinner, NavigateButton } from "components";
 import { StyledDetailPage, Post } from "./styles";
 
 export const DetailsPostlePage = () => {
   const { id = "" } = useParams();
-  // const [details] = useState(id);
   const { post, isLoading } = useAppSelector(getDetailPost);
   const postsInfo = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();

@@ -21,6 +21,7 @@ import {
   useAppDispatch,
   fetchAllPosts,
   setEndPoint,
+  setSortQuery,
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -42,9 +43,6 @@ export const HomePage = () => {
   const isTablet = width < 992.98;
   const dispatch = useAppDispatch();
 
-  //-----
-  const data = useAppSelector(getAllposts);
-  //----
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
     dispatch(setEndPoint(id));
@@ -54,6 +52,7 @@ export const HomePage = () => {
     if (newValue) {
       setIsTitleSort(newValue);
     }
+    dispatch(setSortQuery(newValue?.value));
   };
 
   const handleSetDate = (id: string) => {
@@ -84,11 +83,11 @@ export const HomePage = () => {
       fetchAllPosts({
         page: currentPage,
         query: "",
-        sortParams: "",
+        sortParams: isTitleSort.value,
         endpoint: activeTab,
       }),
     );
-  }, [dispatch, currentPage, activeTab]);
+  }, [dispatch, currentPage, activeTab, isTitleSort.value]);
 
   useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {

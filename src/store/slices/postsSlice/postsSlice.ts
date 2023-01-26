@@ -39,6 +39,7 @@ export const buttons: IButton[] = [
 ];
 
 export const optionSortByTitle: ISelectOption[] = [
+  { value: "", label: "Set article sorting" },
   { value: "title", label: "Title (A-Z)" },
   { value: "title:DESC", label: "Title (Z-A)" },
 ];
@@ -81,6 +82,9 @@ const articlesSlice = createSlice({
     setEndPoint: (state, { payload }) => {
       state.endPoint = payload;
     },
+    // setTitleSortParams:(state, {payload}) =>{
+
+    // }
   },
   extraReducers(builder) {
     builder.addCase(fetchAllPosts.pending, (state) => {
