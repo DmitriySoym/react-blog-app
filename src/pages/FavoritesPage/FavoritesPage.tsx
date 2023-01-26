@@ -1,12 +1,18 @@
 import { Main, PostItem, NavigateButton } from "components";
+import { useEffect } from "react";
 
-import { getFavorites, useAppSelector } from "store";
-import { IPost } from "types";
+import { getAllposts, getFavorites, setEndPoint, useAppDispatch, useAppSelector } from "store";
+import { IPost, TabOne } from "types";
 import { FavoritesRow, EmptyList } from "./styles";
 
 export const FavoritesPage = () => {
   const { favorites } = useAppSelector(getFavorites);
+  const { endPoint } = useAppSelector(getAllposts);
+  const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(setEndPoint(TabOne.ARTICLE));
+  }, []);
   return (
     <Main>
       <NavigateButton />

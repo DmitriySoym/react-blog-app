@@ -45,7 +45,7 @@ export const HomePage = () => {
 
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
-    dispatch(setEndPoint(id));
+    dispatch(setEndPoint(activeTab));
   };
 
   const handleSetTitleSort = (newValue: SingleValue<ISelectOption>) => {
@@ -77,6 +77,10 @@ export const HomePage = () => {
       }
     }
   };
+
+  useEffect(() => {
+    dispatch(setEndPoint(activeTab));
+  }, [activeTab, dispatch]);
 
   useEffect(() => {
     dispatch(

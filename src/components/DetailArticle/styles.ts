@@ -40,6 +40,7 @@ const ButtonsRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: ${Indents.MD};
+  padding-bottom: ${Indents.MD};
 `;
 
 const ButtonFavorite = styled.button`

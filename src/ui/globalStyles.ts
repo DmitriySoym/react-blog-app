@@ -34,5 +34,8 @@ ${nullStyle}
 ${lightTheme}
 ${darkTheme}
 
-
+.swiper-slide{
+  display: flex;
+  justify-content: center;
+}
 `;

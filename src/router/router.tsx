@@ -4,8 +4,6 @@ import {
   FavoritesPage,
   SignInPage,
   SignUpPage,
-  DetailsArticlePage,
-  DetailsNewsPage,
   ResetPasswordPage,
   SearchPage,
   NotFoundPage,
@@ -20,12 +18,10 @@ export const router = createBrowserRouter(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
       <Route path={ROUTE.DETAIL_POST} element={<DetailsPostlePage />} />
-      <Route path={ROUTE.DETAIL_NEWS} element={<DetailsNewsPage />} />
       <Route path={ROUTE.AUTH} element={<SignInPage />} />
       <Route path={ROUTE.REG} element={<SignUpPage />} />
       <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
-      {/* <Route path={ROUTE.NOT_FOUND} element={<Navigate replace to={ROUTE.HOME} />} /> */}
       <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
 
       <Route element={<RequareAuth />}>

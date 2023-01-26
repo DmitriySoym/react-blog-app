@@ -11,9 +11,7 @@ import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { DetailArticle } from "./DetailArticle/DetailArticle";
-import { DetailNews } from "./DetailNews/DetailNews";
 import { PostItem } from "./PostItem/PostItem";
-import { PostNews } from "./PostNews/PostNews";
 import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
 import { Portal } from "./Portal/Portal";
@@ -26,6 +24,7 @@ import { Title } from "./Title/Title";
 import { SortButtons } from "./SortButtons/SortButtons";
 import { Favorites } from "./Favorites/Favorites";
 import { NavigateButton } from "./NavigateButton/NavigateButton";
+import { Slider } from "./Slider/Slider";
 
 export {
   Header,
@@ -41,7 +40,6 @@ export {
   SignInForm,
   DetailArticle,
   PostItem,
-  DetailNews,
   ResetPassForm,
   AccountInfo,
   Portal,
@@ -55,6 +53,6 @@ export {
   SortButtons,
   Favorites,
   NavigateButton,
-  PostNews,
   BurgerMenu,
+  Slider,
 };

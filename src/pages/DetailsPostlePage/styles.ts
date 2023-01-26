@@ -35,11 +35,11 @@ const Navigation = styled.div`
   padding-bottom: ${Indents.XS};
 `;
 
-const Row = styled.ul`
+const Row = styled.div`
   display: flex;
   column-gap: 33px;
 
-  padding-top: ${Indents.XL};
+  padding-top: ${Indents.MD};
   border-top: 1px solid ${Color.TEXT_FOOTER};
 
   ${Media.XL} {
@@ -51,6 +51,7 @@ const Row = styled.ul`
   }
 
   ${Media.MD} {
+    padding-top: ${Indents.SM};
     & li {
       width: 273px;
     }
