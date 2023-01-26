@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Indents, Media } from "ui";
+import { Indents, Media, Typography } from "ui";
 
 const Wrapper = styled.ul`
   display: grid;
@@ -18,4 +18,12 @@ const Wrapper = styled.ul`
   }
 `;
 
-export { Wrapper };
+const SearcValue = styled.div`
+  ${Typography.H3}
+`;
+
+const SerchValueWrapper = styled.span`
+  font-size: 22px;
+`;
+
+export { Wrapper, SearcValue, SerchValueWrapper };

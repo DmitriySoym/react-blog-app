@@ -57,4 +57,14 @@ const Row = styled.ul`
   }
 `;
 
-export { StyledDetailPage, Button, Navigation, Post, Row };
+const ErrorWrapper = styled.div`
+  padding: ${Indents.LG} 0;
+  & img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+
+export { StyledDetailPage, Button, Navigation, Post, Row, ErrorWrapper };

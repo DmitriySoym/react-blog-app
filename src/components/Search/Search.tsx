@@ -14,13 +14,11 @@ export const Search = () => {
   const { reset, register, handleSubmit } = useForm<ISerchValue>();
   const [isSearchActive, toggleSearchActive] = useToggle();
   const navigate = useNavigate();
-  //-----------
   const { isMenuOpen } = useAppSelector(getMenuBurgerStatus);
   const dispatch = useAppDispatch();
   const handleMenuToggle = () => {
     dispatch(setIsMenuOpen());
   };
-  //-------------
 
   const handleSearchToggle = () => {
     toggleSearchActive();
@@ -32,6 +30,7 @@ export const Search = () => {
     navigate(generatePath(ROUTE.SEARCH, { serchValue: query.search }));
     reset();
     handleSearchToggle();
+    handleMenuToggle();
   };
 
   return (

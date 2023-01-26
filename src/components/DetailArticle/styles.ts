@@ -39,6 +39,7 @@ const OriginArticle = styled.a`
 const ButtonsRow = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-top: ${Indents.MD};
 `;
 
 const ButtonFavorite = styled.button`

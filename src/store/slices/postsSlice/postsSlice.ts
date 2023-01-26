@@ -19,11 +19,6 @@ interface IPostState {
   endPoint: TabOne;
 }
 
-export enum PostsCategory {
-  ARTICLES = "articles",
-  NEWS = "news",
-}
-
 export const optionDate: IOptionDateSort[] = [
   { value: SortByDate.DAY, label: "Day" },
   { value: SortByDate.WEEK, label: "Week" },
