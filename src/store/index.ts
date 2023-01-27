@@ -7,7 +7,6 @@ import { useAppDispatch } from "./hooks/hooks";
 import { AppDispatch } from "./store";
 import { getTheme } from "./selectors/themeSelectors";
 import { getAccountInfo } from "./selectors/accauntSelectors";
-
 import { fetchAllPosts } from "./slices/postsSlice/postsSlice";
 import { getAllposts } from "./selectors/postsSelectors";
 import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
@@ -18,7 +17,6 @@ import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavorites } from "./selectors/favoriteSelector";
 import {
   setSearchQuery,
-  setSortQuery,
   optionDate,
   buttons,
   optionSortByTitle,
@@ -47,7 +45,6 @@ export {
   setSearchQuery,
   getMenuBurgerStatus,
   setIsMenuOpen,
-  setSortQuery,
   optionDate,
   buttons,
   optionSortByTitle,

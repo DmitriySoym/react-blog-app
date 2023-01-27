@@ -1,4 +1,4 @@
-import { Main, NavigateButton, PostItem } from "components";
+import { Main, NavigateButton, Pagination, PostItem } from "components";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchAllPosts, getAllposts, setEndPoint, useAppDispatch, useAppSelector } from "store";
@@ -7,7 +7,7 @@ import { Wrapper, SearcValue, SerchValueWrapper } from "./styles";
 
 export const SearchPage = () => {
   const { serchValue = "" } = useParams();
-  const { posts, endPoint } = useAppSelector(getAllposts);
+  const { posts, endPoint, page } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -19,27 +19,34 @@ export const SearchPage = () => {
     serchValue &&
       dispatch(
         fetchAllPosts({
-          page: 0,
+          page: page,
           query: serchValue,
           sortParams: "",
           endpoint: endPoint,
         }),
       );
-  }, [dispatch, serchValue, endPoint]);
+  }, [dispatch, serchValue, endPoint, page]);
 
   return (
-    <Main>
-      <NavigateButton />
-      <SearcValue>
-        You are looking for: <SerchValueWrapper>{serchValue}</SerchValueWrapper>
-      </SearcValue>
-      <Wrapper>
-        {posts &&
-          posts.length > 0 &&
-          posts.map((post: IPost) => {
-            return <PostItem post={post} key={post.id} />;
-          })}
-      </Wrapper>
-    </Main>
+    <>
+      <Main>
+        <NavigateButton />
+        <SearcValue>
+          You are looking for: <SerchValueWrapper>{serchValue}</SerchValueWrapper>
+        </SearcValue>
+        <Wrapper>
+          {posts &&
+            posts.length > 0 &&
+            posts.map((post: IPost) => {
+              return <PostItem post={post} key={post.id} />;
+            })}
+        </Wrapper>
+      </Main>
+      <Pagination
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+      />
+    </>
   );
 };

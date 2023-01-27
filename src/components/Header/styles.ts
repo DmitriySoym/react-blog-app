@@ -1,4 +1,3 @@
-import { relative } from "path";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color, Indents, Media } from "ui";

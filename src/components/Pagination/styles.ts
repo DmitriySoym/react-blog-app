@@ -44,6 +44,10 @@ const ButtonNext = styled.button`
     color: ${Color.PRIMARY};
   }
 
+  &:disabled {
+    color: ${Color.DISABLED};
+  }
+
   ${Media.MD} {
     & :first-child {
       display: none;
@@ -70,8 +74,9 @@ const Page = styled.button`
     color: ${Color.PRIMARY};
   }
 `;
-const CurentPage = styled.button`
+const CurentPage = styled.button<{ disableColor: boolean }>`
   ${Typography.Subline};
+  color: ${({ disableColor }) => (disableColor ? Color.DISABLED : Color.TEXT)};
   background-color: inherit;
   font-weight: 600;
 
@@ -81,7 +86,60 @@ const CurentPage = styled.button`
 `;
 
 const LastPage = styled.button`
-  ${Typography.BODY};
+  ${Typography.Subline};
+  background-color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
+
+  &:disabled {
+    color: ${Color.DISABLED};
+  }
 `;
 
-export { StyledPagination, ButtonPrev, ButtonNext, Pages, Page, LastPage, CurentPage };
+const Dots = styled.div<{ visible: boolean }>`
+  display: ${({ visible }) => (visible ? "flex" : "none")};
+  align-items: end;
+  ${Typography.Subline};
+  background-color: inherit;
+  font-weight: 600;
+
+  &:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
+
+  &:disabled {
+    color: ${Color.PRIMARY};
+  }
+`;
+
+const FirstPage = styled.button<{ visible: boolean }>`
+  display: ${({ visible }) => (visible ? "block" : "none")};
+  ${Typography.Subline};
+  background-color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
+
+  &:disabled {
+    color: ${Color.PRIMARY};
+  }
+`;
+
+export {
+  StyledPagination,
+  ButtonPrev,
+  ButtonNext,
+  Pages,
+  Page,
+  LastPage,
+  CurentPage,
+  Dots,
+  FirstPage,
+};

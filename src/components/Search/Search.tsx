@@ -1,5 +1,5 @@
 import { useToggle } from "hooks";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { memo } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -10,7 +10,7 @@ interface ISerchValue {
   search: string;
 }
 
-export const Search = () => {
+export const Search = memo(() => {
   const { reset, register, handleSubmit } = useForm<ISerchValue>();
   const [isSearchActive, toggleSearchActive] = useToggle();
   const navigate = useNavigate();
@@ -45,4 +45,4 @@ export const Search = () => {
       )}
     </>
   );
-};
+});

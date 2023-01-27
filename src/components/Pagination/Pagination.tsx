@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useEffect, useState, memo } from "react";
 import { fetchAllPosts, getAllposts, setPage, useAppDispatch, useAppSelector } from "store";
 
 import {
@@ -11,97 +9,70 @@ import {
   Page,
   CurentPage,
   LastPage,
+  Dots,
+  FirstPage,
 } from "./styles";
 
 interface IProps {
-  handleNextPage: () => void;
-  // onClik: () => void;
-  // handlePreviousPage: () => void;
+  onClick: () => void;
 }
 
-export const Pagination = () => {
+export const Pagination = memo(({ onClick }: IProps) => {
   const dispatch = useAppDispatch();
-  // const [currentPage, setCurrentPage] = useState({ page: 1, current: 1 });
-  const [currentPage, setCurrentPage] = useState<number>(0);
-  const [postsGrop, setPostsGroup] = useState<number>(12);
   const [buttonPrevState, setButtonPrevState] = useState<boolean>(true);
   const [buttonNextState, setButtonNextState] = useState<boolean>(true);
   const [currentPageState, setCurrentPageState] = useState<boolean>(false);
-  const [lastPage, setLastPage] = useState<number>();
-  const {
-    posts,
-    page,
-    endPoint,
-    searchParams: { searchQuery },
-    sortParams: { sortQuery },
-  } = useAppSelector(getAllposts);
+  const { posts, page } = useAppSelector(getAllposts);
+  const [currentPage, setCurrentPage] = useState<number>(page);
+  const buttonVisibility = currentPage > 2;
+
+  const handleFirstPage = () => {
+    setCurrentPage(0);
+    dispatch(setPage(0));
+  };
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
-    setPostsGroup(postsGrop + 12);
-    dispatch(setPage(currentPage + 1));
+    dispatch(setPage(page + 12));
   };
 
   const handlePreviousPage = () => {
-    if (currentPage === 0) {
-      return;
-    }
     setCurrentPage(currentPage - 1);
-    setPostsGroup(postsGrop - 12);
-    dispatch(setPage(currentPage - 1));
+    dispatch(setPage(page - 12));
   };
 
   const handleNextButton = () => {
     setCurrentPage(currentPage + 1);
-    setPostsGroup(postsGrop + 12);
-    dispatch(setPage(currentPage + 1));
+    dispatch(setPage(page + 12));
   };
 
   const handlePreviousButton = () => {
-    if (currentPage === 0) {
-      return;
-    }
     setCurrentPage(currentPage - 1);
-    setPostsGroup(postsGrop - 12);
-    dispatch(setPage(currentPage - 1));
+    dispatch(setPage(page - 12));
   };
-
-  //-------------
-  // const handleCurrentPage = () => {
-  //   setCurrentPage({
-  //     page: currentPage.page,
-  //     current: currentPage.current,
-  //   });
-  // };
-
-  // const handleFirsttPage = () => {
-  //   setCurrentPage({
-  //     page: 1,
-  //     current: 1,
-  //   });
-  // };
 
   useEffect(() => {
     currentPage === 0 ? setButtonPrevState(true) : setButtonPrevState(false);
-    currentPage !== 0 ? setCurrentPageState(true) : setCurrentPageState(false);
+    currentPage === 0 ? setCurrentPageState(false) : setCurrentPageState(true);
     posts.length < 12 ? setButtonNextState(true) : setButtonNextState(false);
   }, [currentPage, posts.length]);
 
+  const pageValue = () => {
+    if (currentPage === 0) {
+      return 1;
+    }
+    if (currentPage === 1) {
+      return 1;
+    }
+    if (currentPage > 1) {
+      return currentPage;
+    }
+  };
   useEffect(() => {
-    dispatch(
-      fetchAllPosts({
-        page: page,
-        query: "",
-        sortParams: "",
-        endpoint: endPoint,
-      }),
-    );
-  }, [dispatch, page]);
-
-  // useEffect(() => {
-  //   dispatch(fetchNews({ page: currentPage.page, query: "", sortParams: "" }));
-  // }, [dispatch, currentPage]);
-
+    if (page === 0) {
+      return setCurrentPage(page);
+    }
+  });
   return (
     <StyledPagination>
       <ButtonPrev onClick={handlePreviousButton} disabled={buttonPrevState}>
@@ -109,19 +80,31 @@ export const Pagination = () => {
         <span>Prev</span>
       </ButtonPrev>
       <Pages>
+        <FirstPage visible={buttonVisibility} onClick={handleFirstPage}>
+          1
+        </FirstPage>
+        <Dots visible={buttonVisibility}>...</Dots>
         <Page onClick={handlePreviousPage} disabled={buttonPrevState}>
-          {currentPage > 1 ? currentPage - 1 : 1}
+          {pageValue()}
         </Page>
 
-        <CurentPage disabled={currentPageState}>{currentPage > 1 ? currentPage : 2}</CurentPage>
+        <CurentPage
+          disabled={currentPageState}
+          disableColor={buttonNextState}
+          onClick={handleNextPage}
+        >
+          {currentPage <= 1 ? 2 : currentPage + 1}
+        </CurentPage>
 
-        <Page onClick={handleNextPage}> {currentPage < 1 ? currentPage + 3 : currentPage + 2}</Page>
+        <LastPage onClick={handleNextPage} disabled={buttonNextState}>
+          {currentPage <= 1 ? 3 : currentPage + 2}
+        </LastPage>
       </Pages>
 
-      <ButtonNext onClick={handleNextButton}>
+      <ButtonNext onClick={handleNextButton} disabled={buttonNextState}>
         <span>Next</span>
         <span> ➡</span>
       </ButtonNext>
     </StyledPagination>
   );
-};
+});

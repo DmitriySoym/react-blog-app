@@ -16,7 +16,6 @@ interface IPostState {
   isLoading: boolean;
   error: null | string;
   searchParams: ISearchParams;
-  sortParams: ISortParams;
   endPoint: TabOne;
 }
 
@@ -44,9 +43,14 @@ export const fetchAllPosts = createAsyncThunk<
   IPost[],
   { endpoint: string; page: number; query: string; sortParams: string },
   { rejectValue: string }
->("post/fetchAllPosts", async ({ page, query, sortParams, endpoint }, { rejectWithValue }) => {
+>("post/fetchAllPosts", async (params, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getAllPostsStartPage(page, query, sortParams, endpoint);
+    return await spaceBlogApi.getAllPostsStartPage(
+      params.page,
+      params.query,
+      params.sortParams,
+      params.endpoint,
+    );
   } catch (error) {
     return rejectWithValue("error");
   }
@@ -60,9 +64,6 @@ const initialState: IPostState = {
   searchParams: {
     searchQuery: null,
   },
-  sortParams: {
-    sortQuery: null,
-  },
   endPoint: TabOne.ARTICLE,
 };
 
@@ -72,9 +73,6 @@ const articlesSlice = createSlice({
   reducers: {
     setSearchQuery: (state, { payload }) => {
       state.searchParams.searchQuery = payload.searchQuery;
-    },
-    setSortQuery: (state, { payload }) => {
-      state.sortParams.sortQuery = payload.sortQuery;
     },
     setEndPoint: (state, { payload }) => {
       state.endPoint = payload;
@@ -103,4 +101,4 @@ const articlesSlice = createSlice({
 
 export default articlesSlice.reducer;
 
-export const { setSearchQuery, setSortQuery, setEndPoint, setPage } = articlesSlice.actions;
+export const { setSearchQuery, setEndPoint, setPage } = articlesSlice.actions;

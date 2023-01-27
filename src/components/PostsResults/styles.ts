@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Media, Indents } from "ui";
+import { Media, Indents, Typography } from "ui";
 
 const StyledArticles = styled.ul`
   display: grid;
@@ -27,4 +27,9 @@ const ErrorWrapper = styled.div`
   }
 `;
 
-export { StyledArticles, ErrorWrapper };
+const ErrorMessage = styled.h2`
+  ${Typography.H2}
+  padding-bottom:${Indents.SM}
+`;
+
+export { StyledArticles, ErrorWrapper, ErrorMessage };

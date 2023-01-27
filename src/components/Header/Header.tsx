@@ -3,9 +3,10 @@ import { StyledHeader, LogoLink } from "./styles";
 import { Account, BurgerMenu } from "components";
 import { ROUTE } from "router";
 import { useScrollPosition, useToggle, useWindowSize } from "hooks";
-import { getAllposts, setEndPoint, useAppDispatch, useAppSelector } from "store";
+import { setEndPoint, useAppDispatch } from "store";
+import { memo } from "react";
 
-export const Header = () => {
+export const Header = memo(() => {
   const [isMenuOpen, toggleMenu] = useToggle();
   const { width = 0 } = useWindowSize();
   const { scrollPos } = useScrollPosition();
@@ -28,4 +29,4 @@ export const Header = () => {
       )}
     </StyledHeader>
   );
-};
+});

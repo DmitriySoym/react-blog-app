@@ -1,6 +1,6 @@
 import { PostItem, Spinner } from "components";
 import { IPost } from "types";
-import { StyledArticles, ErrorWrapper } from "./styles";
+import { StyledArticles, ErrorWrapper, ErrorMessage } from "./styles";
 import errorImg from "../../assets/img/error.gif";
 import { getAllposts, useAppSelector } from "store";
 
@@ -16,6 +16,7 @@ export const PostsResults = ({ posts }: IProps) => {
   } else if (error) {
     return (
       <ErrorWrapper>
+        <ErrorMessage>Sorry, something went wrong... The page could not be loaded.</ErrorMessage>
         <img src={errorImg} alt="error" />
       </ErrorWrapper>
     );

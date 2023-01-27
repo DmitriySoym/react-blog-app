@@ -21,7 +21,7 @@ import {
   useAppDispatch,
   fetchAllPosts,
   setEndPoint,
-  setSortQuery,
+  setPage,
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -31,13 +31,12 @@ import { StyledSortPosts, TimeSort } from "./styles";
 import { useWindowSize } from "hooks";
 
 export const HomePage = () => {
-  const { posts } = useAppSelector(getAllposts);
+  const { posts, page } = useAppSelector(getAllposts);
   const { isAuth } = useAppSelector(getAccountInfo);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [activeButton, setActiveButton] = useState(buttons[0].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
-  const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[0]);
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[1]);
   const navigate = useNavigate();
   const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;
@@ -46,13 +45,13 @@ export const HomePage = () => {
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
     dispatch(setEndPoint(activeTab));
+    dispatch(setPage(0));
   };
 
-  const handleSetTitleSort = (newValue: SingleValue<ISelectOption>) => {
-    if (newValue) {
-      setIsTitleSort(newValue);
+  const handleSetTitleSort = (optionSortByTitle: SingleValue<ISelectOption>) => {
+    if (optionSortByTitle) {
+      setIsTitleSort(optionSortByTitle);
     }
-    dispatch(setSortQuery(newValue?.value));
   };
 
   const handleSetDate = (id: string) => {
@@ -85,20 +84,20 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(
       fetchAllPosts({
-        page: currentPage,
+        page: page,
         query: "",
         sortParams: isTitleSort.value,
         endpoint: activeTab,
       }),
     );
-  }, [dispatch, currentPage, activeTab, isTitleSort.value]);
+  }, [dispatch, page, activeTab, isTitleSort.value]);
 
   useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {
       alert("Sign in, please.");
       navigate(ROUTE.AUTH);
     }
-  }, [activeTab, isAuth]);
+  }, [activeTab, isAuth, navigate]);
 
   return (
     <>
@@ -131,7 +130,11 @@ export const HomePage = () => {
         {activeTab === TabOne.FAVORITES && <Favorites />}
         <PostsResults posts={posts} />
       </Main>
-      <Pagination />
+      <Pagination
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+      />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { Main, PostItem, NavigateButton } from "components";
+import { Main, PostItem, NavigateButton, Pagination } from "components";
 import { useEffect } from "react";
 
 import { getAllposts, getFavorites, setEndPoint, useAppDispatch, useAppSelector } from "store";
