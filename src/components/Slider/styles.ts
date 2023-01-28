@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Swiper } from "swiper/react";
-import { Media } from "ui";
+import { Indents, Media, Typography } from "ui";
 
 const StyledSwiper = styled(Swiper)`
   ${Media.XL} {
@@ -12,4 +12,9 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-export { StyledSwiper };
+const NoResultMessage = styled.h2`
+  ${Typography.H3}
+  padding-bottom:${Indents.SM}
+`;
+
+export { StyledSwiper, NoResultMessage };

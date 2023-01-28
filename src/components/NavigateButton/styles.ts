@@ -5,7 +5,7 @@ const Button = styled.button`
   height: 40px;
   width: 100px;
   padding: 5px;
-  background-color: ${Color.PRIMARY};
+  background: linear-gradient(133.87deg, #4d0ac7 -10.18%, #912ef2 108.59%);
   border-radius: 4px;
   ${Typography.H3};
   color: ${Color.WHITE};

@@ -8,7 +8,6 @@ import {
   CustomSortByDateSelect,
   CustomTitleSelect,
   SortButtons,
-  RegistrationInfo,
 } from "components";
 import { useEffect, useState } from "react";
 import {
@@ -34,8 +33,8 @@ export const HomePage = () => {
   const { posts, page } = useAppSelector(getAllposts);
   const { isAuth } = useAppSelector(getAccountInfo);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const [activeButton, setActiveButton] = useState(buttons[0].id);
-  const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
+  const [activeButton, setActiveButton] = useState(buttons[1].id);
+  const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[1]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[1]);
   const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;

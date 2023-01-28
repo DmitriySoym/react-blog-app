@@ -1,4 +1,4 @@
-import { SwiperSlide, Swiper } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -6,7 +6,7 @@ import { getAllposts, useAppSelector } from "store";
 import { useWindowSize } from "hooks";
 import { IPost } from "types";
 import { PostItem } from "components";
-import { StyledSwiper } from "./styles";
+import { StyledSwiper, NoResultMessage } from "./styles";
 
 export const Slider = () => {
   const { posts } = useAppSelector(getAllposts);
@@ -31,15 +31,17 @@ export const Slider = () => {
       spaceBetween={10}
       modules={[FreeMode]}
     >
-      {posts &&
-        posts.length > 0 &&
+      {posts && posts.length > 0 ? (
         posts.map((post: IPost) => {
           return (
-            <SwiperSlide key={post.id}>
+            <SwiperSlide key={post.id} style={{ minWidth: 300 }}>
               <PostItem post={post} />{" "}
             </SwiperSlide>
           );
-        })}
+        })
+      ) : (
+        <NoResultMessage>Sorry, but there are no articles on this topic</NoResultMessage>
+      )}
     </StyledSwiper>
   );
 };

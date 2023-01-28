@@ -1,6 +1,7 @@
 import { Main, NavigateButton, Pagination, PostItem } from "components";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { ROUTE } from "router";
 import { fetchAllPosts, getAllposts, setEndPoint, useAppDispatch, useAppSelector } from "store";
 import { IPost } from "types";
 import { Wrapper, SearcValue, SerchValueWrapper } from "./styles";
@@ -8,15 +9,21 @@ import { Wrapper, SearcValue, SerchValueWrapper } from "./styles";
 export const SearchPage = () => {
   const { serchValue = "" } = useParams();
   const { posts, endPoint, page } = useAppSelector(getAllposts);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const serchPeriod = new Date(3600 * 24 * 1000);
+  const handleBack = () => {
+    navigate(ROUTE.HOME);
+    dispatch(setEndPoint("articles"));
+  };
 
   useEffect(() => {
     if (endPoint === "favorites") {
       dispatch(setEndPoint("articles"));
     }
   }, [dispatch, endPoint]);
+
   useEffect(() => {
     serchValue &&
       dispatch(
@@ -33,7 +40,7 @@ export const SearchPage = () => {
   return (
     <>
       <Main>
-        <NavigateButton />
+        <NavigateButton onclick={handleBack} />
         <SearcValue>
           You are looking for: <SerchValueWrapper>{serchValue}</SerchValueWrapper>
         </SearcValue>

@@ -1,21 +1,25 @@
 import { Main, PostItem, NavigateButton, Pagination } from "components";
 import { useEffect } from "react";
-
-import { getAllposts, getFavorites, setEndPoint, useAppDispatch, useAppSelector } from "store";
+import { useNavigate } from "react-router-dom";
+import { getFavorites, setEndPoint, useAppDispatch, useAppSelector } from "store";
 import { IPost, TabOne } from "types";
 import { FavoritesRow, EmptyList } from "./styles";
 
 export const FavoritesPage = () => {
   const { favorites } = useAppSelector(getFavorites);
-  const { endPoint } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     dispatch(setEndPoint(TabOne.ARTICLE));
   }, []);
   return (
     <Main>
-      <NavigateButton />
+      <NavigateButton onclick={handleBack} />
       <FavoritesRow>
         {favorites.length === 0 && <EmptyList>You have no favorite posts</EmptyList>}
         {favorites &&

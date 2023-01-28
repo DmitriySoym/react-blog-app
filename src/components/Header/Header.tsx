@@ -3,11 +3,18 @@ import { StyledHeader, LogoLink } from "./styles";
 import { Account, BurgerMenu } from "components";
 import { ROUTE } from "router";
 import { useScrollPosition, useToggle, useWindowSize } from "hooks";
-import { setEndPoint, useAppDispatch } from "store";
+import {
+  getMenuBurgerStatus,
+  setEndPoint,
+  useAppDispatch,
+  useAppSelector,
+  setIsMenuOpen,
+} from "store";
 import { memo } from "react";
 
 export const Header = memo(() => {
-  const [isMenuOpen, toggleMenu] = useToggle();
+  // const [isMenuOpen, toggleMenu] = useToggle();
+  const { isMenuOpen } = useAppSelector(getMenuBurgerStatus);
   const { width = 0 } = useWindowSize();
   const { scrollPos } = useScrollPosition();
   const isMobile = width < 767.98;
@@ -15,6 +22,10 @@ export const Header = memo(() => {
 
   const handleHome = () => {
     dispatch(setEndPoint("articles"));
+  };
+
+  const toggleMenu = () => {
+    dispatch(setIsMenuOpen());
   };
 
   return (

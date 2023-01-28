@@ -23,17 +23,28 @@ export const Pagination = memo(({ onClick }: IProps) => {
   const [buttonNextState, setButtonNextState] = useState<boolean>(true);
   const [currentPageState, setCurrentPageState] = useState<boolean>(false);
   const { posts, page } = useAppSelector(getAllposts);
-  const [currentPage, setCurrentPage] = useState<number>(page);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const buttonVisibility = currentPage > 2;
 
   const handleFirstPage = () => {
-    setCurrentPage(0);
+    setCurrentPage(1);
     dispatch(setPage(0));
   };
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
     dispatch(setPage(page + 12));
+  };
+
+  const handleTherdPage = () => {
+    console.log(currentPage);
+    if (currentPage === 0) {
+      setCurrentPage(currentPage + 2);
+      dispatch(setPage(page + 24));
+    } else {
+      setCurrentPage(currentPage + 1);
+      dispatch(setPage(page + 12));
+    }
   };
 
   const handlePreviousPage = () => {
@@ -58,10 +69,7 @@ export const Pagination = memo(({ onClick }: IProps) => {
   }, [currentPage, posts.length]);
 
   const pageValue = () => {
-    if (currentPage === 0) {
-      return 1;
-    }
-    if (currentPage === 1) {
+    if (currentPage <= 1) {
       return 1;
     }
     if (currentPage > 1) {
@@ -96,7 +104,7 @@ export const Pagination = memo(({ onClick }: IProps) => {
           {currentPage <= 1 ? 2 : currentPage + 1}
         </CurentPage>
 
-        <LastPage onClick={handleNextPage} disabled={buttonNextState}>
+        <LastPage onClick={handleTherdPage} disabled={buttonNextState}>
           {currentPage <= 1 ? 3 : currentPage + 2}
         </LastPage>
       </Pages>
