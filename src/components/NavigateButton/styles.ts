@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { Indents, Typography, Color, Media } from "ui";
 
 const Button = styled.button`
-  background-color: inherit;
-  ${Typography.Subline};
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  background-color: ${Color.PRIMARY};
+  border-radius: 4px;
+  ${Typography.H3};
+  color: ${Color.WHITE};
+  font-weight: 400;
+  line-height: 24px;
 
   &:hover {
-    color: ${Color.PRIMARY_TWO};
+    background-color: ${Color.PRIMARY_TWO};
   }
 `;
 

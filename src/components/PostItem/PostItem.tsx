@@ -17,6 +17,8 @@ import {
   useAppDispatch,
   useAppSelector,
   getFavorites,
+  getPortalState,
+  setPortalState,
 } from "store";
 
 interface IProps {
@@ -27,7 +29,8 @@ export const PostItem = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
   const { favorites } = useAppSelector(getFavorites);
-  const isFavorite = favorites.map((post) => post.id).find((id) => id === post.id);
+  const { isPortalOpen } = useAppSelector(getPortalState);
+  const isFavorite = favorites.find(({ id }) => id === post.id);
 
   const handleAddToFavorite = () => {
     dispatch(toggleFavorite(post));

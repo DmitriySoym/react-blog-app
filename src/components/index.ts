@@ -22,9 +22,9 @@ import { CustomTitleSelect } from "./CustomTitleSelect/CustomTitleSelect";
 import { CustomSortByDateSelect } from "./CustomSortByDateSelect/CustomSortByDateSelect";
 import { Title } from "./Title/Title";
 import { SortButtons } from "./SortButtons/SortButtons";
-import { Favorites } from "./Favorites/Favorites";
 import { NavigateButton } from "./NavigateButton/NavigateButton";
 import { Slider } from "./Slider/Slider";
+import { RegistrationInfo } from "./RegistrationPortal/RegistrationPortal";
 
 export {
   Header,
@@ -51,8 +51,8 @@ export {
   CustomTitleSelect,
   Title,
   SortButtons,
-  Favorites,
   NavigateButton,
   BurgerMenu,
   Slider,
+  RegistrationInfo,
 };

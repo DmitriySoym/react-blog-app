@@ -1,11 +1,10 @@
 import { StyledAccount, Button, UserLogo, Name, Wrapper } from "./styles";
 import { LogoOutIcon } from "assets";
 import { useAppSelector, getAccountInfo } from "store";
-import { generatePath, Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo, Search } from "components";
-import { FormEvent, useEffect, useState } from "react";
-import { useDebounce, useInput } from "hooks";
+import { useState } from "react";
 
 interface MenuProps {
   isMobile: boolean;
@@ -22,7 +21,6 @@ const start = {};
 
 export const Account = ({ isMenuOpen, isMobile }: MenuProps) => {
   const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : start;
-  const navigate = useNavigate();
   const { isAuth, name } = useAppSelector(getAccountInfo);
   const [isOpen, setIsOpen] = useState(false);
 

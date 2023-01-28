@@ -22,10 +22,10 @@ const monthValue = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate()
 const yearValue = new Date(now.getFullYear() - 1, now.getMonth() - 1, now.getDate());
 
 export const optionDate: IOptionDateSort[] = [
-  { value: dayValue, label: "Day" },
-  { value: weekValue, label: "Week" },
-  { value: monthValue, label: "Month" },
-  { value: yearValue, label: "Year" },
+  { value: dayValue, label: "Day", index: "0" },
+  { value: weekValue, label: "Week", index: "1" },
+  { value: monthValue, label: "Month", index: "2" },
+  { value: yearValue, label: "Year", index: "3" },
 ];
 
 export const buttons: IButton[] = [

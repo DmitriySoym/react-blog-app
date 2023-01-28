@@ -23,6 +23,8 @@ import {
 } from "./slices/postsSlice/postsSlice";
 import { getMenuBurgerStatus } from "./selectors/menuBurgerSelector";
 import { setIsMenuOpen } from "./slices/menuBurgerSlice/menuBurgerSclice";
+import { setPortalState } from "./slices/portalSlice/portalSlice";
+import { getPortalState } from "./selectors/portalSelectors";
 
 export {
   store,
@@ -47,5 +49,7 @@ export {
   fetchAllPosts,
   setEndPoint,
   setPage,
+  setPortalState,
+  getPortalState,
 };
 export type { RootState, AppDispatch };

@@ -15,12 +15,15 @@ const enum TabOne {
 }
 
 const enum PortalTarget {
+  ROOT = "root",
   MODAL = "modal",
+  AUTH = "auth",
 }
 
 interface IOptionDateSort {
   value: Date;
   label: string;
+  index: string;
 }
 
 interface ISelectOption {

@@ -5,10 +5,10 @@ import {
   tabs,
   Pagination,
   Title,
-  Favorites,
   CustomSortByDateSelect,
   CustomTitleSelect,
   SortButtons,
+  RegistrationInfo,
 } from "components";
 import { useEffect, useState } from "react";
 import {
@@ -37,10 +37,10 @@ export const HomePage = () => {
   const [activeButton, setActiveButton] = useState(buttons[0].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[0]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[1]);
-  const navigate = useNavigate();
   const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
@@ -59,21 +59,10 @@ export const HomePage = () => {
     setIsActiveDateSelect(optionDate[+id]);
   };
 
-  const handleSetActiveDateSelect = (newValue: SingleValue<IOptionDateSort>) => {
-    if (newValue) {
-      setIsActiveDateSelect(newValue);
-      if (newValue === optionDate[0]) {
-        setActiveButton("0");
-      }
-      if (newValue === optionDate[1]) {
-        setActiveButton("1");
-      }
-      if (newValue === optionDate[2]) {
-        setActiveButton("2");
-      }
-      if (newValue === optionDate[3]) {
-        setActiveButton("3");
-      }
+  const handleSetActiveDateSelect = (optionDate: SingleValue<IOptionDateSort>) => {
+    if (optionDate) {
+      setIsActiveDateSelect(optionDate);
+      setActiveButton(optionDate.index);
     }
   };
 
@@ -95,10 +84,12 @@ export const HomePage = () => {
 
   useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {
-      alert("Sign in, please.");
       navigate(ROUTE.AUTH);
     }
-  }, [activeTab, isAuth, navigate]);
+    if (isAuth && activeTab === TabOne.FAVORITES) {
+      navigate(ROUTE.FAVORIRES);
+    }
+  }, [dispatch, activeTab, isAuth]);
 
   return (
     <>
@@ -128,7 +119,6 @@ export const HomePage = () => {
             />{" "}
           </TimeSort>
         </StyledSortPosts>
-        {activeTab === TabOne.FAVORITES && <Favorites />}
         <PostsResults posts={posts} />
       </Main>
       <Pagination

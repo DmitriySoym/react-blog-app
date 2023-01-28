@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { getMenuBurgerStatus, setIsMenuOpen, useAppDispatch, useAppSelector } from "store";
-import { Input, StyledCancelIcon, StyledSerch, SearchWrapper, ButtonSubmit } from "./styles";
+import { Input, StyledCancelIcon, StyledSerch, SearchWrapper } from "./styles";
 
 interface ISerchValue {
   search: string;
