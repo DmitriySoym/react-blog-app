@@ -10,6 +10,8 @@ export const SearchPage = () => {
   const { posts, endPoint, page } = useAppSelector(getAllposts);
   const dispatch = useAppDispatch();
 
+  const serchPeriod = new Date(3600 * 24 * 1000);
+
   useEffect(() => {
     if (endPoint === "favorites") {
       dispatch(setEndPoint("articles"));
@@ -23,6 +25,7 @@ export const SearchPage = () => {
           query: serchValue,
           sortParams: "",
           endpoint: endPoint,
+          publicationDate: serchPeriod,
         }),
       );
   }, [dispatch, serchValue, endPoint, page]);

@@ -1,5 +1,4 @@
 import {
-  SortByDate,
   TabOne,
   PortalTarget,
   IOptionDateSort,
@@ -11,4 +10,4 @@ import {
 
 export type { IOptionDateSort, ISelectOption, ITab, IButton, IPost };
 
-export { SortByDate, TabOne, PortalTarget };
+export { TabOne, PortalTarget };

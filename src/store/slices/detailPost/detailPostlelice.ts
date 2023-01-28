@@ -12,9 +12,9 @@ export const fetchDetailPost = createAsyncThunk<
   IPost,
   { id: string; endPoint: string },
   { rejectValue: string }
->("detailNews/fetchDetailNews", async ({ id, endPoint }, { rejectWithValue }) => {
+>("detailNews/fetchDetailNews", async (params, { rejectWithValue }) => {
   try {
-    return await spaceBlogApi.getNewsById(id, endPoint);
+    return await spaceBlogApi.getNewsById(params.id, params.endPoint);
   } catch (error) {
     return rejectWithValue("Error");
   }

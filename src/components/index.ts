@@ -10,7 +10,7 @@ import { Search } from "./Search/Search";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { SignInForm } from "./SignInForm/SignInForm";
-import { DetailArticle } from "./DetailArticle/DetailArticle";
+import { DetailPost } from "./DetailPost/DetailPost";
 import { PostItem } from "./PostItem/PostItem";
 import { ResetPassForm } from "./ResetPassForm/ResetPassForm";
 import { AccountInfo } from "./AccountInfo/AccountInfo";
@@ -38,7 +38,7 @@ export {
   RequareAuth,
   SignUpForm,
   SignInForm,
-  DetailArticle,
+  DetailPost,
   PostItem,
   ResetPassForm,
   AccountInfo,

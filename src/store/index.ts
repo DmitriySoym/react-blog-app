@@ -9,8 +9,6 @@ import { getTheme } from "./selectors/themeSelectors";
 import { getAccountInfo } from "./selectors/accauntSelectors";
 import { fetchAllPosts } from "./slices/postsSlice/postsSlice";
 import { getAllposts } from "./selectors/postsSelectors";
-import { fetchDetailArticle } from "./slices/detailArticle/detailArticleSlice";
-import { getDetailArticle } from "./selectors/detailArticleSelector";
 import { fetchDetailPost } from "./slices/detailPost/detailPostlelice";
 import { getDetailPost } from "./selectors/detailPostSelector";
 import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
@@ -36,9 +34,7 @@ export {
   getTheme,
   getAccountInfo,
   getAllposts,
-  fetchDetailArticle,
   fetchDetailPost,
-  getDetailArticle,
   getDetailPost,
   toggleFavorite,
   getFavorites,

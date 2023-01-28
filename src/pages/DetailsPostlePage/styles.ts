@@ -68,4 +68,9 @@ const ErrorWrapper = styled.div`
   }
 `;
 
-export { StyledDetailPage, Button, Navigation, Post, Row, ErrorWrapper };
+const ErrorMessage = styled.h2`
+  ${Typography.H2}
+  padding-bottom:${Indents.SM}
+`;
+
+export { StyledDetailPage, Button, Navigation, Post, Row, ErrorWrapper, ErrorMessage };

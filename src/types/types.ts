@@ -8,13 +8,6 @@ interface IPost {
   newSite: string;
 }
 
-const enum SortByDate {
-  DAY = "Day",
-  WEEK = "Week",
-  MONTH = "Month",
-  YEAR = "Year",
-}
-
 const enum TabOne {
   ARTICLE = "articles",
   NEWS = "blogs",
@@ -26,7 +19,7 @@ const enum PortalTarget {
 }
 
 interface IOptionDateSort {
-  value: SortByDate;
+  value: Date;
   label: string;
 }
 
@@ -48,4 +41,4 @@ interface IButton {
 
 export type { IOptionDateSort, ISelectOption, ITab, IButton, IPost };
 
-export { SortByDate, TabOne, PortalTarget };
+export { TabOne, PortalTarget };

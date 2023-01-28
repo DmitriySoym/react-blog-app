@@ -13,7 +13,7 @@ interface IProps {
   post: IPost;
 }
 
-export const DetailArticle = ({ post }: IProps) => {
+export const DetailPost = ({ post }: IProps) => {
   const { title, imageUrl, summary, url } = post;
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector(getFavorites);

@@ -88,9 +88,10 @@ export const HomePage = () => {
         query: "",
         sortParams: isTitleSort.value,
         endpoint: activeTab,
+        publicationDate: isActiveDateSelect.value,
       }),
     );
-  }, [dispatch, page, activeTab, isTitleSort.value]);
+  }, [dispatch, page, activeTab, isTitleSort.value, isActiveDateSelect.value]);
 
   useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {

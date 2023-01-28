@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector, fetchDetailPost, getDetailPost, getAllposts } from "store";
-import { DetailArticle, Spinner, NavigateButton, Slider } from "components";
-import { StyledDetailPage, Post, ErrorWrapper, Row } from "./styles";
+import { DetailPost, Spinner, NavigateButton, Slider } from "components";
+import { StyledDetailPage, Post, ErrorWrapper, Row, ErrorMessage } from "./styles";
 import errorImg from "../../assets/img/error.gif";
 
 export const DetailsPostlePage = () => {
@@ -21,6 +21,7 @@ export const DetailsPostlePage = () => {
   if (error) {
     return (
       <ErrorWrapper>
+        <ErrorMessage>Sorry, something went wrong... The page could not be loaded.</ErrorMessage>
         <img src={errorImg} alt="error" />
       </ErrorWrapper>
     );
@@ -31,7 +32,7 @@ export const DetailsPostlePage = () => {
       <NavigateButton>
         <Post> / Post {id}</Post>
       </NavigateButton>
-      <DetailArticle post={post} />
+      <DetailPost post={post} />
       <Row>
         <Slider />
       </Row>

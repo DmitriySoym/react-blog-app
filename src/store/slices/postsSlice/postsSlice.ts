@@ -1,13 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IButton, IOptionDateSort, IPost, ISelectOption, SortByDate, TabOne } from "types";
+import { IButton, IOptionDateSort, IPost, ISelectOption, TabOne } from "types";
 import { spaceBlogApi } from "services";
 
 interface ISearchParams {
   searchQuery: string | null;
-}
-
-interface ISortParams {
-  sortQuery: string | null;
 }
 
 interface IPostState {
@@ -19,11 +15,17 @@ interface IPostState {
   endPoint: TabOne;
 }
 
+const now = new Date();
+const dayValue = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 2);
+const weekValue = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7);
+const monthValue = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+const yearValue = new Date(now.getFullYear() - 1, now.getMonth() - 1, now.getDate());
+
 export const optionDate: IOptionDateSort[] = [
-  { value: SortByDate.DAY, label: "Day" },
-  { value: SortByDate.WEEK, label: "Week" },
-  { value: SortByDate.MONTH, label: "Month" },
-  { value: SortByDate.YEAR, label: "Year" },
+  { value: dayValue, label: "Day" },
+  { value: weekValue, label: "Week" },
+  { value: monthValue, label: "Month" },
+  { value: yearValue, label: "Year" },
 ];
 
 export const buttons: IButton[] = [
@@ -41,7 +43,7 @@ export const optionSortByTitle: ISelectOption[] = [
 
 export const fetchAllPosts = createAsyncThunk<
   IPost[],
-  { endpoint: string; page: number; query: string; sortParams: string },
+  { endpoint: string; page: number; query: string; sortParams: string; publicationDate: Date },
   { rejectValue: string }
 >("post/fetchAllPosts", async (params, { rejectWithValue }) => {
   try {
@@ -50,6 +52,7 @@ export const fetchAllPosts = createAsyncThunk<
       params.query,
       params.sortParams,
       params.endpoint,
+      params.publicationDate,
     );
   } catch (error) {
     return rejectWithValue("error");
