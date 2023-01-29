@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { Label, Input, Button, Text, StyledForm } from "./styles";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { setPortalState, useAppDispatch } from "store";
 
 interface IResetPassForm {
   email: string;
 }
 
 export const ResetPassForm = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -28,7 +30,7 @@ export const ResetPassForm = () => {
         const errorCode = error.code;
 
         if (errorCode) {
-          alert("User not found");
+          dispatch(setPortalState());
         }
       });
   };

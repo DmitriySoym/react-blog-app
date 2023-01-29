@@ -7,10 +7,11 @@ import { memo } from "react";
 import { setPortalState, useAppDispatch } from "store";
 
 interface IProps {
-  onClick: () => void;
+  onClick?: () => void;
+  label: string;
 }
 
-export const RegistrationInfo = memo(({ onClick }: IProps) => {
+export const RegistrationInfo = memo(({ onClick, label }: IProps) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -23,7 +24,7 @@ export const RegistrationInfo = memo(({ onClick }: IProps) => {
         transition={{ ease: "easeInOut", duration: 0.5 }}
       >
         <ButtonClose onClick={onClick}>X</ButtonClose>
-        <Text>To add post in Favorites you need to Sign in.</Text>
+        <Text>{label}</Text>
 
         <Button
           onClick={() => {

@@ -51,7 +51,12 @@ export const DetailPost = memo(({ post }: IProps) => {
           {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
         </ButtonFavorite>
       </ButtonsRow>
-      {isPortalOpen && <RegistrationInfo onClick={handleClosePortal} />}
+      {isPortalOpen && (
+        <RegistrationInfo
+          onClick={handleClosePortal}
+          label="To add post in Favorites you need to Sign in."
+        />
+      )}
     </Wrapper>
   );
 });

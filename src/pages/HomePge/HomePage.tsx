@@ -128,7 +128,12 @@ export const HomePage = () => {
             />{" "}
           </TimeSort>
         </StyledSortPosts>
-        {isPortalOpen && <RegistrationInfo onClick={handleClosePortal} />}
+        {isPortalOpen && (
+          <RegistrationInfo
+            onClick={handleClosePortal}
+            label="To add post in Favorites you need to Sign in."
+          />
+        )}
         <PostsResults posts={posts} />
       </Main>
       <Pagination
