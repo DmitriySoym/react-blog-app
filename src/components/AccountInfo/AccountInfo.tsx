@@ -18,7 +18,12 @@ export const AccountInfo = () => {
 
   return (
     <Portal target={PortalTarget.MODAL}>
-      <StyledAccountInfo>
+      <StyledAccountInfo
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+        exit={{ scale: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.5 }}
+      >
         <Text>Your account:</Text>
         <Name>{name}</Name>
         <Button onClick={handleLogOut}>Exit</Button>

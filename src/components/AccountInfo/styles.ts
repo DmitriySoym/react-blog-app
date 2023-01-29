@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Typography, Color } from "ui";
+import { motion } from "framer-motion";
 
-const StyledAccountInfo = styled.div`
+const StyledAccountInfo = styled(motion.div)`
   position: fixed;
   top: 97px;
   right: 15px;
