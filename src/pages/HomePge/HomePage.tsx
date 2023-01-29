@@ -8,6 +8,7 @@ import {
   CustomSortByDateSelect,
   CustomTitleSelect,
   SortButtons,
+  RegistrationInfo,
 } from "components";
 import { useEffect, useState } from "react";
 import {
@@ -21,6 +22,8 @@ import {
   fetchAllPosts,
   setEndPoint,
   setPage,
+  getPortalState,
+  setPortalState,
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -32,6 +35,7 @@ import { useWindowSize } from "hooks";
 export const HomePage = () => {
   const { posts, page } = useAppSelector(getAllposts);
   const { isAuth } = useAppSelector(getAccountInfo);
+  const { isPortalOpen } = useAppSelector(getPortalState);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [activeButton, setActiveButton] = useState(buttons[1].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[1]);
@@ -41,6 +45,9 @@ export const HomePage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const handleClosePortal = () => {
+    dispatch(setPortalState());
+  };
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
     dispatch(setEndPoint(activeTab));
@@ -88,7 +95,7 @@ export const HomePage = () => {
     if (isAuth && activeTab === TabOne.FAVORITES) {
       navigate(ROUTE.FAVORIRES);
     }
-  }, [dispatch, activeTab, isAuth]);
+  }, [dispatch, activeTab, isAuth, navigate]);
 
   return (
     <>
@@ -118,6 +125,7 @@ export const HomePage = () => {
             />{" "}
           </TimeSort>
         </StyledSortPosts>
+        {isPortalOpen && <RegistrationInfo onClick={handleClosePortal} />}
         <PostsResults posts={posts} />
       </Main>
       <Pagination

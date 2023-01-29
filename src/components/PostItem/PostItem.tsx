@@ -17,7 +17,6 @@ import {
   useAppDispatch,
   useAppSelector,
   getFavorites,
-  getPortalState,
   setPortalState,
 } from "store";
 
@@ -29,11 +28,15 @@ export const PostItem = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
   const { favorites } = useAppSelector(getFavorites);
-  const { isPortalOpen } = useAppSelector(getPortalState);
   const isFavorite = favorites.find(({ id }) => id === post.id);
 
   const handleAddToFavorite = () => {
-    dispatch(toggleFavorite(post));
+    if (!isAuth) {
+      dispatch(setPortalState());
+    }
+    if (isAuth) {
+      dispatch(toggleFavorite(post));
+    }
   };
 
   return (
@@ -44,12 +47,7 @@ export const PostItem = ({ post }: IProps) => {
       <TextWrapper>
         <TextInfo>
           <StyledDate>{new Date(post.publishedAt).toLocaleDateString()}</StyledDate>
-          <ButtonFavorite
-            type="submit"
-            onClick={handleAddToFavorite}
-            title="add to favorites"
-            disabled={!isAuth}
-          >
+          <ButtonFavorite type="submit" onClick={handleAddToFavorite} title="add to favorites">
             {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
           </ButtonFavorite>
         </TextInfo>

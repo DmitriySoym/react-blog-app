@@ -1,7 +1,10 @@
+import { RegistrationInfo } from "components";
 import { BsBookmark, BsBookmarkHeart } from "react-icons/bs";
 import {
   getAccountInfo,
   getFavorites,
+  getPortalState,
+  setPortalState,
   toggleFavorite,
   useAppDispatch,
   useAppSelector,
@@ -18,10 +21,20 @@ export const DetailPost = ({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector(getFavorites);
   const { isAuth } = useAppSelector(getAccountInfo);
-  const isFavorite = favorites.map((post) => post.id).find((id) => id === post.id);
+  const { isPortalOpen } = useAppSelector(getPortalState);
+  const isFavorite = favorites.find(({ id }) => id === post.id);
+
+  const handleClosePortal = () => {
+    dispatch(setPortalState());
+  };
 
   const handleAddToFavorite = () => {
-    dispatch(toggleFavorite(post));
+    if (!isAuth) {
+      dispatch(setPortalState());
+    }
+    if (isAuth) {
+      dispatch(toggleFavorite(post));
+    }
   };
 
   return (
@@ -37,11 +50,12 @@ export const DetailPost = ({ post }: IProps) => {
           type="submit"
           onClick={handleAddToFavorite}
           title="add to favorites"
-          disabled={!isAuth}
+          // disabled={!isAuth}
         >
           {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
         </ButtonFavorite>
       </ButtonsRow>
+      {isPortalOpen && <RegistrationInfo onClick={handleClosePortal} />}
     </Wrapper>
   );
 };

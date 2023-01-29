@@ -3,8 +3,8 @@ import { Typography, Color } from "ui";
 
 const StyledPortalAuth = styled.div`
   position: fixed;
-  top: 50%;
-  right: 50%;
+  top: 97px;
+  right: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@ const StyledPortalAuth = styled.div`
   box-shadow: 0px 12px 40px 9px rgb(0 0 0 / 10%);
   text-align: center;
   z-index: 10;
-  transform: translate(125px, 75px);
+  /* transform: translate(125px, 75px); */
   cursor: pointer;
 `;
 

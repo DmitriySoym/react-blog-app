@@ -15,7 +15,7 @@ export const RegistrationInfo = ({ onClick }: IProps) => {
     <Portal target={PortalTarget.AUTH}>
       <StyledPortalAuth>
         <ButtonClose onClick={onClick}>X</ButtonClose>
-        <Text>To use Favorites you need to Sign in.</Text>
+        <Text>To add post in Favorites you need to Sign in.</Text>
 
         <Button
           onClick={() => {

@@ -24,7 +24,7 @@ import { Title } from "./Title/Title";
 import { SortButtons } from "./SortButtons/SortButtons";
 import { NavigateButton } from "./NavigateButton/NavigateButton";
 import { Slider } from "./Slider/Slider";
-import { RegistrationInfo } from "./RegistrationPortal/RegistrationPortal";
+import { RegistrationInfo } from "./RegistrationInfo/RegistrationInfo";
 
 export {
   Header,

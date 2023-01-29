@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector, fetchDetailPost, getDetailPost, getAllp
 import { DetailPost, Spinner, NavigateButton, Slider } from "components";
 import { StyledDetailPage, Post, ErrorWrapper, Row, ErrorMessage } from "./styles";
 import errorImg from "../../assets/img/error.gif";
-import { ROUTE } from "router";
 
 export const DetailsPostlePage = () => {
   const { id = "" } = useParams();
@@ -19,7 +18,7 @@ export const DetailsPostlePage = () => {
 
   useEffect(() => {
     dispatch(fetchDetailPost({ endPoint: endPoint, id: id }));
-  }, [dispatch, id]);
+  }, [dispatch, endPoint, id]);
 
   if (isLoading) {
     return <Spinner />;
