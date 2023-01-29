@@ -1,5 +1,12 @@
 import { useEffect, useState, memo } from "react";
-import { fetchAllPosts, getAllposts, setPage, useAppDispatch, useAppSelector } from "store";
+import {
+  getAllposts,
+  setPage,
+  useAppDispatch,
+  useAppSelector,
+  setCurrentPageValue,
+  getCurrentPage,
+} from "store";
 
 import {
   StyledPagination,
@@ -23,66 +30,60 @@ export const Pagination = memo(({ onClick }: IProps) => {
   const [buttonNextState, setButtonNextState] = useState<boolean>(true);
   const [currentPageState, setCurrentPageState] = useState<boolean>(false);
   const { posts, page } = useAppSelector(getAllposts);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const buttonVisibility = currentPage > 2;
+  const { currentPageValue } = useAppSelector(getCurrentPage);
+  const buttonVisibility = currentPageValue > 3;
+
+  const pageValue = () => {
+    if (currentPageValue <= 2) {
+      return 1;
+    } else if (currentPageValue > 1) {
+      return currentPageValue - 1;
+    }
+  };
 
   const handleFirstPage = () => {
-    setCurrentPage(1);
+    dispatch(setCurrentPageValue(1));
     dispatch(setPage(0));
   };
 
-  const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
-    dispatch(setPage(page + 12));
-  };
-
   const handleTherdPage = () => {
-    console.log(currentPage);
-    if (currentPage === 0) {
-      setCurrentPage(currentPage + 2);
+    if (currentPageValue === 1) {
+      dispatch(setCurrentPageValue(currentPageValue + 2));
       dispatch(setPage(page + 24));
     } else {
-      setCurrentPage(currentPage + 1);
+      dispatch(setCurrentPageValue(currentPageValue + 1));
       dispatch(setPage(page + 12));
     }
   };
 
-  const handlePreviousPage = () => {
-    setCurrentPage(currentPage - 1);
-    dispatch(setPage(page - 12));
-  };
-
-  const handleNextButton = () => {
-    setCurrentPage(currentPage + 1);
+  const handleNextPage = () => {
+    dispatch(setCurrentPageValue(currentPageValue + 1));
     dispatch(setPage(page + 12));
   };
 
+  const handleNextButton = () => {
+    dispatch(setCurrentPageValue(currentPageValue + 1));
+    dispatch(setPage(page + 12));
+  };
+
+  const handlePreviousPage = () => {
+    dispatch(setCurrentPageValue(currentPageValue - 1));
+    dispatch(setPage(page - 12));
+  };
+
   const handlePreviousButton = () => {
-    setCurrentPage(currentPage - 1);
+    dispatch(setCurrentPageValue(currentPageValue - 1));
     dispatch(setPage(page - 12));
   };
 
   useEffect(() => {
-    currentPage === 0 ? setButtonPrevState(true) : setButtonPrevState(false);
-    currentPage === 0 ? setCurrentPageState(false) : setCurrentPageState(true);
+    currentPageValue <= 1 ? setButtonPrevState(true) : setButtonPrevState(false);
+    currentPageValue >= 2 ? setCurrentPageState(true) : setCurrentPageState(false);
     posts.length < 12 ? setButtonNextState(true) : setButtonNextState(false);
-  }, [currentPage, posts.length]);
+  }, [currentPageValue, posts.length]);
 
-  const pageValue = () => {
-    if (currentPage <= 1) {
-      return 1;
-    }
-    if (currentPage > 1) {
-      return currentPage;
-    }
-  };
-  useEffect(() => {
-    if (page === 0) {
-      return setCurrentPage(page);
-    }
-  });
   return (
-    <StyledPagination>
+    <StyledPagination onClick={onClick}>
       <ButtonPrev onClick={handlePreviousButton} disabled={buttonPrevState}>
         <span>⬅ </span>
         <span>Prev</span>
@@ -91,7 +92,9 @@ export const Pagination = memo(({ onClick }: IProps) => {
         <FirstPage visible={buttonVisibility} onClick={handleFirstPage}>
           1
         </FirstPage>
+
         <Dots visible={buttonVisibility}>...</Dots>
+
         <Page onClick={handlePreviousPage} disabled={buttonPrevState}>
           {pageValue()}
         </Page>
@@ -101,11 +104,11 @@ export const Pagination = memo(({ onClick }: IProps) => {
           disableColor={buttonNextState}
           onClick={handleNextPage}
         >
-          {currentPage <= 1 ? 2 : currentPage + 1}
+          {currentPageValue <= 1 ? 2 : currentPageValue}
         </CurentPage>
 
         <LastPage onClick={handleTherdPage} disabled={buttonNextState}>
-          {currentPage <= 1 ? 3 : currentPage + 2}
+          {currentPageValue < 3 ? 3 : currentPageValue + 1}
         </LastPage>
       </Pages>
 

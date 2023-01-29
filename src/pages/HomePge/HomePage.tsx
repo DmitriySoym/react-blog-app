@@ -24,6 +24,7 @@ import {
   setPage,
   getPortalState,
   setPortalState,
+  setCurrentPageValue,
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -48,10 +49,12 @@ export const HomePage = () => {
   const handleClosePortal = () => {
     dispatch(setPortalState());
   };
+
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
     dispatch(setEndPoint(activeTab));
     dispatch(setPage(0));
+    dispatch(setCurrentPageValue(1));
   };
 
   const handleSetTitleSort = (optionSortByTitle: SingleValue<ISelectOption>) => {

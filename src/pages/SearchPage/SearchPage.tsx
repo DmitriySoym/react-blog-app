@@ -2,7 +2,14 @@ import { Main, NavigateButton, Pagination, PostItem } from "components";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ROUTE } from "router";
-import { fetchAllPosts, getAllposts, setEndPoint, useAppDispatch, useAppSelector } from "store";
+import {
+  fetchAllPosts,
+  getAllposts,
+  setEndPoint,
+  useAppDispatch,
+  useAppSelector,
+  setCurrentPageValue,
+} from "store";
 import { IPost } from "types";
 import { Wrapper, SearcValue, SerchValueWrapper } from "./styles";
 
@@ -12,11 +19,14 @@ export const SearchPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const serchPeriod = new Date(3600 * 24 * 1000);
   const handleBack = () => {
     navigate(ROUTE.HOME);
     dispatch(setEndPoint("articles"));
   };
+
+  useEffect(() => {
+    dispatch(setCurrentPageValue(1));
+  }, []);
 
   useEffect(() => {
     if (endPoint === "favorites") {
@@ -25,6 +35,7 @@ export const SearchPage = () => {
   }, [dispatch, endPoint]);
 
   useEffect(() => {
+    const serchPeriod = new Date(3600 * 24 * 1000);
     serchValue &&
       dispatch(
         fetchAllPosts({

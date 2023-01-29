@@ -3,7 +3,7 @@ import { memo } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { setIsMenuOpen, useAppDispatch } from "store";
+import { setCurrentPageValue, setIsMenuOpen, useAppDispatch } from "store";
 import { Input, StyledCancelIcon, StyledSerch, SearchWrapper } from "./styles";
 
 interface ISerchValue {
@@ -22,10 +22,11 @@ export const Search = memo(() => {
   };
 
   const handleSearch: SubmitHandler<ISerchValue> = (query) => {
-    navigate(generatePath(ROUTE.SEARCH, { serchValue: query.search }));
+    dispatch(setCurrentPageValue(1));
     reset();
     handleSearchToggle();
     dispatch(setIsMenuOpen());
+    navigate(generatePath(ROUTE.SEARCH, { serchValue: query.search }));
   };
 
   return (

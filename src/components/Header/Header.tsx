@@ -9,11 +9,11 @@ import {
   useAppDispatch,
   useAppSelector,
   setIsMenuOpen,
+  setCurrentPageValue,
 } from "store";
 import { memo } from "react";
 
 export const Header = memo(() => {
-  // const [isMenuOpen, toggleMenu] = useToggle();
   const { isMenuOpen } = useAppSelector(getMenuBurgerStatus);
   const { width = 0 } = useWindowSize();
   const { scrollPos } = useScrollPosition();
@@ -22,6 +22,7 @@ export const Header = memo(() => {
 
   const handleHome = () => {
     dispatch(setEndPoint("articles"));
+    dispatch(setCurrentPageValue(1));
   };
 
   const toggleMenu = () => {
