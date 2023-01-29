@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { StyledResrtForm, HomeButton, Title } from "./styles";
-import { ResetPassForm } from "components";
+import { StyledResrtForm, Title } from "./styles";
+import { NavigateButton, ResetPassForm } from "components";
 import { ROUTE } from "router";
 
 export const ResetPasswordPage = () => {
@@ -11,7 +11,7 @@ export const ResetPasswordPage = () => {
 
   return (
     <StyledResrtForm>
-      <HomeButton onClick={handleBack}>Back to home</HomeButton>
+      <NavigateButton onclick={handleBack} />
       <Title>Reset password</Title>
       <ResetPassForm />
     </StyledResrtForm>

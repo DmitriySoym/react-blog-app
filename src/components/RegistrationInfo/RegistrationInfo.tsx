@@ -3,23 +3,32 @@ import { PortalTarget } from "types";
 import { Portal } from "components";
 import { StyledPortalAuth, Text, Button, ButtonClose } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { memo } from "react";
+import { setPortalState, useAppDispatch } from "store";
 
 interface IProps {
   onClick: () => void;
 }
 
-export const RegistrationInfo = ({ onClick }: IProps) => {
+export const RegistrationInfo = memo(({ onClick }: IProps) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   return (
     <Portal target={PortalTarget.AUTH}>
-      <StyledPortalAuth>
+      <StyledPortalAuth
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+        exit={{ scale: 0 }}
+        transition={{ ease: "easeInOut", duration: 0.5 }}
+      >
         <ButtonClose onClick={onClick}>X</ButtonClose>
         <Text>To add post in Favorites you need to Sign in.</Text>
 
         <Button
           onClick={() => {
             navigate(ROUTE.AUTH);
+            dispatch(setPortalState());
           }}
         >
           Sign In
@@ -27,4 +36,4 @@ export const RegistrationInfo = ({ onClick }: IProps) => {
       </StyledPortalAuth>
     </Portal>
   );
-};
+});

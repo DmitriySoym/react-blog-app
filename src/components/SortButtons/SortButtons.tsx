@@ -1,5 +1,6 @@
 import { IButton } from "types";
 import { ButtonWrapper, Button } from "./styles";
+import { memo } from "react";
 
 interface IProps {
   buttons: IButton[];
@@ -7,7 +8,7 @@ interface IProps {
   isActivebutton: string;
 }
 
-export const SortButtons = ({ buttons, onClick, isActivebutton }: IProps) => {
+export const SortButtons = memo(({ buttons, onClick, isActivebutton }: IProps) => {
   return (
     <ButtonWrapper>
       {buttons &&
@@ -22,4 +23,4 @@ export const SortButtons = ({ buttons, onClick, isActivebutton }: IProps) => {
         ))}
     </ButtonWrapper>
   );
-};
+});

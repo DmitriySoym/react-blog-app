@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo, Search } from "components";
 import { useState } from "react";
+import { memo } from "react";
 
 interface MenuProps {
   isMobile: boolean;
@@ -19,7 +20,7 @@ const menuVariants = {
 
 const start = {};
 
-export const Account = ({ isMenuOpen, isMobile }: MenuProps) => {
+export const Account = memo(({ isMenuOpen, isMobile }: MenuProps) => {
   const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : start;
   const { isAuth, name } = useAppSelector(getAccountInfo);
   const [isOpen, setIsOpen] = useState(false);
@@ -49,4 +50,4 @@ export const Account = ({ isMenuOpen, isMobile }: MenuProps) => {
       </StyledAccount>
     </Wrapper>
   );
-};
+});

@@ -3,6 +3,7 @@ import { Swiper } from "swiper/react";
 import { Indents, Media, Typography } from "ui";
 
 const StyledSwiper = styled(Swiper)`
+  padding: ${Indents.XS} 10px;
   ${Media.XL} {
     padding: 20px 0;
   }

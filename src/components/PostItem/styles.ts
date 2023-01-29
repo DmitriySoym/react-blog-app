@@ -9,10 +9,11 @@ const StyledArticle = styled.li<{ bg: string }>`
   border-radius: 16px;
   overflow: hidden;
   background-color: ${Color.HEADER_BACKGROUND};
+  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   &:hover {
-    box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
   }
 
   &:hover div:nth-child(1) {

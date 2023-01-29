@@ -1,6 +1,7 @@
 import { IOptionDateSort } from "types";
 import Select, { SingleValue } from "react-select";
 import { customStyles } from "./styles";
+import { memo } from "react";
 
 interface IProps {
   options: IOptionDateSort[];
@@ -8,7 +9,7 @@ interface IProps {
   value: IOptionDateSort;
 }
 
-export const CustomSortByDateSelect = (props: IProps) => {
+export const CustomSortByDateSelect = memo((props: IProps) => {
   return (
     <Select
       {...props}
@@ -18,4 +19,4 @@ export const CustomSortByDateSelect = (props: IProps) => {
       className="sortByDateSelect"
     />
   );
-};
+});

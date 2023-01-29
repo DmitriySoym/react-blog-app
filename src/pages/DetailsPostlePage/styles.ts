@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Indents, Typography, Color, Media } from "ui";
+import { motion } from "framer-motion";
 
-const StyledDetailPage = styled.div`
+const StyledDetailPage = styled(motion.div)`
   flex: 1 0 auto;
   max-width: 1120px;
   width: 100%;
@@ -38,8 +39,6 @@ const Navigation = styled.div`
 const Row = styled.div`
   display: flex;
   column-gap: 33px;
-
-  padding-top: ${Indents.MD};
   border-top: 1px solid ${Color.TEXT_FOOTER};
 
   ${Media.XL} {

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Indents, Media } from "ui";
+import { motion } from "framer-motion";
 
-const FavoritesRow = styled.ul`
+const FavoritesRow = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;

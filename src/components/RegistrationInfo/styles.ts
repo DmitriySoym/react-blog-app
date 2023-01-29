@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Typography, Color } from "ui";
+import { motion } from "framer-motion";
 
-const StyledPortalAuth = styled.div`
+const StyledPortalAuth = styled(motion.div)`
   position: fixed;
   top: 97px;
   right: 15px;
@@ -16,7 +17,6 @@ const StyledPortalAuth = styled.div`
   box-shadow: 0px 12px 40px 9px rgb(0 0 0 / 10%);
   text-align: center;
   z-index: 10;
-  /* transform: translate(125px, 75px); */
   cursor: pointer;
 `;
 

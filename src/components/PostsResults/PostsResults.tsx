@@ -3,12 +3,13 @@ import { IPost } from "types";
 import { StyledArticles, ErrorWrapper, ErrorMessage } from "./styles";
 import errorImg from "../../assets/img/error.gif";
 import { getAllposts, useAppSelector } from "store";
+import { memo } from "react";
 
 interface IProps {
   posts: IPost[];
 }
 
-export const PostsResults = ({ posts }: IProps) => {
+export const PostsResults = memo(({ posts }: IProps) => {
   const { isLoading, error } = useAppSelector(getAllposts);
 
   if (isLoading) {
@@ -22,7 +23,11 @@ export const PostsResults = ({ posts }: IProps) => {
     );
   }
   return (
-    <StyledArticles>
+    <StyledArticles
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeIn", duration: 0.6 }}
+    >
       {posts &&
         posts.length > 0 &&
         posts.map((post: IPost) => {
@@ -30,4 +35,4 @@ export const PostsResults = ({ posts }: IProps) => {
         })}
     </StyledArticles>
   );
-};
+});

@@ -1,5 +1,6 @@
 import { NavWrapper, Tab } from "./styles";
 import { TabOne, ITab } from "types";
+import { memo } from "react";
 
 interface IProps {
   tabs: ITab[];
@@ -13,7 +14,7 @@ export const tabs: ITab[] = [
   { id: TabOne.FAVORITES, label: "Favorites", value: "" },
 ];
 
-export const Tabs = ({ tabs, onClick, isActiveTab }: IProps) => {
+export const Tabs = memo(({ tabs, onClick, isActiveTab }: IProps) => {
   return (
     <NavWrapper>
       {tabs &&
@@ -24,4 +25,4 @@ export const Tabs = ({ tabs, onClick, isActiveTab }: IProps) => {
         ))}
     </NavWrapper>
   );
-};
+});

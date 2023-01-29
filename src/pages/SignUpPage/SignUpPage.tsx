@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { StyledSignUp, HomeButton, Title } from "./styles";
+import { StyledSignUp, Title } from "./styles";
 import { SignUpForm } from "components/SignUpForm/SignUpForm";
 import { ROUTE } from "router";
+import { NavigateButton } from "components";
 
 export const SignUpPage = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export const SignUpPage = () => {
 
   return (
     <StyledSignUp>
-      <HomeButton onClick={handleBack}>Back to home</HomeButton>
+      <NavigateButton onclick={handleBack} />
       <Title>Sign Up</Title>
       <SignUpForm />
     </StyledSignUp>

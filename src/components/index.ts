@@ -5,7 +5,6 @@ import { Footer } from "./Footer/Footer";
 import { Main } from "./Main/Main";
 import { PostsResults } from "./PostsResults/PostsResults";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
-import { CustomNavLink } from "./CustomNavLink/CustomNavLink";
 import { Search } from "./Search/Search";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
@@ -33,7 +32,6 @@ export {
   Footer,
   Main,
   PostsResults,
-  CustomNavLink,
   Search,
   RequareAuth,
   SignUpForm,

@@ -42,7 +42,13 @@ export const SignInForm = () => {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm
+      onSubmit={handleSubmit(onSubmit)}
+      animate={{ scale: 1 }}
+      initial={{ scale: 0 }}
+      exit={{ scale: 0 }}
+      transition={{ ease: "easeInOut", duration: 0.5 }}
+    >
       <Label>
         Email
         <Input type="email" placeholder="Your email" {...register("email", { required: true })} />

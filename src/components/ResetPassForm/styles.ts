@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Indents, Typography, Media, Color } from "ui";
+import { motion } from "framer-motion";
 
-const StyledForm = styled.form`
+const StyledForm = styled(motion.form)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,6 +58,11 @@ const Button = styled.button`
   ${Typography.H3};
   color: ${Color.WHITE};
   line-height: 24px;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: ${Color.PRIMARY_TWO};
+  }
 `;
 
 const Error = styled.span`

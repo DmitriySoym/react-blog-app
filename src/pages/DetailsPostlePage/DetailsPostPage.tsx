@@ -33,7 +33,11 @@ export const DetailsPostlePage = () => {
   }
 
   return (
-    <StyledDetailPage>
+    <StyledDetailPage
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeIn", duration: 0.6 }}
+    >
       <NavigateButton onclick={handleBack}>
         <Post> / Post {id}</Post>
       </NavigateButton>

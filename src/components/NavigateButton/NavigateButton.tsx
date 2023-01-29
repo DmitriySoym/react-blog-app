@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 import { Button, Navigation } from "./styles";
 
 interface IProps {
@@ -6,11 +6,11 @@ interface IProps {
   onclick: () => void;
 }
 
-export const NavigateButton = ({ children, onclick }: IProps) => {
+export const NavigateButton = memo(({ children, onclick }: IProps) => {
   return (
     <Navigation>
       <Button onClick={onclick}>Home</Button>
       {children}
     </Navigation>
   );
-};
+});

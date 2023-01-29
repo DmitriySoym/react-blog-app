@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Media, Indents, Typography } from "ui";
+import { motion } from "framer-motion";
 
-const StyledArticles = styled.ul`
+const StyledArticles = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
