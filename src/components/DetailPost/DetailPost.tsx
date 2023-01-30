@@ -25,10 +25,6 @@ export const DetailPost = memo(({ post }: IProps) => {
   const { isPortalOpen } = useAppSelector(getPortalState);
   const isFavorite = favorites.find(({ id }) => id === post.id);
 
-  const handleClosePortal = () => {
-    dispatch(setPortalState());
-  };
-
   const handleAddToFavorite = () => {
     if (!isAuth) {
       dispatch(setPortalState());
@@ -51,12 +47,7 @@ export const DetailPost = memo(({ post }: IProps) => {
           {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
         </ButtonFavorite>
       </ButtonsRow>
-      {isPortalOpen && (
-        <RegistrationInfo
-          onClick={handleClosePortal}
-          label="To add post in Favorites you need to Sign in."
-        />
-      )}
+      {isPortalOpen && <RegistrationInfo label="To add post in Favorites you need to Sign in." />}
     </Wrapper>
   );
 });

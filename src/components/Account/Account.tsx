@@ -1,6 +1,6 @@
 import { StyledAccount, Button, UserLogo, Name, Wrapper } from "./styles";
 import { LogoOutIcon } from "assets";
-import { useAppSelector, getAccountInfo } from "store";
+import { useAppSelector, getAccountInfo, useAppDispatch, setIsMenuOpen } from "store";
 import { Link } from "react-router-dom";
 import { ROUTE } from "router";
 import { AccountInfo, Search } from "components";
@@ -24,9 +24,14 @@ export const Account = memo(({ isMenuOpen, isMobile }: MenuProps) => {
   const currentVariant = isMobile ? (isMenuOpen ? "open" : "closed") : start;
   const { isAuth, name } = useAppSelector(getAccountInfo);
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const handleModal = () => {
     setIsOpen((isOpen) => (isOpen === false ? true : false));
+  };
+
+  const handleCloseBurgerMenu = () => {
+    dispatch(setIsMenuOpen());
   };
 
   return (
@@ -43,7 +48,7 @@ export const Account = memo(({ isMenuOpen, isMobile }: MenuProps) => {
           <>
             <LogoOutIcon />{" "}
             <Link to={ROUTE.AUTH}>
-              <Button>Sign In</Button>
+              <Button onClick={handleCloseBurgerMenu}>Sign In</Button>
             </Link>
           </>
         )}

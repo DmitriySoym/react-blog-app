@@ -23,7 +23,6 @@ import {
   setEndPoint,
   setPage,
   getPortalState,
-  setPortalState,
   setCurrentPageValue,
 } from "store";
 import { useNavigate } from "react-router-dom";
@@ -45,10 +44,6 @@ export const HomePage = () => {
   const isTablet = width < 992.98;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  const handleClosePortal = () => {
-    dispatch(setPortalState());
-  };
 
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
@@ -130,7 +125,7 @@ export const HomePage = () => {
         </StyledSortPosts>
         {isPortalOpen && (
           <RegistrationInfo
-            onClick={handleClosePortal}
+            // onClick={handleClosePortal}
             label="To add post in Favorites you need to Sign in."
           />
         )}

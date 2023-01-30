@@ -7,11 +7,10 @@ import { memo } from "react";
 import { setPortalState, useAppDispatch } from "store";
 
 interface IProps {
-  onClick?: () => void;
   label: string;
 }
 
-export const RegistrationInfo = memo(({ onClick, label }: IProps) => {
+export const RegistrationInfo = memo(({ label }: IProps) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -23,7 +22,13 @@ export const RegistrationInfo = memo(({ onClick, label }: IProps) => {
         exit={{ scale: 0 }}
         transition={{ ease: "easeInOut", duration: 0.5 }}
       >
-        <ButtonClose onClick={onClick}>X</ButtonClose>
+        <ButtonClose
+          onClick={() => {
+            dispatch(setPortalState());
+          }}
+        >
+          X
+        </ButtonClose>
         <Text>{label}</Text>
 
         <Button

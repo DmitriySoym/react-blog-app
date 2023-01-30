@@ -7,6 +7,7 @@ import { getPortalState, useAppSelector } from "store";
 export const ResetPasswordPage = () => {
   const { isPortalOpen } = useAppSelector(getPortalState);
   const navigate = useNavigate();
+
   const handleBack = () => {
     navigate(ROUTE.HOME);
   };
