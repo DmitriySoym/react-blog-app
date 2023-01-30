@@ -1,4 +1,4 @@
-import { Main, NavigateButton, Pagination, PostItem } from "components";
+import { Main, NavigateButton, Pagination, PostItem, Spinner } from "components";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ROUTE } from "router";
@@ -11,11 +11,19 @@ import {
   setCurrentPageValue,
 } from "store";
 import { IPost } from "types";
-import { Wrapper, SearcValue, SerchValueWrapper } from "./styles";
+import errorImg from "../../assets/img/error.gif";
+import {
+  Wrapper,
+  SearcValue,
+  SerchValueWrapper,
+  NoResultMessage,
+  ErrorWrapper,
+  ErrorMessage,
+} from "./styles";
 
 export const SearchPage = () => {
   const { serchValue = "" } = useParams();
-  const { posts, endPoint, page } = useAppSelector(getAllposts);
+  const { posts, endPoint, page, isLoading, error } = useAppSelector(getAllposts);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -26,7 +34,7 @@ export const SearchPage = () => {
 
   useEffect(() => {
     dispatch(setCurrentPageValue(1));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (endPoint === "favorites") {
@@ -48,6 +56,16 @@ export const SearchPage = () => {
       );
   }, [dispatch, serchValue, endPoint, page]);
 
+  if (isLoading) {
+    return <Spinner />;
+  } else if (error) {
+    return (
+      <ErrorWrapper>
+        <ErrorMessage>Sorry, something went wrong... The page could not be loaded.</ErrorMessage>
+        <img src={errorImg} alt="error" />
+      </ErrorWrapper>
+    );
+  }
   return (
     <>
       <Main>
@@ -55,12 +73,18 @@ export const SearchPage = () => {
         <SearcValue>
           You are looking for: <SerchValueWrapper>{serchValue}</SerchValueWrapper>
         </SearcValue>
-        <Wrapper>
-          {posts &&
-            posts.length > 0 &&
+        <Wrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: "easeIn", duration: 0.8 }}
+        >
+          {posts && posts.length > 0 ? (
             posts.map((post: IPost) => {
               return <PostItem post={post} key={post.id} />;
-            })}
+            })
+          ) : (
+            <NoResultMessage>Sorry. There are no posts according to your request</NoResultMessage>
+          )}
         </Wrapper>
       </Main>
       <Pagination

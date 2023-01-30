@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Indents, Media, Typography } from "ui";
+import { motion } from "framer-motion";
 
-const Wrapper = styled.ul`
+const Wrapper = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;
@@ -26,4 +27,26 @@ const SerchValueWrapper = styled.span`
   font-size: 22px;
 `;
 
-export { Wrapper, SearcValue, SerchValueWrapper };
+const NoResultMessage = styled.h2`
+  grid-column: 1 / 4;
+  ${Typography.H3};
+  padding-bottom: ${Indents.SM};
+  text-align: center;
+`;
+
+const ErrorWrapper = styled.div`
+  padding: ${Indents.LG} 0;
+  & img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+
+const ErrorMessage = styled.h2`
+  ${Typography.H2}
+  padding-bottom:${Indents.SM}
+`;
+
+export { Wrapper, SearcValue, SerchValueWrapper, NoResultMessage, ErrorWrapper, ErrorMessage };

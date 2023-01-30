@@ -19,12 +19,12 @@ import {
   getFavorites,
   setPortalState,
 } from "store";
-
+import { memo } from "react";
 interface IProps {
   post: IPost;
 }
 
-export const PostItem = ({ post }: IProps) => {
+export const PostItem = memo(({ post }: IProps) => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector(getAccountInfo);
   const { favorites } = useAppSelector(getFavorites);
@@ -61,4 +61,4 @@ export const PostItem = ({ post }: IProps) => {
       </TextWrapper>
     </StyledArticle>
   );
-};
+});
