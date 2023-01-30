@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-blog-app/static/css/main.693455cf.css",
-    "main.js": "/React-blog-app/static/js/main.1275e561.js",
+    "main.js": "/React-blog-app/static/js/main.ad9e1761.js",
     "static/media/error.gif": "/React-blog-app/static/media/error.028e0012910276007d14.gif",
     "static/media/not-found-page.jpeg": "/React-blog-app/static/media/not-found-page.6b66fac3eb0626257b68.jpeg",
     "static/media/logo.svg": "/React-blog-app/static/media/logo.256c8c40f8356933499a8720abb50ec8.svg",
@@ -10,10 +10,10 @@
     "static/media/cancel.svg": "/React-blog-app/static/media/cancel.5e3a8b826e48de8d22ae660d3ca06f76.svg",
     "static/media/search.svg": "/React-blog-app/static/media/search.7f0947de943e2eef52a15b039a4ae707.svg",
     "main.693455cf.css.map": "/React-blog-app/static/css/main.693455cf.css.map",
-    "main.1275e561.js.map": "/React-blog-app/static/js/main.1275e561.js.map"
+    "main.ad9e1761.js.map": "/React-blog-app/static/js/main.ad9e1761.js.map"
   },
   "entrypoints": [
     "static/css/main.693455cf.css",
-    "static/js/main.1275e561.js"
+    "static/js/main.ad9e1761.js"
   ]
 }
