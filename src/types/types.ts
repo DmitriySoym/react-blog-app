@@ -23,7 +23,7 @@ const enum PortalTarget {
 interface IOptionDateSort {
   value: Date;
   label: string;
-  index: string;
+  index: number;
 }
 
 interface ISelectOption {
@@ -38,7 +38,7 @@ interface ITab {
 }
 
 interface IButton {
-  id: string;
+  id: number;
   title: string;
 }
 

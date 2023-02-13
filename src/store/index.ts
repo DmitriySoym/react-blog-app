@@ -13,14 +13,7 @@ import { fetchDetailPost } from "./slices/detailPostSlice/detailPostlelice";
 import { getDetailPost } from "./selectors/detailPostSelector";
 import { toggleFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { getFavorites } from "./selectors/favoriteSelector";
-import {
-  setSearchQuery,
-  optionDate,
-  buttons,
-  optionSortByTitle,
-  setEndPoint,
-  setPage,
-} from "./slices/postsSlice/postsSlice";
+import { setSearchQuery, setEndPoint, setPage } from "./slices/postsSlice/postsSlice";
 import { getMenuBurgerStatus } from "./selectors/menuBurgerSelector";
 import { setIsMenuOpen } from "./slices/menuBurgerSlice/menuBurgerSclice";
 import { setPortalState } from "./slices/portalSlice/portalSlice";
@@ -45,9 +38,6 @@ export {
   setSearchQuery,
   getMenuBurgerStatus,
   setIsMenuOpen,
-  optionDate,
-  buttons,
-  optionSortByTitle,
   fetchAllPosts,
   setEndPoint,
   setPage,

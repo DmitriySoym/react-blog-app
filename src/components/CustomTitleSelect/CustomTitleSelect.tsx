@@ -12,6 +12,12 @@ interface IProps {
   value: ISelectOption;
 }
 
+export const optionSortByTitle: ISelectOption[] = [
+  { value: "", label: "Set article sorting" },
+  { value: "title", label: "Title (A-Z)" },
+  { value: "title:DESC", label: "Title (Z-A)" },
+];
+
 export const CustomTitleSelect = (props: IProps) => {
   return (
     <Select

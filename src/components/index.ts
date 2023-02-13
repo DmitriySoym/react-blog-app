@@ -17,10 +17,13 @@ import { Portal } from "./Portal/Portal";
 import { Tabs, tabs } from "./Tabs/Tabs";
 import { Spinner } from "./Spinner/Spinner";
 import { Pagination } from "./Pagination/Pagination";
-import { CustomTitleSelect } from "./CustomTitleSelect/CustomTitleSelect";
-import { CustomSortByDateSelect } from "./CustomSortByDateSelect/CustomSortByDateSelect";
+import { CustomTitleSelect, optionSortByTitle } from "./CustomTitleSelect/CustomTitleSelect";
+import {
+  CustomSortByDateSelect,
+  optionDate,
+} from "./CustomSortByDateSelect/CustomSortByDateSelect";
 import { Title } from "./Title/Title";
-import { SortButtons } from "./SortButtons/SortButtons";
+import { SortButtons, buttons } from "./SortButtons/SortButtons";
 import { NavigateButton } from "./NavigateButton/NavigateButton";
 import { Slider } from "./Slider/Slider";
 import { RegistrationInfo } from "./RegistrationInfo/RegistrationInfo";
@@ -53,4 +56,7 @@ export {
   BurgerMenu,
   Slider,
   RegistrationInfo,
+  buttons,
+  optionDate,
+  optionSortByTitle,
 };
