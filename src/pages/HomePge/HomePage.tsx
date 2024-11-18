@@ -37,7 +37,7 @@ export const HomePage = () => {
   const { isAuth } = useAppSelector(getAccountInfo);
   const { isPortalOpen } = useAppSelector(getPortalState);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const [activeButton, setActiveButton] = useState(buttons[3].id);
+  const [activeButton, setActiveButton] = useState(buttons[2].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[3]);
   const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[1]);
   const { width = 0 } = useWindowSize();

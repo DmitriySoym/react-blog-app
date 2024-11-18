@@ -20,20 +20,19 @@ class SpaceBlogApi {
     publicationDate: Date,
   ) {
     const params = {
-      _limit: 12,
-      _sort: sortParams,
-      _start: page,
-      _title_contains: query,
-      _publishedAt_gt: publicationDate,
+      limit: 12,
+      ordering: sortParams,
+      offset: page,
+      title_contains: query,
+      published_at_gt: publicationDate,
     };
 
-    const { data } = await this.API.get<IPost[]>("/" + endpoint, { params });
+    const { data } = await this.API.get<any>("/" + endpoint, { params });
     return data;
   }
 
   public async getAllPostsCount(endPoint: string) {
-    const { data } = await this.API.get<number>("/" + endPoint + "/" + "count");
-
+    const { data } = await this.API.get<number>("/" + endPoint + "/");
     return data;
   }
 

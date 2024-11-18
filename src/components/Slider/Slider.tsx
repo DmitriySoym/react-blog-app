@@ -31,8 +31,8 @@ export const Slider = () => {
       spaceBetween={10}
       modules={[FreeMode]}
     >
-      {posts && posts.length > 0 ? (
-        posts.map((post: IPost) => {
+      {posts && posts.results.length > 0 ? (
+        posts.results.map((post: IPost) => {
           return (
             <SwiperSlide key={post.id} style={{ minWidth: 300 }}>
               <PostItem post={post} />{" "}

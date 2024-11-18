@@ -1,11 +1,13 @@
 interface IPost {
   id: string;
   url: string;
-  publishedAt: string;
+  updated_at: string;
   summary: string;
   title: string;
-  imageUrl: string;
+  image_url: string;
   newSite: string;
+  results: IPost[];
+  count: number;
 }
 
 const enum TabOne {

@@ -78,8 +78,8 @@ export const SearchPage = () => {
           animate={{ opacity: 1 }}
           transition={{ ease: "easeIn", duration: 0.8 }}
         >
-          {posts && posts.length > 0 ? (
-            posts.map((post: IPost) => {
+          {posts && posts.results.length > 0 ? (
+            posts.results.map((post: IPost) => {
               return <PostItem post={post} key={post.id} />;
             })
           ) : (

@@ -18,7 +18,7 @@ interface IProps {
 }
 
 export const DetailPost = memo(({ post }: IProps) => {
-  const { title, imageUrl, summary, url } = post;
+  const { title, image_url, summary, url } = post;
   const dispatch = useAppDispatch();
   const { favorites } = useAppSelector(getFavorites);
   const { isAuth } = useAppSelector(getAccountInfo);
@@ -37,7 +37,7 @@ export const DetailPost = memo(({ post }: IProps) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
-      <Image src={imageUrl} alt={title} />
+      <Image src={image_url} alt={title} />
       <Text>{summary}</Text>
       <ButtonsRow>
         <OriginArticle href={url} target="_blank">

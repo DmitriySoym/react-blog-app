@@ -5,6 +5,7 @@ import { Color } from "ui";
 const customSortStyles: StylesConfig<ISelectOption> = {
   control: (baseStyles, state) => ({
     ...baseStyles,
+    display: "none",
     height: 56,
     backgroundColor: `${Color.HEADER_BACKGROUND}`,
     outline: "none",

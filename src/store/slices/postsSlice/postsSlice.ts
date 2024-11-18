@@ -7,7 +7,9 @@ interface ISearchParams {
 }
 
 interface IPostState {
-  posts: IPost[];
+  posts: {
+    results: IPost[];
+  };
   page: number;
   isLoading: boolean;
   error: null | string;
@@ -16,7 +18,7 @@ interface IPostState {
 }
 
 export const fetchAllPosts = createAsyncThunk<
-  IPost[],
+  { results: IPost[] },
   { endpoint: string; page: number; query: string; sortParams: string; publicationDate: Date },
   { rejectValue: string }
 >("post/fetchAllPosts", async (params, { rejectWithValue }) => {
@@ -34,7 +36,9 @@ export const fetchAllPosts = createAsyncThunk<
 });
 
 const initialState: IPostState = {
-  posts: [],
+  posts: {
+    results: [],
+  },
   page: 0,
   isLoading: false,
   error: null,

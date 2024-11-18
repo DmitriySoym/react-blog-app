@@ -6,12 +6,13 @@ import { getAllposts, useAppSelector } from "store";
 import { memo } from "react";
 
 interface IProps {
-  posts: IPost[];
+  posts: {
+    results: IPost[];
+  };
 }
 
 export const PostsResults = memo(({ posts }: IProps) => {
   const { isLoading, error } = useAppSelector(getAllposts);
-
   if (isLoading) {
     return <Spinner />;
   } else if (error) {
@@ -28,9 +29,9 @@ export const PostsResults = memo(({ posts }: IProps) => {
       animate={{ opacity: 1 }}
       transition={{ ease: "easeIn", duration: 0.6 }}
     >
-      {posts &&
-        posts.length > 0 &&
-        posts.map((post: IPost) => {
+      {posts.results &&
+        posts.results.length > 0 &&
+        posts.results.map((post: IPost) => {
           return <PostItem post={post} key={post.id} />;
         })}
     </StyledArticles>

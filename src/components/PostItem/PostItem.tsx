@@ -40,13 +40,13 @@ export const PostItem = memo(({ post }: IProps) => {
   };
 
   return (
-    <StyledArticle bg={post.imageUrl}>
+    <StyledArticle bg={post.image_url}>
       <Link to={generatePath(ROUTE.DETAIL_POST, { id: post.id })}>
-        <Image bg={post.imageUrl} />
+        <Image bg={post.image_url} />
       </Link>
       <TextWrapper>
         <TextInfo>
-          <StyledDate>{new Date(post.publishedAt).toLocaleDateString()}</StyledDate>
+          <StyledDate>{new Date(post.updated_at).toLocaleDateString()}</StyledDate>
           <ButtonFavorite type="submit" onClick={handleAddToFavorite} title="add to favorites">
             {isFavorite ? <BsBookmarkHeart /> : <BsBookmark />}
           </ButtonFavorite>

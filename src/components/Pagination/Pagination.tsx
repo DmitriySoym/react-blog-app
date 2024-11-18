@@ -46,7 +46,7 @@ export const Pagination = memo(({ onClick }: IProps) => {
     dispatch(setPage(0));
   };
 
-  const handleTherdPage = () => {
+  const handleThirdPage = () => {
     if (currentPageValue === 1) {
       dispatch(setCurrentPageValue(currentPageValue + 2));
       dispatch(setPage(page + 24));
@@ -79,8 +79,8 @@ export const Pagination = memo(({ onClick }: IProps) => {
   useEffect(() => {
     currentPageValue <= 1 ? setButtonPrevState(true) : setButtonPrevState(false);
     currentPageValue >= 2 ? setCurrentPageState(true) : setCurrentPageState(false);
-    posts.length < 12 ? setButtonNextState(true) : setButtonNextState(false);
-  }, [currentPageValue, posts.length]);
+    posts.results.length < 12 ? setButtonNextState(true) : setButtonNextState(false);
+  }, [currentPageValue, posts.results.length]);
 
   return (
     <StyledPagination onClick={onClick}>
@@ -107,7 +107,7 @@ export const Pagination = memo(({ onClick }: IProps) => {
           {currentPageValue <= 1 ? 2 : currentPageValue}
         </CurentPage>
 
-        <LastPage onClick={handleTherdPage} disabled={buttonNextState}>
+        <LastPage onClick={handleThirdPage} disabled={buttonNextState}>
           {currentPageValue < 3 ? 3 : currentPageValue + 1}
         </LastPage>
       </Pages>
