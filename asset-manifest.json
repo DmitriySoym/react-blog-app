@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/React-blog-app/static/css/main.693455cf.css",
-    "main.js": "/React-blog-app/static/js/main.84fa45da.js",
-    "static/media/error.gif": "/React-blog-app/static/media/error.028e0012910276007d14.gif",
-    "static/media/not-found-page.jpeg": "/React-blog-app/static/media/not-found-page.6b66fac3eb0626257b68.jpeg",
-    "static/media/logo.svg": "/React-blog-app/static/media/logo.256c8c40f8356933499a8720abb50ec8.svg",
-    "static/media/logout.svg": "/React-blog-app/static/media/logout.5a46bb3ab6ae548cebb41ffbd731ad5f.svg",
-    "index.html": "/React-blog-app/index.html",
-    "static/media/cancel.svg": "/React-blog-app/static/media/cancel.5e3a8b826e48de8d22ae660d3ca06f76.svg",
-    "static/media/search.svg": "/React-blog-app/static/media/search.7f0947de943e2eef52a15b039a4ae707.svg",
-    "main.693455cf.css.map": "/React-blog-app/static/css/main.693455cf.css.map",
-    "main.84fa45da.js.map": "/React-blog-app/static/js/main.84fa45da.js.map"
+    "main.css": "/react-blog-app/static/css/main.693455cf.css",
+    "main.js": "/react-blog-app/static/js/main.97361afd.js",
+    "static/media/error.gif": "/react-blog-app/static/media/error.028e0012910276007d14.gif",
+    "static/media/not-found-page.jpeg": "/react-blog-app/static/media/not-found-page.6b66fac3eb0626257b68.jpeg",
+    "static/media/logo.svg": "/react-blog-app/static/media/logo.256c8c40f8356933499a8720abb50ec8.svg",
+    "static/media/logout.svg": "/react-blog-app/static/media/logout.5a46bb3ab6ae548cebb41ffbd731ad5f.svg",
+    "index.html": "/react-blog-app/index.html",
+    "static/media/cancel.svg": "/react-blog-app/static/media/cancel.5e3a8b826e48de8d22ae660d3ca06f76.svg",
+    "static/media/search.svg": "/react-blog-app/static/media/search.7f0947de943e2eef52a15b039a4ae707.svg",
+    "main.693455cf.css.map": "/react-blog-app/static/css/main.693455cf.css.map",
+    "main.97361afd.js.map": "/react-blog-app/static/js/main.97361afd.js.map"
   },
   "entrypoints": [
     "static/css/main.693455cf.css",
-    "static/js/main.84fa45da.js"
+    "static/js/main.97361afd.js"
   ]
 }
