@@ -8,7 +8,7 @@
 - If you want to add your favorite articles to the favorite section ❤️ you need to register. Authorization information and featured articles are stored in local storage.
 - Applications provide the ability to search posts by titles, to sort them by title and publication date.
 
-[View deployment](https://dmitriysoym.github.io/React-blog-app/)
+[View deployment](https://dmitriysoym.github.io/react-blog-app/)
 
 ### App Screenshots:
 
