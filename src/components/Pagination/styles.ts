@@ -85,8 +85,27 @@ const CurentPage = styled.button<{ disableColor: boolean }>`
   }
 `;
 
-const LastPage = styled.button`
+const ThirdPage = styled.button<{ visible: boolean }>`
+  display: ${({ visible }) => (visible ? "flex" : "none")};
   ${Typography.Subline};
+  align-items: center;
+  background-color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: ${Color.PRIMARY_TWO};
+  }
+
+  &:disabled {
+    color: ${Color.DISABLED};
+  }
+`;
+
+const LastPage = styled.button<{ visible: boolean }>`
+  display: ${({ visible }) => (visible ? "flex" : "none")};
+  ${Typography.Subline};
+  align-items: center;
   background-color: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -142,4 +161,5 @@ export {
   CurentPage,
   Dots,
   FirstPage,
+  ThirdPage,
 };

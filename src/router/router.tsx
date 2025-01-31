@@ -9,7 +9,7 @@ import {
   NotFoundPage,
   DetailsPostlePage,
 } from "pages";
-import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
 import { RequareAuth } from "components";
 

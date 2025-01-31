@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from "react";
+import { useEffect, useState, memo, useCallback } from "react";
 import {
   getAllposts,
   setPage,
@@ -18,101 +18,113 @@ import {
   LastPage,
   Dots,
   FirstPage,
+  ThirdPage,
 } from "./styles";
 
 interface IProps {
   onClick: () => void;
 }
 
+const POSTS_PER_PAGE = 12;
+
 export const Pagination = memo(({ onClick }: IProps) => {
   const dispatch = useAppDispatch();
-  const [buttonPrevState, setButtonPrevState] = useState<boolean>(true);
-  const [buttonNextState, setButtonNextState] = useState<boolean>(true);
-  const [currentPageState, setCurrentPageState] = useState<boolean>(false);
-  const { posts, page } = useAppSelector(getAllposts);
+  const { posts } = useAppSelector(getAllposts);
   const { currentPageValue } = useAppSelector(getCurrentPage);
-  const buttonVisibility = currentPageValue > 3;
 
-  const pageValue = () => {
-    if (currentPageValue <= 2) {
-      return 1;
-    } else if (currentPageValue > 1) {
-      return currentPageValue - 1;
-    }
-  };
+  const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState<boolean>(true);
+  const [isNextButtonDisabled, setIsNextButtonDisabled] = useState<boolean>(true);
+  const [isCurrentPageDisabled, setIsCurrentPageDisabled] = useState<boolean>(false);
 
-  const handleFirstPage = () => {
-    dispatch(setCurrentPageValue(1));
-    dispatch(setPage(0));
+  const totalPages = Math.ceil(posts.count / POSTS_PER_PAGE);
+  const isFirstPageVisible = currentPageValue > 3;
+  const shouldShowDots = totalPages > 4;
+
+  const handlePageChange = useCallback(
+    (newPage: number) => {
+      if (newPage < 1 || newPage > totalPages) return;
+      dispatch(setCurrentPageValue(newPage));
+      dispatch(setPage((newPage - 1) * POSTS_PER_PAGE));
+    },
+    [dispatch, totalPages],
+  );
+
+  const handleFirstPage = () => handlePageChange(1);
+
+  const handlePreviousPage = () => handlePageChange(currentPageValue - 1);
+
+  const handleNextPage = () => {
+    handlePageChange(currentPageValue + 1);
   };
 
   const handleThirdPage = () => {
-    if (currentPageValue === 1) {
-      dispatch(setCurrentPageValue(currentPageValue + 2));
-      dispatch(setPage(page + 24));
-    } else {
-      dispatch(setCurrentPageValue(currentPageValue + 1));
-      dispatch(setPage(page + 12));
-    }
+    const newPage = currentPageValue === 1 ? currentPageValue + 2 : currentPageValue + 1;
+    handlePageChange(newPage);
   };
 
-  const handleNextPage = () => {
-    dispatch(setCurrentPageValue(currentPageValue + 1));
-    dispatch(setPage(page + 12));
+  const handleLastdPage = () => {
+    handlePageChange(totalPages);
   };
 
-  const handleNextButton = () => {
-    dispatch(setCurrentPageValue(currentPageValue + 1));
-    dispatch(setPage(page + 12));
-  };
-
-  const handlePreviousPage = () => {
-    dispatch(setCurrentPageValue(currentPageValue - 1));
-    dispatch(setPage(page - 12));
-  };
-
-  const handlePreviousButton = () => {
-    dispatch(setCurrentPageValue(currentPageValue - 1));
-    dispatch(setPage(page - 12));
+  const getPageValue = () => {
+    return currentPageValue <= 2 ? 1 : currentPageValue - 1;
   };
 
   useEffect(() => {
-    currentPageValue <= 1 ? setButtonPrevState(true) : setButtonPrevState(false);
-    currentPageValue >= 2 ? setCurrentPageState(true) : setCurrentPageState(false);
-    posts.results.length < 12 ? setButtonNextState(true) : setButtonNextState(false);
-  }, [currentPageValue, posts.results.length]);
+    setIsPrevButtonDisabled(currentPageValue <= 1);
+    setIsCurrentPageDisabled(currentPageValue >= 2);
+    setIsNextButtonDisabled(
+      currentPageValue >= totalPages || posts.results.length < POSTS_PER_PAGE,
+    );
+  }, [currentPageValue, posts.results.length, totalPages]);
+
+  if (posts.count === 0 || totalPages <= 1) {
+    return null;
+  }
 
   return (
     <StyledPagination onClick={onClick}>
-      <ButtonPrev onClick={handlePreviousButton} disabled={buttonPrevState}>
+      <ButtonPrev onClick={handlePreviousPage} disabled={isPrevButtonDisabled}>
         <span>⬅ </span>
         <span>Prev</span>
       </ButtonPrev>
       <Pages>
-        <FirstPage visible={buttonVisibility} onClick={handleFirstPage}>
+        <FirstPage visible={isFirstPageVisible} onClick={handleFirstPage}>
           1
         </FirstPage>
 
-        <Dots visible={buttonVisibility}>...</Dots>
+        <Dots visible={isFirstPageVisible && shouldShowDots}>...</Dots>
 
-        <Page onClick={handlePreviousPage} disabled={buttonPrevState}>
-          {pageValue()}
+        <Page onClick={handlePreviousPage} disabled={isPrevButtonDisabled}>
+          {getPageValue()}
         </Page>
 
         <CurentPage
-          disabled={currentPageState}
-          disableColor={buttonNextState}
+          disabled={isCurrentPageDisabled}
+          disableColor={isNextButtonDisabled}
           onClick={handleNextPage}
         >
           {currentPageValue <= 1 ? 2 : currentPageValue}
         </CurentPage>
 
-        <LastPage onClick={handleThirdPage} disabled={buttonNextState}>
+        <ThirdPage
+          onClick={handleThirdPage}
+          visible={totalPages > 2 && currentPageValue + 1 < totalPages}
+        >
           {currentPageValue < 3 ? 3 : currentPageValue + 1}
+        </ThirdPage>
+
+        <Dots visible={shouldShowDots && currentPageValue + 2 < totalPages}>...</Dots>
+
+        <LastPage
+          onClick={handleLastdPage}
+          visible={totalPages > 3 && currentPageValue !== totalPages}
+        >
+          {totalPages}
         </LastPage>
       </Pages>
 
-      <ButtonNext onClick={handleNextButton} disabled={buttonNextState}>
+      <ButtonNext onClick={handleNextPage} disabled={isNextButtonDisabled}>
         <span>Next</span>
         <span> ➡</span>
       </ButtonNext>

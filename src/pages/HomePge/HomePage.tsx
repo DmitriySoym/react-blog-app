@@ -6,12 +6,10 @@ import {
   Pagination,
   Title,
   CustomSortByDateSelect,
-  CustomTitleSelect,
   SortButtons,
   RegistrationInfo,
   buttons,
   optionDate,
-  optionSortByTitle,
 } from "components";
 import { useEffect, useState } from "react";
 import {
@@ -27,7 +25,7 @@ import {
 } from "store";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { IOptionDateSort, ISelectOption, TabOne } from "types";
+import { IOptionDateSort, TabOne } from "types";
 import { SingleValue } from "react-select";
 import { StyledSortPosts, TimeSort } from "./styles";
 import { useWindowSize } from "hooks";
@@ -39,7 +37,6 @@ export const HomePage = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [activeButton, setActiveButton] = useState(buttons[2].id);
   const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[3]);
-  const [isTitleSort, setIsTitleSort] = useState(optionSortByTitle[1]);
   const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;
   const dispatch = useAppDispatch();
@@ -52,15 +49,10 @@ export const HomePage = () => {
     dispatch(setCurrentPageValue(1));
   };
 
-  const handleSetTitleSort = (optionSortByTitle: SingleValue<ISelectOption>) => {
-    if (optionSortByTitle) {
-      setIsTitleSort(optionSortByTitle);
-    }
-  };
-
   const handleSetDate = (id: number) => {
     setActiveButton(id);
     setIsActiveDateSelect(optionDate[id]);
+    dispatch(setCurrentPageValue(1));
   };
 
   const handleSetActiveDateSelect = (optionDate: SingleValue<IOptionDateSort>) => {
@@ -79,12 +71,12 @@ export const HomePage = () => {
       fetchAllPosts({
         page: page,
         query: "",
-        sortParams: isTitleSort.value,
+        sortParams: "-published_at",
         endpoint: activeTab,
         publicationDate: isActiveDateSelect.value,
       }),
     );
-  }, [dispatch, page, activeTab, isTitleSort.value, isActiveDateSelect.value]);
+  }, [dispatch, page, activeTab, isActiveDateSelect.value]);
 
   useEffect(() => {
     if (!isAuth && activeTab === TabOne.FAVORITES) {
@@ -116,11 +108,6 @@ export const HomePage = () => {
                 value={isActiveDateSelect}
               />
             )}
-            <CustomTitleSelect
-              options={optionSortByTitle}
-              onChange={handleSetTitleSort}
-              value={isTitleSort}
-            />{" "}
           </TimeSort>
         </StyledSortPosts>
         {isPortalOpen && <RegistrationInfo label="To add post in Favorites you need to Sign in." />}
