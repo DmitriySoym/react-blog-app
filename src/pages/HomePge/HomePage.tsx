@@ -36,7 +36,7 @@ export const HomePage = () => {
   const { isPortalOpen } = useAppSelector(getPortalState);
   const [activeTab, setActiveTab] = useState(tabs[0].id);
   const [activeButton, setActiveButton] = useState(buttons[2].id);
-  const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[3]);
+  const [isActiveDateSelect, setIsActiveDateSelect] = useState(optionDate[2]);
   const { width = 0 } = useWindowSize();
   const isTablet = width < 992.98;
   const dispatch = useAppDispatch();
@@ -45,7 +45,7 @@ export const HomePage = () => {
   const handleActiveTab = (id: TabOne) => {
     setActiveTab(id);
     dispatch(setEndPoint(activeTab));
-    dispatch(setPage(0));
+    dispatch(setPage(1));
     dispatch(setCurrentPageValue(1));
   };
 
@@ -53,6 +53,7 @@ export const HomePage = () => {
     setActiveButton(id);
     setIsActiveDateSelect(optionDate[id]);
     dispatch(setCurrentPageValue(1));
+    dispatch(setPage(1));
   };
 
   const handleSetActiveDateSelect = (optionDate: SingleValue<IOptionDateSort>) => {
