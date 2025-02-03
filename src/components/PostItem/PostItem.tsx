@@ -10,6 +10,7 @@ import {
   TextWrapper,
   TextInfo,
   ButtonFavorite,
+  Overlay,
 } from "./styles";
 import {
   toggleFavorite,
@@ -40,9 +41,10 @@ export const PostItem = memo(({ post }: IProps) => {
   };
 
   return (
-    <StyledArticle bg={post.image_url}>
+    <StyledArticle>
       <Link to={generatePath(ROUTE.DETAIL_POST, { id: post.id })}>
-        <Image bg={post.image_url} />
+        <Overlay />
+        <Image loading="lazy" src={post.image_url} alt={post.title.split(" ")[0]} />
       </Link>
       <TextWrapper>
         <TextInfo>

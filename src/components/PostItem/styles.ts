@@ -1,7 +1,20 @@
 import styled from "styled-components";
 import { Typography, Color } from "ui";
 
-const StyledArticle = styled.li<{ bg: string }>`
+const Overlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    133.87deg,
+    rgba(77, 10, 199, 0.4) -10.18%,
+    rgba(145, 46, 242, 0.4) 108.59%
+  );
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+`;
+
+const StyledArticle = styled.li`
   justify-self: center;
   max-width: 352px;
   width: 100%;
@@ -11,30 +24,26 @@ const StyledArticle = styled.li<{ bg: string }>`
   background-color: ${Color.HEADER_BACKGROUND};
   box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:hover {
     transform: scale(1.05);
   }
 
-  &:hover div:nth-child(1) {
-    background-image: url(${({ bg }) => bg});
+  & a {
+    position: relative;
+  }
+
+  &:hover ${Overlay} {
+    opacity: 0;
   }
 `;
 
-const Image = styled.div<{ bg: string }>`
+const Image = styled.img`
   display: block;
   width: 100%;
   height: 208px;
-  background-blend-mode: multiply;
-  background-image: linear-gradient(
-      133.87deg,
-      rgba(77, 10, 199, 0.4) -10.18%,
-      rgba(145, 46, 242, 0.4) 108.59%
-    ),
-    url(${({ bg }) => bg});
-  background-position: 0 25%;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
+  ${Typography.Subline};
 `;
 
 const StyledDate = styled.span`
@@ -85,4 +94,13 @@ const TextWrapper = styled.div`
   padding: 32px;
 `;
 
-export { Image, StyledDate, Summary, StyledArticle, TextWrapper, TextInfo, ButtonFavorite };
+export {
+  Image,
+  StyledDate,
+  Summary,
+  StyledArticle,
+  TextWrapper,
+  TextInfo,
+  ButtonFavorite,
+  Overlay,
+};

@@ -60,6 +60,8 @@ export const HomePage = () => {
     if (optionDate) {
       setIsActiveDateSelect(optionDate);
       setActiveButton(optionDate.index);
+      dispatch(setCurrentPageValue(1));
+      dispatch(setPage(1));
     }
   };
 

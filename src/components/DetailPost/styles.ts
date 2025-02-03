@@ -12,6 +12,7 @@ const Image = styled.img`
   padding-top: ${Indents.MD};
   object-fit: cover;
   object-position: 50% 20%;
+  ${Typography.Subline};
 `;
 
 const Text = styled.p`
